@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+{{ dump(expos) }}
+
+{% for expo in expos %}
+    <h3>{{ expo.titre }}</h3>
+    <p>à partir du {{ expo.dateDebut|date("m/d/Y") }}</p> 
+{% endfor %}
+
+{% endblock %}
