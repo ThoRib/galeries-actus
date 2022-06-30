@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ExpositionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Exposition
 {
+
+// ====================================================== //
+// ===================== PROPRIETES ===================== //
+// ====================================================== //
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -46,6 +53,29 @@ class Exposition
      * @ORM\Column(type="boolean")
      */
     private $actif;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageName;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=ImagesExpo::class, inversedBy="expositions")
+     */
+    private $imagesExpo;
+
+// ====================================================== //
+// ==================== CONSTRUCTEUR ==================== //
+// ====================================================== //
+
+    public function __construct()
+    {
+        $this->imagesExpo = new ArrayCollection();
+    }
+
+// ====================================================== //
+// =================== GETTER / SETTER ================== //
+// ====================================================== //
 
     public function getId(): ?int
     {
@@ -120,6 +150,42 @@ class Exposition
     public function setActif(bool $actif): self
     {
         $this->actif = $actif;
+
+        return $this;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ImagesExpo>
+     */
+    public function getImagesExpo(): Collection
+    {
+        return $this->imagesExpo;
+    }
+
+    public function addImagesExpo(ImagesExpo $imagesExpo): self
+    {
+        if (!$this->imagesExpo->contains($imagesExpo)) {
+            $this->imagesExpo[] = $imagesExpo;
+        }
+
+        return $this;
+    }
+
+    public function removeImagesExpo(ImagesExpo $imagesExpo): self
+    {
+        $this->imagesExpo->removeElement($imagesExpo);
 
         return $this;
     }

@@ -1,3 +1,45 @@
 body {
     background-color: bisque;
+    font-family: sans-serif;
+    color: #3c3c3c;
+}
+
+.all-expos {
+    border: 2px solid #3c3c3c;
+    border-radius : 5px;
+    padding: 15px;
+    margin: 15px;
+}
+
+.all-expos h2,
+.expo h2 {
+    font-weight: normal;
+    font-size: 1.4rem;
+}
+
+.all-expos h3,
+.expo h3 {
+    font-weight: normal;
+    font-size: 1.1rem;
+}
+
+.all-expos p
+.expo p {
+    font-size: 0.8rem;
+}
+
+.all-expos a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #3c3c3c;
+    color: bisque;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 2px;
+}
+
+.all-expos img,
+.expo img {
+    max-width: 500px;
+    height: auto;
 }

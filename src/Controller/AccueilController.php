@@ -16,8 +16,20 @@ class AccueilController extends AbstractController
     {
         $expos = $expositionRepository->findBy(['actif'=> true], ['dateDebut' => 'ASC']);
         return $this->render('accueil/index.html.twig', [
-            'title_page' => 'Accueil Galeries Actus',
+            'title_page' => 'Accueil',
             'expos' => $expos,
+        ]);
+    }
+
+    /**
+     * @Route("/exposition/{id}", name="app_expo")
+     */
+    public function seeExpo (ExpositionRepository $expositionRepository,string $id): Response 
+    {
+        $expo = $expositionRepository->findOneBy(["id" => $id]);
+        return $this->render('accueil/expo.html.twig', [
+            'title_page' => 'Exposition',
+            'expo' => $expo,
         ]);
     }
 }

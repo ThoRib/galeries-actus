@@ -1,12 +1,16 @@
 {% extends 'base.html.twig' %}
-
-
 {% block body %}
 {{ dump(expos) }}
-
-{% for expo in expos %}
-    <h3>{{ expo.titre }}</h3>
-    <p>à partir du {{ expo.dateDebut|date("m/d/Y") }}</p> 
-{% endfor %}
+    {% for expo in expos %}
+    <div class="all-expos">
+        <h2>{{ expo.titre }}</h2>
+        {% if expo.imageName %}
+            <img src="{{ asset('images/annonces/'~expo.imageName) }}" />
+        {% endif %}
+        <h3>{{ expo.sousTitre }}</h3>
+        <p>à partir du {{ expo.dateDebut|date("m/d/Y") }}</p>
+        <a href="{{ path('app_expo',{'id':expo.id}) }}" >Voir la présentation</a>
+    </div>
+    {% endfor %}
 
 {% endblock %}

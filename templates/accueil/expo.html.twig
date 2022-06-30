@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{{ dump(expo) }}
+    <div class="expo">
+        <h2>{{ expo.titre }}</h2>
+        <h3>{{ expo.sousTitre }}</h3>
+        {% for imgexp in expo.imagesExpo %}
+            <img src="{{ asset('images/expos/'~imgexp) }}" />
+        {% endfor %}
+        <p>{{ expo.presentation }}</p>
+    </div>
+{% endblock %}
