@@ -1,12 +1,20 @@
 {% extends 'base.html.twig' %}
+{% block title %}{{ expo.titre }}{% endblock %}
 {% block body %}
 {{ dump(expo) }}
     <div class="expo">
-        <h2>{{ expo.titre }}</h2>
-        <h3>{{ expo.sousTitre }}</h3>
+        <h1>{{ expo.titre|upper }}</h1>
+        <h2>{{ expo.sousTitre }}</h2>
         {% for imgexp in expo.imagesExpo %}
             <img src="{{ asset('images/expos/'~imgexp) }}" />
         {% endfor %}
         <p>{{ expo.presentation }}</p>
+        <ul>
+            <li>Lieu : {{ expo.galerie.nom }}</li>
+            <li>Date de début : {{ expo.dateDebut|date("d/m/Y") }}</li>
+            <li>Date de fin : {{ expo.dateFin|date("d/m/Y") }}</li>
+            <li>Adresse : {{ expo.galerie.adresse }}</li>
+        </ul>
+        <a href="{{ path('app_galerie',{'id':expo.galerie.id}) }}" class="lien">{{ expo.galerie.nom|upper }}</a>
     </div>
 {% endblock %}

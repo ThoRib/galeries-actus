@@ -1,7 +1,44 @@
+/* ~~~~~~~~~~~~~~~~ GLOBAL ~~~~~~~~~~~~~~~ */
+
 body {
     background-color: bisque;
     font-family: sans-serif;
     color: #3c3c3c;
+}
+
+ul {
+    padding : 0;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.lien {
+    display: inline-block;
+    background-color: #3c3c3c;
+    color: bisque;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 2px;
+}
+
+/* ~~~~~~~~~~~~~~~~ FRONT ~~~~~~~~~~~~~~~~ */
+
+.global {
+    display: flex;
+}
+
+.contain-gallery {
+    margin: 0 20px;
+}
+
+.contain-gallery a {
+    white-space: nowrap;
 }
 
 .all-expos {
@@ -28,18 +65,66 @@ body {
     font-size: 0.8rem;
 }
 
-.all-expos a {
-    display: inline-block;
-    text-decoration: none;
-    background-color: #3c3c3c;
-    color: bisque;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 2px;
-}
-
 .all-expos img,
 .expo img {
     max-width: 500px;
     height: auto;
+}
+
+/* ~~~~~~~~~~~~~~~~ ADMIN ~~~~~~~~~~~~~~~~ */
+
+.admin-table td,
+.admin-table th {
+    background-color: #ffedd8; 
+    padding: 0 10px;
+}
+
+.admin-table th {
+    line-height: 50px;
+}
+
+.admin-table .text-tab {
+    padding: 10px;
+}
+
+.admin-form input,
+.admin-form textarea {
+    font-size: 1rem;
+    color: #3c3c3c;
+}
+
+.admin-form label[for=galerie_presentation] {
+    vertical-align: top;
+}
+
+.admin-form > form > div > div {
+    padding: 10px;
+}
+
+.admin-form > form {
+    max-width: 700px;
+}
+
+.admin-form > form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.admin-form input,
+.admin-form textarea {
+    padding: 10px;
+    border: 2px solid #ffc075;
+    background-color: #ffedd8;
+    border-radius: 5px;
+    margin-left: 15px;
+}
+
+.admin-form input {
+    width: 350px;
+}
+
+.admin-form textarea {
+    width: 350px;
+    height: 200px;
 }
