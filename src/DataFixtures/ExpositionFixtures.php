@@ -7,6 +7,7 @@ use App\Entity\ImagesExpo;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use App\DataFixtures\GalerieFixtures;
 
 class ExpositionFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -22,7 +23,9 @@ class ExpositionFixtures extends Fixture implements DependentFixtureInterface
         $expo->setActif(true);
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG1));
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG2));
+        $expo->setGalerie($this->getReference(GalerieFixtures::GAIETE_LYRIQUE));
         $manager->persist($expo);
+
 
         $expo = new Exposition();
         $expo->setTitre('Réclamer La Terre au Palais de Tokyo');
@@ -34,6 +37,7 @@ class ExpositionFixtures extends Fixture implements DependentFixtureInterface
         $expo->setActif(true);
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG3));
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG4));
+        $expo->setGalerie($this->getReference(GalerieFixtures::PALAIS_DE_TOKYO));
         $manager->persist($expo);
 
         $expo = new Exposition();
@@ -45,11 +49,14 @@ class ExpositionFixtures extends Fixture implements DependentFixtureInterface
         $expo->setImageName("fondation-cartier.jpg");
         $expo->setActif(true);
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG5));
+        $expo->setGalerie($this->getReference(GalerieFixtures::FONDATION_CARTIER));
         $manager->persist($expo);
+
         $manager->flush();
     }
     public function getDependencies()
     {
-        return [ImagesExpoFixtures::class];
+        return [ImagesExpoFixtures::class,
+                GalerieFixtures::class];
     }
 }

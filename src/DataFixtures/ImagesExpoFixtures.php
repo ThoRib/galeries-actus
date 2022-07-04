@@ -9,7 +9,9 @@ use Doctrine\Persistence\ObjectManager;
 class ImagesExpoFixtures extends Fixture
 {
 
-// ~~~~~~~~~~~~~~ PROPRIETES ~~~~~~~~~~~~~ //
+// ====================================================== //
+// ===================== PROPRIETES ===================== //
+// ====================================================== //
 
     public const IMG1 = "000_322Y6LM-1-1024x675.jpg";
     public const IMG2 = "1582283547_cover.jpg";
@@ -17,7 +19,9 @@ class ImagesExpoFixtures extends Fixture
     public const IMG4 = "744951-saison-reclamer-la-terre-au-palais-de-tokyo-nos-photos.jpg";
     public const IMG5 = "48284307882_e88ca6f22d_b.jpg";
 
-// ~~~~~~~~~~~~~~~ METHODES ~~~~~~~~~~~~~~ //
+// ====================================================== //
+// ====================== METHODES ====================== //
+// ====================================================== //
 
     public function load(ObjectManager $manager): void
     {

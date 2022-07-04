@@ -64,6 +64,11 @@ class Exposition
      */
     private $imagesExpo;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Galerie::class, inversedBy="expositions")
+     */
+    private $galerie;
+
 // ====================================================== //
 // ==================== CONSTRUCTEUR ==================== //
 // ====================================================== //
@@ -186,6 +191,18 @@ class Exposition
     public function removeImagesExpo(ImagesExpo $imagesExpo): self
     {
         $this->imagesExpo->removeElement($imagesExpo);
+
+        return $this;
+    }
+
+    public function getGalerie(): ?Galerie
+    {
+        return $this->galerie;
+    }
+
+    public function setGalerie(?Galerie $galerie): self
+    {
+        $this->galerie = $galerie;
 
         return $this;
     }
