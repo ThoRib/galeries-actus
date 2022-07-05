@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=GalerieRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Galerie
 {
@@ -91,6 +92,15 @@ class Galerie
     public function __construct()
     {
         $this->expositions = new ArrayCollection();
+    }
+
+// ====================================================== //
+// =================== METHODE MAGIQUE ================== //
+// ====================================================== //
+
+    public function __toString()
+    {
+        return $this->nom;
     }
 
 // ====================================================== //
@@ -227,11 +237,12 @@ class Galerie
         return $this->dateCreation;
     }
 
-    public function setDateCreation(\DateTimeInterface $dateCreation): self
+    /**
+     * @ORM\PrePersist
+     */
+    public function setDateCreation(): void 
     {
-        $this->dateCreation = $dateCreation;
-
-        return $this;
+        $this->dateCreation = new \DateTimeImmutable();
     }
 
     /**

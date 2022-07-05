@@ -18,6 +18,8 @@ class ImagesExpoFixtures extends Fixture
     public const IMG3 = "744991-saison-reclamer-la-terre-au-palais-de-tokyo-nos-photos.jpg";
     public const IMG4 = "744951-saison-reclamer-la-terre-au-palais-de-tokyo-nos-photos.jpg";
     public const IMG5 = "48284307882_e88ca6f22d_b.jpg";
+    public const IMG6 = "okfaire_corps03_0.jpg";
+    public const IMG7 = "XVMfb39eb0e-767d-11e5-b0b0-c31b3ebd6616.jpg";
 
 // ====================================================== //
 // ====================== METHODES ====================== //
@@ -54,6 +56,18 @@ class ImagesExpoFixtures extends Fixture
         $imgExpo->setImageName('48284307882_e88ca6f22d_b.jpg');
         $manager->persist($imgExpo);
         $this->addReference(self::IMG5,$imgExpo);
+
+        $imgExpo = new ImagesExpo();
+        $imgExpo->setTitre('expo numerique - part 2');
+        $imgExpo->setImageName('okfaire_corps03_0.jpg');
+        $manager->persist($imgExpo);
+        $this->addReference(self::IMG6,$imgExpo);
+
+        $imgExpo = new ImagesExpo();
+        $imgExpo->setTitre('expo numerique - part 2');
+        $imgExpo->setImageName('XVMfb39eb0e-767d-11e5-b0b0-c31b3ebd6616.jpg');
+        $manager->persist($imgExpo);
+        $this->addReference(self::IMG7,$imgExpo);
 
         $manager->flush();
     }

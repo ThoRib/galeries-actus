@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Expositions{% endblock %}
+
+{% block body %}
+    <h1>Les Expositions</h1>
+
+    <table class="admin-table admin-index">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                {# <th>SousTitre</th> #}
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                {# <th>Presentation</th> #}
+                <th>Actif</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for exposition in expositions %}
+            <tr>
+                <td>{{ exposition.id }}</td>
+                <td>{{ exposition.titre }}</td>
+                {# <td>{{ exposition.sousTitre }}</td> #}
+                <td>{{ exposition.dateDebut ? exposition.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ exposition.dateFin ? exposition.dateFin|date('Y-m-d') : '' }}</td>
+                {# <td>{{ exposition.presentation }}</td> #}
+                <td>{{ exposition.actif ? 'Oui' : 'Non' }}</td>
+                <td><img src="{{ asset('images/annonces/'~exposition.imageName) }}" /></td>
+                <td>
+                    <a href="{{ path('app_admin_exposition_show', {'id': exposition.id}) }}" class="lien">Voir</a>
+                    <a href="{{ path('app_admin_exposition_edit', {'id': exposition.id}) }}" class="lien">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Pas d'exposition enregistrée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_exposition_new') }}" class="lien">Nouvelle Exposition</a>
+{% endblock %}

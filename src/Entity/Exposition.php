@@ -66,6 +66,7 @@ class Exposition
 
     /**
      * @ORM\ManyToOne(targetEntity=Galerie::class, inversedBy="expositions")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $galerie;
 

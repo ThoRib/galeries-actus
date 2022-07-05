@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exposition{% endblock %}
+
+{% block body %}
+    <h1>{{ exposition.titre }}</h1>
+
+    <table class="admin-table admin-show">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ exposition.id }}</td>
+            </tr>
+            {# <tr>
+                <th>Titre</th>
+                <td>{{ exposition.titre }}</td>
+            </tr> #}
+            <tr>
+                <th>Sous Titre</th>
+                <td>{{ exposition.sousTitre }}</td>
+            </tr>
+            <tr>
+                <th>Date Debut</th>
+                <td>{{ exposition.dateDebut ? exposition.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date Fin</th>
+                <td>{{ exposition.dateFin ? exposition.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Présentation</th>
+                <td class="text-tab">{{ exposition.presentation }}</td>
+            </tr>
+            <tr>
+                <th>Actif</th>
+                <td>{{ exposition.actif ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ asset('images/annonces/'~exposition.imageName) }}" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_exposition_index') }}" class="lien">back to list</a>
+
+    <a href="{{ path('app_admin_exposition_edit', {'id': exposition.id}) }}" class="lien">edit</a>
+
+    {{ include('admin_exposition/_delete_form.html.twig') }}
+{% endblock %}

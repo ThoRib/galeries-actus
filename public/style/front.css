@@ -27,6 +27,13 @@ a {
     border-radius: 2px;
 }
 
+.btn {
+    background-color: #ffc075;
+    padding: 10px;
+    margin: 5px;
+    font-size: 1rem;
+}
+
 /* ~~~~~~~~~~~~~~~~ FRONT ~~~~~~~~~~~~~~~~ */
 
 .global {
@@ -87,21 +94,20 @@ a {
     padding: 10px;
 }
 
-.admin-form input,
-.admin-form textarea {
-    font-size: 1rem;
-    color: #3c3c3c;
+.admin-index img {
+    max-width: 200px;
+    height: auto;
 }
 
-.admin-form label[for=galerie_presentation] {
-    vertical-align: top;
-}
-
-.admin-form > form > div > div {
-    padding: 10px;
+.admin-show img {
+    max-width: 700px;
+    height: auto;
 }
 
 .admin-form > form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     max-width: 700px;
 }
 
@@ -111,6 +117,10 @@ a {
     align-items: flex-end;
 }
 
+.admin-form > form > div > div {
+    padding: 10px;
+}
+
 .admin-form input,
 .admin-form textarea {
     padding: 10px;
@@ -118,13 +128,19 @@ a {
     background-color: #ffedd8;
     border-radius: 5px;
     margin-left: 15px;
+    width: 350px;
+    font-size: 1rem;
+    color: #3c3c3c;
 }
 
-.admin-form input {
-    width: 350px;
+.admin-form input[type=checkbox] {
+    width: auto;
 }
 
 .admin-form textarea {
-    width: 350px;
     height: 200px;
+}
+
+.admin-form label[for=galerie_presentation] {
+    vertical-align: top;
 }

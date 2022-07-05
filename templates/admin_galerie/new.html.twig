@@ -3,9 +3,10 @@
 {% block title %}New Galerie{% endblock %}
 
 {% block body %}
-    <h1>Create new Galerie</h1>
+    <h1>Création de votre Galerie</h1>
+    <a href="{{ path('app_admin_galerie_index') }}" class="lien">Retour à la liste</a>
     <div class="admin-form">
     {{ include('admin_galerie/_form.html.twig') }}
     </div>
-    <a href="{{ path('app_admin_galerie_index') }}" class="lien">back to list</a>
+    
 {% endblock %}

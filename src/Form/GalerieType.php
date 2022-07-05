@@ -6,23 +6,29 @@ use App\Entity\Galerie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class GalerieType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('adresse')
-            ->add('complementAdresse')
-            ->add('telFixe')
-            ->add('telMobile')
-            ->add('email')
-            ->add('presentation')
-            ->add('website')
-            ->add('horaires')
-            ->add('actif')
-            ->add('dateCreation')
+            ->add('nom', TextType::class, ["label"=>"Nom","required"=>true])
+            ->add('adresse', TextType::class, ["label"=>"Adresse","required"=>true])
+            ->add('complementAdresse', TextType::class, ["label"=>"Complément", "required"=>false])
+            ->add('telFixe', TelType::class, ["label"=>"Tél. fixe", "required"=>false])
+            ->add('telMobile', TelType::class, ["label"=>"Tél. Mobile", "required"=>false])
+            ->add('email', EmailType::class, ["label"=>"Email", "required"=>false])
+            ->add('presentation', TextareaType::class, ["label"=>"Presentation", "required"=>false])
+            ->add('website', UrlType::class, ["label"=>"Site Web", "required"=>false] )
+            ->add('horaires', TextType::class, ["label"=>"Horaires", "required"=>false])
+            ->add('actif', CheckboxType::class, ["label"=>"Visible", "required"=>false])
+            ->remove('dateCreation')
         ;
     }
 

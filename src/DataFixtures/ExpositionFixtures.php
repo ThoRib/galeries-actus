@@ -52,6 +52,19 @@ class ExpositionFixtures extends Fixture implements DependentFixtureInterface
         $expo->setGalerie($this->getReference(GalerieFixtures::FONDATION_CARTIER));
         $manager->persist($expo);
 
+        $expo = new Exposition();
+        $expo->setTitre("Art Numérique - Deuxième Partie");
+        $expo->setSousTitre("La suite à venir de l'exposition présentée actuellement.");
+        $expo->setDateDebut(\DateTime::createFromFormat('d-m-Y', '05-02-2023'));
+        $expo->setDateFin(\DateTime::createFromFormat('d-m-Y', '25-04-2023'));
+        $expo->setPresentation('Illud autem non dubitatur quod cum esset aliquando virtutum omnium domicilium Roma, ingenuos advenas plerique nobilium, ut Homerici bacarum suavitate Lotophagi, humanitatis multiformibus officiis retentabant.');
+        $expo->setImageName("delta-copyright-olivier-ratsi-img-0403_cover.jpg");
+        $expo->setActif(true);
+        $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG6));
+        $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG7));
+        $expo->setGalerie($this->getReference(GalerieFixtures::GAIETE_LYRIQUE));
+        $manager->persist($expo);
+
         $manager->flush();
     }
     public function getDependencies()
