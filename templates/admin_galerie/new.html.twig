@@ -1,12 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}New Galerie{% endblock %}
 
 {% block body %}
+<div class="wrapper">
     <h1>Création de votre Galerie</h1>
     <a href="{{ path('app_admin_galerie_index') }}" class="lien">Retour à la liste</a>
     <div class="admin-form">
     {{ include('admin_galerie/_form.html.twig') }}
     </div>
-    
+</div>
 {% endblock %}

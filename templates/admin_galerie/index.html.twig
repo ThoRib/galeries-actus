@@ -1,8 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}Les Galeries{% endblock %}
 
 {% block body %}
+<div class="wrapper">
     <h1>Les Galeries</h1>
 
     <table class="admin-table">
@@ -52,4 +53,5 @@
     </table>
 
     <a href="{{ path('app_admin_galerie_new') }}" class="lien">Nouvelle Galerie</a>
+</div>
 {% endblock %}

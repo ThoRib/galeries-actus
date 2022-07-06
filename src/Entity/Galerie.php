@@ -85,6 +85,11 @@ class Galerie
      */
     private $expositions;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Artiste::class, mappedBy="galerie", orphanRemoval=true)
+     */
+    private $artistes;
+
 // ====================================================== //
 // ==================== CONSTRUCTEUR ==================== //
 // ====================================================== //
@@ -92,6 +97,7 @@ class Galerie
     public function __construct()
     {
         $this->expositions = new ArrayCollection();
+        $this->artistes = new ArrayCollection();
     }
 
 // ====================================================== //
@@ -269,6 +275,36 @@ class Galerie
             // set the owning side to null (unless already changed)
             if ($exposition->getGalerie() === $this) {
                 $exposition->setGalerie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Artiste>
+     */
+    public function getArtistes(): Collection
+    {
+        return $this->artistes;
+    }
+
+    public function addArtiste(Artiste $artiste): self
+    {
+        if (!$this->artistes->contains($artiste)) {
+            $this->artistes[] = $artiste;
+            $artiste->setGalerie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtiste(Artiste $artiste): self
+    {
+        if ($this->artistes->removeElement($artiste)) {
+            // set the owning side to null (unless already changed)
+            if ($artiste->getGalerie() === $this) {
+                $artiste->setGalerie(null);
             }
         }
 

@@ -1,12 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}Editer l'Exposition{% endblock %}
 
 {% block body %}
+<div class="wrapper">
     <h1>Editer l'Exposition</h1>
     <a href="{{ path('app_admin_exposition_index') }}" class="lien">Retour à la liste</a>
     <div class="admin-form">
     {{ include('admin_exposition/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
     {{ include('admin_exposition/_delete_form.html.twig') }}
     </div>
+</div>
 {% endblock %}

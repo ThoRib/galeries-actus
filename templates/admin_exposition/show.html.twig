@@ -1,8 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}Exposition{% endblock %}
 
 {% block body %}
+<div class="wrapper">
     <h1>{{ exposition.titre }}</h1>
 
     <table class="admin-table admin-show">
@@ -47,4 +48,5 @@
     <a href="{{ path('app_admin_exposition_edit', {'id': exposition.id}) }}" class="lien">edit</a>
 
     {{ include('admin_exposition/_delete_form.html.twig') }}
+</div>
 {% endblock %}

@@ -4,10 +4,12 @@ body {
     background-color: bisque;
     font-family: sans-serif;
     color: #3c3c3c;
+    margin: 0;
 }
 
 ul {
     padding : 0;
+    margin: 0;
 }
 
 ul li {
@@ -79,6 +81,20 @@ a {
 }
 
 /* ~~~~~~~~~~~~~~~~ ADMIN ~~~~~~~~~~~~~~~~ */
+
+.wrapper {
+    padding: 0 20px;
+}
+.admin-nav ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #3c3c3c;
+}
+
+.admin-nav a {
+    color:bisque;
+}
 
 .admin-table td,
 .admin-table th {
