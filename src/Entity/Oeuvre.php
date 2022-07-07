@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Oeuvre
 {
+
+// ====================================================== //
+// ====================== PROPRIETE ===================== //
+// ====================================================== //
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -30,11 +35,6 @@ class Oeuvre
     private $description;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private $dateCreation;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $actif;
@@ -49,11 +49,24 @@ class Oeuvre
      */
     private $medias;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $anneeCreation;
+
+// ====================================================== //
+// ==================== CONSTRUCTEUR ==================== //
+// ====================================================== //
+
     public function __construct()
     {
         $this->artistes = new ArrayCollection();
         $this->medias = new ArrayCollection();
     }
+
+// ====================================================== //
+// =================== GETTER / SETTER ================== //
+// ====================================================== //
 
     public function getId(): ?int
     {
@@ -80,18 +93,6 @@ class Oeuvre
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getDateCreation(): ?\DateTimeInterface
-    {
-        return $this->dateCreation;
-    }
-
-    public function setDateCreation(?\DateTimeInterface $dateCreation): self
-    {
-        $this->dateCreation = $dateCreation;
 
         return $this;
     }
@@ -155,6 +156,18 @@ class Oeuvre
     public function removeMedia(Media $media): self
     {
         $this->medias->removeElement($media);
+
+        return $this;
+    }
+
+    public function getAnneeCreation(): ?string
+    {
+        return $this->anneeCreation;
+    }
+
+    public function setAnneeCreation(?string $anneeCreation): self
+    {
+        $this->anneeCreation = $anneeCreation;
 
         return $this;
     }

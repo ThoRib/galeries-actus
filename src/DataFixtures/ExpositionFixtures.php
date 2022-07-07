@@ -67,6 +67,7 @@ class ExpositionFixtures extends Fixture implements DependentFixtureInterface
 
         $manager->flush();
     }
+    
     public function getDependencies()
     {
         return [ImagesExpoFixtures::class,
