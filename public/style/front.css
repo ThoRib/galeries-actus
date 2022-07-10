@@ -82,9 +82,6 @@ a {
 
 /* ~~~~~~~~~~~~~~~~ ADMIN ~~~~~~~~~~~~~~~~ */
 
-.wrapper {
-    padding: 0 20px;
-}
 .admin-nav ul {
     display: flex;
     justify-content: space-around;
@@ -96,7 +93,36 @@ a {
     color:bisque;
 }
 
-.admin-table td,
+.admin-wrapper {
+    padding: 0 20px;
+}
+
+.admin-wrapper a {
+    display: inline-block;
+    background-color: #3c3c3c;
+    color: bisque;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 2px;
+}
+
+/*=== ADMIN TABLEAUX ===*/
+
+.admin-wrapper td,
+.admin-wrapper th {
+    background-color: #ffedd8; 
+    padding: 0 10px;
+}
+
+.admin-wrapper th {
+    line-height: 50px;
+}
+
+.admin-wrapper .text-tab {
+    padding: 10px;
+}
+
+/* .admin-table td,
 .admin-table th {
     background-color: #ffedd8; 
     padding: 0 10px;
@@ -108,7 +134,9 @@ a {
 
 .admin-table .text-tab {
     padding: 10px;
-}
+} */
+
+/*=== ADMIN FORMULAIRES ===*/
 
 .admin-index img {
     max-width: 200px;
@@ -120,7 +148,55 @@ a {
     height: auto;
 }
 
-.admin-form > form {
+.admin-wrapper > form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-width: 700px;
+}
+
+.admin-wrapper > form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.admin-wrapper > form > div > div {
+    padding: 10px;
+}
+
+.admin-wrapper input,
+.admin-wrapper textarea {
+    padding: 10px;
+    border: 2px solid #ffc075;
+    background-color: #ffedd8;
+    border-radius: 5px;
+    margin-left: 15px;
+    width: 350px;
+    font-size: 1rem;
+    color: #3c3c3c;
+}
+
+.admin-wrapper input[type=checkbox] {
+    width: auto;
+}
+
+.admin-wrapper textarea {
+    height: 200px;
+}
+
+.admin-wrapper label[for=galerie_presentation] {
+    vertical-align: top;
+}
+
+.admin-wrapper button {
+    background-color: #ffc075;
+    padding: 10px;
+    margin: 5px;
+    font-size: 1rem;
+}
+
+/* .admin-form > form {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -159,4 +235,4 @@ a {
 
 .admin-form label[for=galerie_presentation] {
     vertical-align: top;
-}
+} */

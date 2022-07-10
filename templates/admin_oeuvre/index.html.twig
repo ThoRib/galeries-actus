@@ -1,16 +1,17 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
-{% block title %}Oeuvre index{% endblock %}
+{% block title %}Les Oeuvre{% endblock %}
 
 {% block body %}
-    <h1>Oeuvre index</h1>
+<div class="admin-wrapper">
+    <h1>Les Oeuvre</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
-                <th>Description</th>
+                {# <th>Description</th> #}
                 <th>Actif</th>
                 <th>AnneeCreation</th>
                 <th>actions</th>
@@ -21,21 +22,22 @@
             <tr>
                 <td>{{ oeuvre.id }}</td>
                 <td>{{ oeuvre.titre }}</td>
-                <td>{{ oeuvre.description }}</td>
+                {# <td>{{ oeuvre.description }}</td> #}
                 <td>{{ oeuvre.actif ? 'Yes' : 'No' }}</td>
                 <td>{{ oeuvre.anneeCreation }}</td>
                 <td>
-                    <a href="{{ path('app_admin_oeuvre_show', {'id': oeuvre.id}) }}">show</a>
-                    <a href="{{ path('app_admin_oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_oeuvre_show', {'id': oeuvre.id}) }}">Voir</a>
+                    <a href="{{ path('app_admin_oeuvre_edit', {'id': oeuvre.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="5">pas d'enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_oeuvre_new') }}">Create new</a>
+    <a href="{{ path('app_admin_oeuvre_new') }}">Ajouter une Oeuvre</a>
+</div>
 {% endblock %}

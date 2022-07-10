@@ -3,10 +3,9 @@
 {% block title %}Les Galeries{% endblock %}
 
 {% block body %}
-<div class="wrapper">
+<div class="admin-wrapper">
     <h1>Les Galeries</h1>
-
-    <table class="admin-table">
+    <table>
         <thead>
             <tr>
                 <th>Id</th>
@@ -40,8 +39,8 @@
                 <td>{{ galerie.actif ? 'Oui' : 'Non' }}</td>
                 <td>{{ galerie.dateCreation ? galerie.dateCreation|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_admin_galerie_show', {'id': galerie.id}) }}" class="lien">Voir</a>
-                    <a href="{{ path('app_admin_galerie_edit', {'id': galerie.id}) }}" class="lien">Editer</a>
+                    <a href="{{ path('app_admin_galerie_show', {'id': galerie.id}) }}">Voir</a>
+                    <a href="{{ path('app_admin_galerie_edit', {'id': galerie.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -51,7 +50,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_admin_galerie_new') }}" class="lien">Nouvelle Galerie</a>
+    
+    <a href="{{ path('app_admin_galerie_new') }}">Nouvelle Galerie</a>
 </div>
 {% endblock %}

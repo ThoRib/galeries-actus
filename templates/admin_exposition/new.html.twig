@@ -3,11 +3,9 @@
 {% block title %}Nouvelle Exposition{% endblock %}
 
 {% block body %}
-<div class="wrapper">
+<div class="admin-wrapper">
     <h1>Ajouter une Exposition</h1>
-    <a href="{{ path('app_admin_exposition_index') }}" class="lien">Retour à la liste</a>
-    <div class="admin-form">
+    <a href="{{ path('app_admin_exposition_index') }}">Retour à la liste</a>
     {{ include('admin_exposition/_form.html.twig') }}
-    </div>
 </div>   
 {% endblock %}

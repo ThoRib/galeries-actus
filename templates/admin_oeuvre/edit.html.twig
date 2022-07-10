@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
-{% block title %}Edit Oeuvre{% endblock %}
+{% block title %}Editer l'Oeuvre{% endblock %}
 
 {% block body %}
-    <h1>Edit Oeuvre</h1>
-
+<div class="admin-wrapper">
+    <h1>Editer l'Oeuvre</h1>
+    <a href="{{ path('app_admin_oeuvre_index') }}">Retour à la liste</a>
     {{ include('admin_oeuvre/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_admin_oeuvre_index') }}">back to list</a>
-
     {{ include('admin_oeuvre/_delete_form.html.twig') }}
+</div>
 {% endblock %}

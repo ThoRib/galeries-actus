@@ -3,10 +3,10 @@
 {% block title %}Les Expositions{% endblock %}
 
 {% block body %}
-<div class="wrapper">
+<div class="admin-wrapper admin-index">
     <h1>Les Expositions</h1>
 
-    <table class="admin-table admin-index">
+    <table>
         <thead>
             <tr>
                 <th>Id</th>
@@ -32,8 +32,8 @@
                 <td>{{ exposition.actif ? 'Oui' : 'Non' }}</td>
                 <td><img src="{{ asset('images/annonces/'~exposition.imageName) }}" /></td>
                 <td>
-                    <a href="{{ path('app_admin_exposition_show', {'id': exposition.id}) }}" class="lien">Voir</a>
-                    <a href="{{ path('app_admin_exposition_edit', {'id': exposition.id}) }}" class="lien">Editer</a>
+                    <a href="{{ path('app_admin_exposition_show', {'id': exposition.id}) }}">Voir</a>
+                    <a href="{{ path('app_admin_exposition_edit', {'id': exposition.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -44,6 +44,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_exposition_new') }}" class="lien">Nouvelle Exposition</a>
+    <a href="{{ path('app_admin_exposition_new') }}">Nouvelle Exposition</a>
 </div>
 {% endblock %}
