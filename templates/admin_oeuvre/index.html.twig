@@ -3,17 +3,18 @@
 {% block title %}Les Oeuvre{% endblock %}
 
 {% block body %}
-<div class="admin-wrapper">
+<div class="admin-wrapper admin-index">
     <h1>Les Oeuvre</h1>
-
+    <a href="{{ path('app_admin_oeuvre_new') }}">Ajouter une Oeuvre</a>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
+                <th>Visuel</th>
                 {# <th>Description</th> #}
+                {# <th>AnneeCreation</th> #}
                 <th>Actif</th>
-                <th>AnneeCreation</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,9 +23,10 @@
             <tr>
                 <td>{{ oeuvre.id }}</td>
                 <td>{{ oeuvre.titre }}</td>
+                <td><img src="{{ asset('images/oeuvres/'~oeuvre.imageName) }}" /></td>
                 {# <td>{{ oeuvre.description }}</td> #}
-                <td>{{ oeuvre.actif ? 'Yes' : 'No' }}</td>
-                <td>{{ oeuvre.anneeCreation }}</td>
+                {# <td>{{ oeuvre.anneeCreation }}</td> #}
+                <td>{{ oeuvre.actif ? 'Oui' : 'Non' }}</td>
                 <td>
                     <a href="{{ path('app_admin_oeuvre_show', {'id': oeuvre.id}) }}">Voir</a>
                     <a href="{{ path('app_admin_oeuvre_edit', {'id': oeuvre.id}) }}">Editer</a>
@@ -37,7 +39,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_admin_oeuvre_new') }}">Ajouter une Oeuvre</a>
 </div>
 {% endblock %}

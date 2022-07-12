@@ -54,6 +54,11 @@ class Oeuvre
      */
     private $anneeCreation;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imageName;
+
 // ====================================================== //
 // ==================== CONSTRUCTEUR ==================== //
 // ====================================================== //
@@ -177,6 +182,18 @@ public function __toString()
     public function setAnneeCreation(?string $anneeCreation): self
     {
         $this->anneeCreation = $anneeCreation;
+
+        return $this;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(string $imageName): self
+    {
+        $this->imageName = $imageName;
 
         return $this;
     }

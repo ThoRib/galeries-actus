@@ -122,20 +122,6 @@ a {
     padding: 10px;
 }
 
-/* .admin-table td,
-.admin-table th {
-    background-color: #ffedd8; 
-    padding: 0 10px;
-}
-
-.admin-table th {
-    line-height: 50px;
-}
-
-.admin-table .text-tab {
-    padding: 10px;
-} */
-
 /*=== ADMIN FORMULAIRES ===*/
 
 .admin-index img {
@@ -195,44 +181,3 @@ a {
     margin: 5px;
     font-size: 1rem;
 }
-
-/* .admin-form > form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    max-width: 700px;
-}
-
-.admin-form > form > div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.admin-form > form > div > div {
-    padding: 10px;
-}
-
-.admin-form input,
-.admin-form textarea {
-    padding: 10px;
-    border: 2px solid #ffc075;
-    background-color: #ffedd8;
-    border-radius: 5px;
-    margin-left: 15px;
-    width: 350px;
-    font-size: 1rem;
-    color: #3c3c3c;
-}
-
-.admin-form input[type=checkbox] {
-    width: auto;
-}
-
-.admin-form textarea {
-    height: 200px;
-}
-
-.admin-form label[for=galerie_presentation] {
-    vertical-align: top;
-} */

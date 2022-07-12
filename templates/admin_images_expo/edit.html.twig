@@ -1,0 +1,12 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Edit ImagesExpo{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>Edit ImagesExpo</h1>
+    <a href="{{ path('app_admin_images_expo_index') }}">Retour à la liste</a>
+    {{ include('admin_images_expo/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    {{ include('admin_images_expo/_delete_form.html.twig') }}
+</div>
+{% endblock %}

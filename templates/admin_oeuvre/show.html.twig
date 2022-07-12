@@ -3,7 +3,7 @@
 {% block title %}Oeuvre{% endblock %}
 
 {% block body %}
-<div class="admin-wrapper">
+<div class="admin-wrapper admin-show">
     <h1>Oeuvre</h1>
     <a href="{{ path('app_admin_oeuvre_index') }}">Retour à la liste</a>
     <a href="{{ path('app_admin_oeuvre_edit', {'id': oeuvre.id}) }}">Editer</a>
@@ -22,12 +22,16 @@
                 <td>{{ oeuvre.description }}</td>
             </tr>
             <tr>
+                <th>Année de création</th>
+                <td>{{ oeuvre.anneeCreation }}</td>
+            </tr>
+            {# <tr>
                 <th>Actif</th>
                 <td>{{ oeuvre.actif ? 'Yes' : 'No' }}</td>
-            </tr>
+            </tr> #}
             <tr>
-                <th>AnneeCreation</th>
-                <td>{{ oeuvre.anneeCreation }}</td>
+                <th>Visuel</th>
+                <td><img src="{{ asset('images/oeuvres/'~oeuvre.imageName) }}" /></td>
             </tr>
         </tbody>
     </table>

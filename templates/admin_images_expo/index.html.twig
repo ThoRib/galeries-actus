@@ -1,0 +1,40 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}ImagesExpo index{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>ImagesExpo index</h1>
+    <a href="{{ path('app_admin_images_expo_new') }}">Nouvelle image d'exposition</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>ImageName</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for images_expo in images_expos %}
+            <tr>
+                <td>{{ images_expo.id }}</td>
+                <td>{{ images_expo.titre }}</td>
+                <td>{{ images_expo.description }}</td>
+                <td>{{ images_expo.imageName }}</td>
+                <td>
+                    <a href="{{ path('app_admin_images_expo_show', {'id': images_expo.id}) }}">Voir</a>
+                    <a href="{{ path('app_admin_images_expo_edit', {'id': images_expo.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas d'enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
