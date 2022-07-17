@@ -28,43 +28,43 @@ class ImagesExpoFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('exposition numérique immersive');
+        $imgExpo->setTitre('Floraison numérique');
         $imgExpo->setImageName('000_322Y6LM-1-1024x675.jpg');
         $manager->persist($imgExpo);
         $this->addReference(self::IMG1,$imgExpo);
 
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('exposition numérique immersive');
+        $imgExpo->setTitre('Immersion rouge');
         $imgExpo->setImageName('1582283547_cover.jpg');
         $manager->persist($imgExpo);
         $this->addReference(self::IMG2,$imgExpo);
 
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('reclamer la terre au palais de tokyo');
+        $imgExpo->setTitre('Vue générale');
         $imgExpo->setImageName('744991-saison-reclamer-la-terre-au-palais-de-tokyo-nos-photos.jpg');
         $manager->persist($imgExpo);
         $this->addReference(self::IMG3,$imgExpo);
 
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('reclamer la terre au palais de tokyo');
+        $imgExpo->setTitre('Installation');
         $imgExpo->setImageName('744951-saison-reclamer-la-terre-au-palais-de-tokyo-nos-photos.jpg');
         $manager->persist($imgExpo);
         $this->addReference(self::IMG4,$imgExpo);
 
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('les arbres');
+        $imgExpo->setTitre('Arbre immaginaire');
         $imgExpo->setImageName('48284307882_e88ca6f22d_b.jpg');
         $manager->persist($imgExpo);
         $this->addReference(self::IMG5,$imgExpo);
 
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('expo numerique - part 2');
+        $imgExpo->setTitre('Lucioles numériques');
         $imgExpo->setImageName('okfaire_corps03_0.jpg');
         $manager->persist($imgExpo);
         $this->addReference(self::IMG6,$imgExpo);
 
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('expo numerique - part 2');
+        $imgExpo->setTitre('Damier 3D');
         $imgExpo->setImageName('XVMfb39eb0e-767d-11e5-b0b0-c31b3ebd6616.jpg');
         $manager->persist($imgExpo);
         $this->addReference(self::IMG7,$imgExpo);

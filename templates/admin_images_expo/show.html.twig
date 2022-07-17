@@ -1,10 +1,12 @@
 {% extends 'base_admin.html.twig' %}
 
-{% block title %}ImagesExpo{% endblock %}
+{% block title %}{{ images_expo.titre }}{% endblock %}
 
 {% block body %}
-    <h1>ImagesExpo</h1>
-
+<div class="admin-wrapper admin-show">
+    <h1>{{ images_expo.titre }}</h1>
+    <a href="{{ path('app_admin_images_expo_index') }}">Retour à la liste</a>
+    <a href="{{ path('app_admin_images_expo_edit', {'id': images_expo.id}) }}">Editer</a>
     <table class="table">
         <tbody>
             <tr>
@@ -12,8 +14,8 @@
                 <td>{{ images_expo.id }}</td>
             </tr>
             <tr>
-                <th>ImageName</th>
-                <td>{{ images_expo.imageName }}</td>
+                <th>Visuel</th>
+                <td><img src="{{ asset('images/expos/'~images_expo.imageName) }}"></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -25,10 +27,6 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('app_admin_images_expo_index') }}">back to list</a>
-
-    <a href="{{ path('app_admin_images_expo_edit', {'id': images_expo.id}) }}">edit</a>
-
     {{ include('admin_images_expo/_delete_form.html.twig') }}
+</div>
 {% endblock %}

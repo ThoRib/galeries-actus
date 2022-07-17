@@ -1,10 +1,10 @@
 {% extends 'base_admin.html.twig' %}
 
-{% block title %}ImagesExpo index{% endblock %}
+{% block title %}Images des Expositions{% endblock %}
 
 {% block body %}
-<div class="admin-wrapper">
-    <h1>ImagesExpo index</h1>
+<div class="admin-wrapper admin-index">
+    <h1>Les Images des Expositions</h1>
     <a href="{{ path('app_admin_images_expo_new') }}">Nouvelle image d'exposition</a>
     <table>
         <thead>
@@ -12,7 +12,7 @@
                 <th>Id</th>
                 <th>Titre</th>
                 <th>Description</th>
-                <th>ImageName</th>
+                <th>Visuel</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,7 +22,7 @@
                 <td>{{ images_expo.id }}</td>
                 <td>{{ images_expo.titre }}</td>
                 <td>{{ images_expo.description }}</td>
-                <td>{{ images_expo.imageName }}</td>
+                <td><img src="{{ asset('images/expos/'~images_expo.imageName) }}"</td>
                 <td>
                     <a href="{{ path('app_admin_images_expo_show', {'id': images_expo.id}) }}">Voir</a>
                     <a href="{{ path('app_admin_images_expo_edit', {'id': images_expo.id}) }}">Editer</a>

@@ -1,0 +1,16 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        images_annonces:
+            uri_prefix: /images/annonces
+            upload_destination: '%kernel.project_dir%/public/images/annonces'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer  
+        images_expos:
+            uri_prefix: /images/expos
+            upload_destination: '%kernel.project_dir%/public/images/expos'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        images_oeuvres:
+            uri_prefix: /images/oeuvres
+            upload_destination: '%kernel.project_dir%/public/images/oeuvres'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer           
