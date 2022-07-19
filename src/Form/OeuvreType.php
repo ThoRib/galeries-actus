@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Artiste;
 use App\Entity\Oeuvre;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
@@ -38,7 +40,7 @@ class OeuvreType extends AbstractType
                     ])
                 ]
                ])
-            ->add('artistes')
+            ->add('artistes', EntityType::class, ["class"=>Artiste::class, "label"=>"Artiste", "multiple"=>true, "by_reference"=>false, "required"=>false])
             ->add('medias')
         ;
     }

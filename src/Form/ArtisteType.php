@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Artiste;
+use App\Entity\Oeuvre;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,8 +22,8 @@ class ArtisteType extends AbstractType
             ->add('pseudo', TextType::class, ["label"=>"Pseudo","required"=>false])
             ->add('presentation', TextareaType::class, ["label"=>"presentation","required"=>false])
             ->add('actif', CheckboxType::class, ["label"=>"Visible", "required"=>false])
+            ->add('oeuvres', EntityType::class, ["class"=>Oeuvre::class, "label"=>"Oeuvres", "multiple"=>true, "by_reference"=>false, "required"=>false])
             ->add('galerie')
-            ->add('oeuvres')
         ;
     }
 

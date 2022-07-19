@@ -37,7 +37,7 @@ class ImagesExpo
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $imageName;
 
@@ -79,7 +79,7 @@ class ImagesExpo
     {
         return $this->imageName;
     }
-
+ 
 // ====================================================== //
 // =================== GETTER / SETTER ================== //
 // ====================================================== //
@@ -94,7 +94,7 @@ class ImagesExpo
         return $this->imageName;
     }
 
-    public function setImageName(string $imageName): self
+    public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
 

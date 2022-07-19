@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Exposition;
 use App\Entity\ImagesExpo;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -18,9 +20,10 @@ class ImagesExpoType extends AbstractType
         $builder
             ->add('titre', TextType::class, ["label"=>"Titre","required"=>true])
             ->add('description', TextareaType::class, ["label"=>"Description", "required"=>false])
+            ->add('expositions', EntityType::class, ["class"=>Exposition::class, "label"=>"Exposition", "multiple"=>true,"by_reference"=>false, "required"=>false])
             ->add('imageFile', FileType::class, [
                 "label"=>"Image :",
-                "required"=>false,
+                "required"=>true,
                 "constraints" => [
                     new File([
                         "maxSize" => "1000k",
@@ -35,7 +38,6 @@ class ImagesExpoType extends AbstractType
                     ])
                 ]
                ])
-            ->add('expositions')
             ->remove('imageName')
         ;
     }
