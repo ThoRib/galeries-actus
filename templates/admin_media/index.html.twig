@@ -1,0 +1,39 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Les Médias{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>Les Médias</h1>
+    <a href="{{ path('app_admin_media_new') }}">Nouveau Média</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                {# <th>Description</th> #}
+                <th>Actif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for medium in media %}
+            <tr>
+                <td>{{ medium.id }}</td>
+                <td>{{ medium.nom }}</td>
+                {# <td>{{ medium.description }}</td> #}
+                <td>{{ medium.actif ? 'Oui' : 'Non' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_media_show', {'id': medium.id}) }}">Voir</a>
+                    <a href="{{ path('app_admin_media_edit', {'id': medium.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas de média enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

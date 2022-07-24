@@ -1,0 +1,12 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Editer le Média{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>Editer le Media</h1>
+    <a href="{{ path('app_admin_media_index') }}">Retour à la liste</a>
+    {{ include('admin_media/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    {{ include('admin_media/_delete_form.html.twig') }}
+</div>
+{% endblock %}

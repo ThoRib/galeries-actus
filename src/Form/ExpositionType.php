@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Exposition;
+use App\Entity\Galerie;
 use App\Entity\ImagesExpo;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -12,6 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ExpositionType extends AbstractType
@@ -21,8 +23,8 @@ class ExpositionType extends AbstractType
         $builder
             ->add('titre', TextType::class, ["label"=>"Titre","required"=>true])
             ->add('sousTitre', TextType::class, ["label"=>"Sous titre","required"=>false])
-            ->add('dateDebut')
-            ->add('dateFin')
+            ->add('dateDebut', DateType::class, ["format"=>"dd-MM-yyyy"])
+            ->add('dateFin', DateType::class, ["format"=>"dd-MM-yyyy"])
             ->add('presentation', TextareaType::class, ["label"=>"Présentation","required"=>false])
             ->add('actif', CheckboxType::class, ["label"=>"Visible", "required"=>false])
             ->add('imageFile', FileType::class, [
@@ -43,7 +45,7 @@ class ExpositionType extends AbstractType
                 ]
                ])
                ->add('imagesExpo', EntityType::class, ["class"=>ImagesExpo::class, "label"=> "Vues", "multiple"=>true,"by_reference"=>false, "required"=>false])
-               ->add('galerie')
+               ->add('galerie', EntityType::class, ["class"=>Galerie::class, "label"=>"Galerie"])
                ->remove('imageName')
         ;
     }

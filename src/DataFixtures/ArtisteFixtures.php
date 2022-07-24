@@ -31,38 +31,6 @@ class ArtisteFixtures extends Fixture implements DependentFixtureInterface
         $artiste->addOeuvre($this->getReference(OeuvreFixtures::NOVELLI2));
         $manager->persist($artiste);
 
-        // $artiste = new Artiste();
-        // $artiste->setNom();
-        // $artiste->setPrenom();
-        // $artiste->setPresentation();
-        // $artiste->setActif(true);
-        // $artiste->setGalerie($this->getReference(GalerieFixtures::FONDATION_CARTIER));
-        // $manager->persist($artiste);
-
-        // $artiste = new Artiste();
-        // $artiste->setNom();
-        // $artiste->setPrenom();
-        // $artiste->setPresentation();
-        // $artiste->setActif(true);
-        // $artiste->setGalerie($this->getReference(GalerieFixtures::FONDATION_CARTIER));
-        // $manager->persist($artiste);
-
-        // $artiste = new Artiste();
-        // $artiste->setNom();
-        // $artiste->setPrenom();
-        // $artiste->setPresentation();
-        // $artiste->setActif(true);
-        // $artiste->setGalerie($this->getReference(GalerieFixtures::FONDATION_CARTIER));
-        // $manager->persist($artiste);
-
-        // $artiste = new Artiste();
-        // $artiste->setNom();
-        // $artiste->setPrenom();
-        // $artiste->setPresentation();
-        // $artiste->setActif(true);
-        // $artiste->setGalerie($this->getReference(GalerieFixtures::FONDATION_CARTIER));
-        // $manager->persist($artiste);
-
         $manager->flush();
     }
 

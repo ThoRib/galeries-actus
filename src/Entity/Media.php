@@ -11,6 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass=MediaRepository::class)
  */
 class Media
+
+// ====================================================== //
+// ===================== PROPRIETES ===================== //
+// ====================================================== //
+
 {
     /**
      * @ORM\Id
@@ -39,10 +44,33 @@ class Media
      */
     private $oeuvres;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $source;
+
+// ====================================================== //
+// ==================== CONSTRUCTEUR ==================== //
+// ====================================================== //
+
     public function __construct()
     {
         $this->oeuvres = new ArrayCollection();
     }
+
+
+// ====================================================== //
+// ================== FONCTION MAGIQUE ================== //
+// ====================================================== //
+
+public function __toString()
+{
+    return $this->nom;
+}
+
+// ====================================================== //
+// =================== GETTER / SETTER ================== //
+// ====================================================== //
 
     public function getId(): ?int
     {
@@ -108,6 +136,18 @@ class Media
         if ($this->oeuvres->removeElement($oeuvre)) {
             $oeuvre->removeMedia($this);
         }
+
+        return $this;
+    }
+
+    public function getSource(): ?string
+    {
+        return $this->source;
+    }
+
+    public function setSource(?string $source): self
+    {
+        $this->source = $source;
 
         return $this;
     }

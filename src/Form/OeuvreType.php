@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Artiste;
+use App\Entity\Media;
 use App\Entity\Oeuvre;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -40,8 +41,8 @@ class OeuvreType extends AbstractType
                     ])
                 ]
                ])
-            ->add('artistes', EntityType::class, ["class"=>Artiste::class, "label"=>"Artiste", "multiple"=>true, "by_reference"=>false, "required"=>false])
-            ->add('medias')
+            ->add('artistes', EntityType::class, ["class"=>Artiste::class, "label"=>"Artiste", "multiple"=>true, "expanded"=>true, "by_reference"=>false, "required"=>false])
+            ->add('medias', EntityType::class, ["class"=>Media::class, "label"=>"Medias", "multiple"=>true, "expanded"=>true, "by_reference"=>false, "required"=>false])
         ;
     }
 

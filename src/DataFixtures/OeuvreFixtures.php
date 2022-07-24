@@ -4,9 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\Oeuvre;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class OeuvreFixtures extends Fixture
+class OeuvreFixtures extends Fixture implements DependentFixtureInterface
 {
 
 // ====================================================== //
@@ -28,6 +29,7 @@ public const NOVELLI2 = "img-novelli232644977590.webp";
         $oeuvre->setTitre("Les Indiens");
         $oeuvre->setImageName("3d09cdca98fac0ad8569a92d280ae85d.jpg");
         $oeuvre->setActif(true);
+        $oeuvre->addMedia($this->getReference(MediaFixtures::PEINTURE));
         $this->addReference(self::KUIN1, $oeuvre);
         $manager->persist($oeuvre);
 
@@ -35,6 +37,7 @@ public const NOVELLI2 = "img-novelli232644977590.webp";
         $oeuvre->setTitre("Les serpents et l'oiseaux");
         $oeuvre->setImageName("ed39ece943f7838fb5c0c0b2ea096e24.jpg");
         $oeuvre->setActif(true);
+        $oeuvre->addMedia($this->getReference(MediaFixtures::PEINTURE));
         $this->addReference(self::KUIN2, $oeuvre);
         $manager->persist($oeuvre);
 
@@ -42,6 +45,7 @@ public const NOVELLI2 = "img-novelli232644977590.webp";
         $oeuvre->setTitre("Le salut");
         $oeuvre->setImageName("bruno-9li-brazil-inkult-1.webp");
         $oeuvre->setActif(true);
+        $oeuvre->addMedia($this->getReference(MediaFixtures::PEINTURE));
         $this->addReference(self::NOVELLI1, $oeuvre);
         $manager->persist($oeuvre);
 
@@ -49,9 +53,15 @@ public const NOVELLI2 = "img-novelli232644977590.webp";
         $oeuvre->setTitre("Paysage psychédélique");
         $oeuvre->setImageName("img-novelli232644977590.webp");
         $oeuvre->setActif(true);
+        $oeuvre->addMedia($this->getReference(MediaFixtures::PEINTURE));
         $this->addReference(self::NOVELLI2, $oeuvre);
         $manager->persist($oeuvre);
 
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [MediaFixtures::class];
     }
 }
