@@ -38,7 +38,7 @@
                 {# <td>{{ galerie.website }}</td> #}
                 {# <td>{{ galerie.horaires }}</td> #}
                 <td>{{ galerie.actif ? 'Oui' : 'Non' }}</td>
-                <td>{{ galerie.dateCreation ? galerie.dateCreation|date('Y-m-d') : '' }}</td>
+                <td>{{ galerie.dateCreation ? galerie.dateCreation|date('d-m-Y') : '' }}</td>
                 <td>
                     <a href="{{ path('app_admin_galerie_show', {'id': galerie.id}) }}">Voir</a>
                     <a href="{{ path('app_admin_galerie_edit', {'id': galerie.id}) }}">Editer</a>
