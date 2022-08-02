@@ -8,6 +8,21 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <nav class="admin-nav">
+            <ul>
+                <li><a href="{{ path("app_accueil") }} ">Accueil</a></li>
+                {% if is_granted("ROLE_USER") %}
+                <li><a href="{{ path("app_logout") }} ">Déconnection</a></li>
+                <li><a href="{{ path("app_front_user") }} ">Espace personnel</a></li>
+                {% else %}
+                <li><a href="{{ path("app_register") }} ">Enregistrement</a></li>
+                <li><a href="{{ path("app_login") }} ">Connection</a></li>
+                {% endif %}
+                
+            </ul>
+        </nav>
+
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

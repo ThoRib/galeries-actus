@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -15,6 +17,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
+
+// ====================================================== //
+// ===================== PROPRIETES ===================== //
+// ====================================================== //
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -57,6 +64,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="date")
      */
     private $createdAt;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Exposition::class, inversedBy="users")
+     */
+    private $favoris;
+
+// ====================================================== //
+// ==================== CONSTRUCTEUR ==================== //
+// ====================================================== //
+
+    public function __construct()
+    {
+        $this->favoris = new ArrayCollection();
+    }
+
+// ====================================================== //
+// =================== GETTER / SETTER ================== //
+// ====================================================== //
 
     public function getId(): ?int
     {
@@ -189,5 +214,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCreatedAt(): void
     {
         $this->createdAt = new \DateTimeImmutable();
+    }
+
+    /**
+     * @return Collection<int, Exposition>
+     */
+    public function getFavoris(): Collection
+    {
+        return $this->favoris;
+    }
+
+    public function addFavori(Exposition $favori): self
+    {
+        if (!$this->favoris->contains($favori)) {
+            $this->favoris[] = $favori;
+        }
+
+        return $this;
+    }
+
+    public function removeFavori(Exposition $favori): self
+    {
+        $this->favoris->removeElement($favori);
+
+        return $this;
     }
 }

@@ -93,6 +93,11 @@ class Exposition
      */
     private $commentaires;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="favoris")
+     */
+    private $users;
+
 // ====================================================== //
 // ==================== CONSTRUCTEUR ==================== //
 // ====================================================== //
@@ -101,6 +106,7 @@ class Exposition
     {
         $this->imagesExpo = new ArrayCollection();
         $this->commentaires = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
 // ====================================================== //
@@ -311,6 +317,33 @@ class Exposition
             if ($commentaire->getExposition() === $this) {
                 $commentaire->setExposition(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addFavori($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeFavori($this);
         }
 
         return $this;

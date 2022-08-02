@@ -16,5 +16,8 @@
             <li>Adresse : {{ expo.galerie.adresse }}</li>
         </ul>
         <a href="{{ path('app_galerie',{'id':expo.galerie.id}) }}" class="lien">{{ expo.galerie.nom|upper }}</a>
+        {% if is_granted('ROLE_USER') %}
+            <a href="{{ path('add_favoris', {'id': expo.id}) }}">favori</a>
+        {% endif %}
     </div>
 {% endblock %}

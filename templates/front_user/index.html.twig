@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Personnel{% endblock %}
+
+{% block body %}
+{# {{ dump(user.favoris) }} #}
+<h1>Hello {{ user.username }}</h1>
+{% for expo in user.favoris %}
+    <div class="border p-3 my-3">
+        {{ expo.titre }}
+    </div>
+{% endfor %}
+
+{% endblock %}
