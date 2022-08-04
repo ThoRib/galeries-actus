@@ -1,0 +1,55 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Les Galeries{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>Les Galeries</h1>
+    <a href="{{ path('front_galerie_new') }}">Nouvelle Galerie</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                {# <th>Adresse</th> #}
+                {# <th>Complement</th> #}
+                <th>Fixe</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                {# <th>Presentation</th> #}
+                {# <th>Website</th> #}
+                {# <th>Horaires</th> #}
+                <th>Actif</th>
+                <th>Date Création</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for galerie in galeries %}
+            <tr>
+                <td>{{ galerie.id }}</td>
+                <td>{{ galerie.nom }}</td>
+                {# <td>{{ galerie.adresse }}</td> #}
+                {# <td>{{ galerie.complementAdresse }}</td> #}
+                <td>{{ galerie.telFixe }}</td>
+                <td>{{ galerie.telMobile }}</td>
+                <td>{{ galerie.email }}</td>
+                {# <td>{{ galerie.presentation }}</td> #}
+                {# <td>{{ galerie.website }}</td> #}
+                {# <td>{{ galerie.horaires }}</td> #}
+                <td>{{ galerie.actif ? 'Oui' : 'Non' }}</td>
+                <td>{{ galerie.dateCreation ? galerie.dateCreation|date('d-m-Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('front_galerie_show', {'id': galerie.id}) }}">Voir</a>
+                    <a href="{{ path('front_galerie_edit', {'id': galerie.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Pas de galerie enregistrée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

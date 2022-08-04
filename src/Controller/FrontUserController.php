@@ -24,7 +24,8 @@ class FrontUserController extends AbstractController
     /**
      * @Route("/add-favoris/{id}", name="add_favoris")
      */
-    public function addFavoris(int $id, ExpositionRepository $expositionRepository, EntityManagerInterface $entityManagerInterface) {
+    public function addFavoris(int $id, ExpositionRepository $expositionRepository, EntityManagerInterface $entityManagerInterface) 
+    {
         $expo = $expositionRepository->find($id);
         $user = $this->getUser();
         $user->addFavori($expo);

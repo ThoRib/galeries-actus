@@ -90,6 +90,11 @@ class Galerie
      */
     private $artistes;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, mappedBy="galerie")
+     */
+    private $user;
+
 // ====================================================== //
 // ==================== CONSTRUCTEUR ==================== //
 // ====================================================== //
@@ -307,6 +312,28 @@ class Galerie
                 $artiste->setGalerie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($user === null && $this->user !== null) {
+            $this->user->setGalerie(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($user !== null && $user->getGalerie() !== $this) {
+            $user->setGalerie($this);
+        }
+
+        $this->user = $user;
 
         return $this;
     }

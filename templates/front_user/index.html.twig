@@ -3,12 +3,68 @@
 {% block title %}Espace Personnel{% endblock %}
 
 {% block body %}
-{# {{ dump(user.favoris) }} #}
+{# {{ dump(user) }} #}
 <h1>Hello {{ user.username }}</h1>
+
+<h2>Mes favoris :</h2>
 {% for expo in user.favoris %}
     <div class="border p-3 my-3">
         {{ expo.titre }}
     </div>
 {% endfor %}
+
+{% if user.galerie == null %}
+<a href="{{ path('front_galerie_new') }}" >Renseigner ma galerie</a>
+{% else %}
+
+<div class="admin-wrapper">
+    <h1>{{ user.galerie.nom }}</h1>
+    <a href="{{ path('front_galerie_edit', {'id': user.galerie.id}) }}">Editer</a>
+    <table>
+        <tbody>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ user.galerie.adresse }}</td>
+            </tr>
+            <tr>
+                <th>ComplementAdresse</th>
+                <td>{{ user.galerie.complementAdresse }}</td>
+            </tr>
+            <tr>
+                <th>TelFixe</th>
+                <td>{{ user.galerie.telFixe }}</td>
+            </tr>
+            <tr>
+                <th>TelMobile</th>
+                <td>{{ user.galerie.telMobile }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.galerie.email }}</td>
+            </tr>
+            <tr>
+                <th>Presentation</th>
+                <td class="text-tab">{{ user.galerie.presentation }}</td>
+            </tr>
+            <tr>
+                <th>Website</th>
+                <td>{{ user.galerie.website }}</td>
+            </tr>
+            <tr>
+                <th>Horaires</th>
+                <td>{{ user.galerie.horaires }}</td>
+            </tr>
+            <tr>
+                <th>Actif</th>
+                <td>{{ user.galerie.actif ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>Date de Création</th>
+                <td>{{ user.galerie.dateCreation ? user.galerie.dateCreation|date('d-m-Y') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endif %}
 
 {% endblock %}
