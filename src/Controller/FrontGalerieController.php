@@ -91,9 +91,13 @@ class FrontGalerieController extends AbstractController
     /**
      * @Route("/{id}", name="front_galerie_delete", methods={"POST"})
      */
-    public function delete(Request $request, Galerie $galerie, GalerieRepository $galerieRepository): Response
+    public function delete(Request $request, Galerie $galerie, GalerieRepository $galerieRepository,EntityManagerInterface $entityManagerInterface): Response
     {
         if ($this->isCsrfTokenValid('delete'.$galerie->getId(), $request->request->get('_token'))) {
+            $user = $this->getUser();
+            $user->setGalerie(null);
+            $entityManagerInterface->persist($user);
+            $entityManagerInterface->flush();
             $galerieRepository->remove($galerie, true);
         }
 
