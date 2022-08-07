@@ -70,11 +70,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $favoris;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Galerie::class, inversedBy="user", cascade={"persist", "remove"})
-     */
-    private $galerie;
-
 // ====================================================== //
 // ==================== CONSTRUCTEUR ==================== //
 // ====================================================== //
@@ -241,18 +236,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeFavori(Exposition $favori): self
     {
         $this->favoris->removeElement($favori);
-
-        return $this;
-    }
-
-    public function getGalerie(): ?Galerie
-    {
-        return $this->galerie;
-    }
-
-    public function setGalerie(?Galerie $galerie): self
-    {
-        $this->galerie = $galerie;
 
         return $this;
     }
