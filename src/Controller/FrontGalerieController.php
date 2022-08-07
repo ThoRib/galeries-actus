@@ -38,6 +38,7 @@ class FrontGalerieController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $galerieRepository->add($galerie, true);
 
+            // Ajout dans l'entite user de la galerie créée
             $user = $this->getUser();
             $user->setGalerie($galerie);
             $entityManagerInterface->persist($user);

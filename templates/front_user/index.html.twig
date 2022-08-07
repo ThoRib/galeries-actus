@@ -18,7 +18,7 @@
 {% else %}
 
 <div class="admin-wrapper">
-    <h1>{{ user.galerie.nom }}</h1>
+    <h2>{{ user.galerie.nom }}</h2>
     <a href="{{ path('front_galerie_edit', {'id': user.galerie.id}) }}">Editer</a>
     <table>
         <tbody>
@@ -67,4 +67,8 @@
 </div>
 {% endif %}
 
+<div class="admin-wrapper">
+    <h2>Les artistes de ma galerie</h2>
+    <a href="{{ path('front_artiste_new') }}" >Ajouter un artiste</a>
+</div>
 {% endblock %}
