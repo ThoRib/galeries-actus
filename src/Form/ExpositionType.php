@@ -28,7 +28,7 @@ class ExpositionType extends AbstractType
             ->add('presentation', TextareaType::class, ["label"=>"Présentation","required"=>false])
             ->add('actif', CheckboxType::class, ["label"=>"Visible", "required"=>false])
             ->add('imageFile', FileType::class, [
-                "label"=>"Image :",
+                "label"=>"Image de couverture :",
                 "required"=>false,
                 "constraints" => [
                     new File([
@@ -44,7 +44,7 @@ class ExpositionType extends AbstractType
                     ])
                 ]
                ])
-               ->add('imagesExpo', EntityType::class, ["class"=>ImagesExpo::class, "label"=> "Vues", "multiple"=>true,"by_reference"=>false, "required"=>false])
+               ->add('imagesExpo', EntityType::class, ["class"=>ImagesExpo::class, "label"=> "Illustrations du détail de l'expo : ", "multiple"=>true, "expanded"=>true, "by_reference"=>false, "required"=>false])
                ->add('galerie', EntityType::class, ["class"=>Galerie::class, "label"=>"Galerie"])
                ->remove('imageName')
         ;

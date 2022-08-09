@@ -53,7 +53,7 @@ class ImagesExpo
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Exposition::class, mappedBy="imagesExpo")
+     * @ORM\ManyToMany(targetEntity=Exposition::class, inversedBy="imagesExpo")
      */
     private $expositions;
 
@@ -150,7 +150,7 @@ class ImagesExpo
     {
         if (!$this->expositions->contains($exposition)) {
             $this->expositions[] = $exposition;
-            $exposition->addImagesExpo($this);
+            //$exposition->addImagesExpo($this);
         }
 
         return $this;
@@ -158,9 +158,7 @@ class ImagesExpo
 
     public function removeExposition(Exposition $exposition): self
     {
-        if ($this->expositions->removeElement($exposition)) {
-            $exposition->removeImagesExpo($this);
-        }
+        $this->expositions->removeElement($exposition);
 
         return $this;
     }

@@ -23,7 +23,7 @@ class ImagesExpoType extends AbstractType
             ->add('expositions', EntityType::class, ["class"=>Exposition::class, "label"=>"Exposition", "multiple"=>true,"by_reference"=>false, "required"=>false])
             ->add('imageFile', FileType::class, [
                 "label"=>"Image :",
-                "required"=>true,
+                "required"=>false,
                 "constraints" => [
                     new File([
                         "maxSize" => "1000k",

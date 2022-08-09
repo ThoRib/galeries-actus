@@ -3,6 +3,10 @@
 {% block title %}Exposition{% endblock %}
 
 {% block body %}
+
+<pre>
+    {{ dump(exposition) }}
+</pre>
 <div class="admin-wrapper admin-show">
     <h1>{{ exposition.titre }}</h1>
     <a href="{{ path('app_admin_exposition_index') }}">Retour à la liste</a>

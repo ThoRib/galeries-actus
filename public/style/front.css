@@ -181,3 +181,28 @@ a {
     margin: 5px;
     font-size: 1rem;
 }
+
+#exposition_imagesExpo input {
+    display: none;
+}
+
+#exposition_imagesExpo label {
+    display: inline-block;
+    border-radius: 5px;
+    margin: 15px;
+    vertical-align: top;
+}
+
+#exposition_imagesExpo input:checked + label {
+    background-color: #ffc075;
+}
+
+#exposition_imagesExpo label:hover {
+    cursor: pointer;
+}
+
+#exposition_imagesExpo img {
+    width: 200px;
+    height: auto;
+    padding: 5px 5px 3px 5px;
+}
