@@ -1,0 +1,41 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Evenements index{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>Evenements index</h1>
+    <a href="{{ path('app_admin_evenements_new') }}">Creer un nouveau</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Date</th>
+                <th>Duration</th>
+                <th>Illustration</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.id }}</td>
+                <td>{{ evenement.titre }}</td>
+                <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ evenement.duration }}</td>
+                <td>{{ evenement.illustration }}</td>
+                <td>
+                    <a href="{{ path('app_admin_evenements_show', {'id': evenement.id}) }}">Voir</a>
+                    <a href="{{ path('app_admin_evenements_edit', {'id': evenement.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Pas d'enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

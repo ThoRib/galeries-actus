@@ -1,0 +1,11 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Nouvel Evenement{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>Creer un nouvel Evenement</h1>
+    <a href="{{ path('app_admin_evenements_index') }}">retour à la liste</a>
+    {{ include('admin_evenements/_form.html.twig') }}
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Editer le Type d'Evenement{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>Editer le Type d'Evenement</h1>
+    <a href="{{ path('app_admin_type_evenement_index') }}">Retour à la liste</a>
+    {{ include('admin_type_evenement/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_type_evenement/_delete_form.html.twig') }}
+</div>
+{% endblock %}

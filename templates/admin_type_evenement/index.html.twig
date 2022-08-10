@@ -1,0 +1,37 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Les Types d'Evenements{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>Les Types d'Evenements</h1>
+    <a href="{{ path('app_admin_type_evenement_new') }}">Créer un nouveau</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_evenement in type_evenements %}
+            <tr>
+                <td>{{ type_evenement.id }}</td>
+                <td>{{ type_evenement.type }}</td>
+                <td>{{ type_evenement.description }}</td>
+                <td>
+                    <a href="{{ path('app_admin_type_evenement_show', {'id': type_evenement.id}) }}">Voir</a>
+                    <a href="{{ path('app_admin_type_evenement_edit', {'id': type_evenement.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas d'enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>Page de Bienvenue</h1>
+    <a href="{{ path('app_admin_bienvenue_new') }}">Nouvelle page</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Annonce</th>
+                <th>Details</th>
+                <th>A propos</th>
+                <th>Illustration</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bienvenue in bienvenues %}
+            <tr>
+                <td>{{ bienvenue.id }}</td>
+                <td>{{ bienvenue.annonce }}</td>
+                <td>{{ bienvenue.details }}</td>
+                <td>{{ bienvenue.about }}</td>
+                <td>{{ bienvenue.illustration }}</td>
+                <td>
+                    <a href="{{ path('app_admin_bienvenue_show', {'id': bienvenue.id}) }}">Voir</a>
+                    <a href="{{ path('app_admin_bienvenue_edit', {'id': bienvenue.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Pas d'enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

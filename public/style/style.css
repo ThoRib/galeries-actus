@@ -42,6 +42,17 @@ a {
     display: flex;
 }
 
+.front-nav ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #3c3c3c;
+}
+
+.front-nav a {
+    color:bisque;
+}
+
 .contain-gallery {
     margin: 0 20px;
 }
@@ -81,12 +92,26 @@ a {
 }
 
 /* ~~~~~~~~~~~~~~~~ ADMIN ~~~~~~~~~~~~~~~~ */
+.admin-nav {
+    height: 100vh;
+    display: inline-block;
+    background-color: #3c3c3c;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 
 .admin-nav ul {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    align-items: flex-start;
     padding: 20px;
-    background-color: #3c3c3c;
+    
+}
+
+.admin-nav ul li {
+    margin: 15px 0;
 }
 
 .admin-nav a {
@@ -94,7 +119,13 @@ a {
 }
 
 .admin-wrapper {
-    padding: 0 20px 50px 20px;
+    padding: 0 20px 50px 280px;
+}
+
+.admin-title h1 {
+    background-color: #3c3c3c;
+    color: bisque;
+    padding: 15px;
 }
 
 .admin-wrapper a {

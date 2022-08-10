@@ -1,0 +1,12 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Editer Bienvenue{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>Editer le Page de Bienvenue</h1>
+    <a href="{{ path('app_admin_bienvenue_index') }}">Retour à la liste</a>
+    {{ include('admin_bienvenue/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_bienvenue/_delete_form.html.twig') }}
+</div>
+{% endblock %}

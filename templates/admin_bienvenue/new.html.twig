@@ -1,0 +1,11 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Nouvelle page de Bienvenue{% endblock %}
+
+{% block body %}
+<div class="admin-wrapper">
+    <h1>Créer une nouvelle page de Bienvenue</h1>
+    <a href="{{ path('app_admin_bienvenue_index') }}">Retour à la liste</a>
+    {{ include('admin_bienvenue/_form.html.twig') }}
+</div>
+{% endblock %}

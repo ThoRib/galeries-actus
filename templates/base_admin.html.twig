@@ -4,19 +4,22 @@
         <meta charset="UTF-8">
         <title>Admin Galeries Actus - {% block title %}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        <link rel="stylesheet" href="{{ asset('style/front.css') }}">
+        <link rel="stylesheet" href="{{ asset('style/style.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
         <nav class="admin-nav">
             <ul>
                 <li><a href="{{ path("app_accueil") }} ">Retour au site</a></li>
+                <li><a href="{{ path("app_admin_bienvenue_index") }} ">Admin Bienvenue</a></li>
                 <li><a href="{{ path("app_admin_galerie_index") }} ">Admin Galeries</a></li>
                 <li><a href="{{ path("app_admin_exposition_index") }} ">Admin Expositions</a></li>
                 <li><a href="{{ path("app_admin_images_expo_index") }} ">Admin Images Expos</a></li>
                 <li><a href="{{ path("app_admin_artiste_index") }} ">Admin Artistes</a></li>
                 <li><a href="{{ path("app_admin_oeuvre_index") }} ">Admin Oeuvres</a></li>
                 <li><a href="{{ path("app_admin_media_index") }} ">Admin Medias</a></li>
+                <li><a href="{{ path("app_admin_evenements_index") }} ">Admin Evenements</a></li>
+                <li><a href="{{ path("app_admin_type_evenement_index") }} ">Admin Type Evenement</a></li>
                 <li><a href="{{ path("app_admin_commentaire_index") }} ">Admin Commentaires</a></li>
                 <li><a href="{{ path("app_admin_user_index") }} ">Admin User</a></li>
             </ul>
