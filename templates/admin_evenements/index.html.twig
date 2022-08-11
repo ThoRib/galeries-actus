@@ -14,6 +14,7 @@
                 <th>Date</th>
                 <th>Duration</th>
                 <th>Illustration</th>
+                <th>Description</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -25,6 +26,7 @@
                 <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ evenement.duration }}</td>
                 <td>{{ evenement.illustration }}</td>
+                <td>{{ evenement.description }}</td>
                 <td>
                     <a href="{{ path('app_admin_evenements_show', {'id': evenement.id}) }}">Voir</a>
                     <a href="{{ path('app_admin_evenements_edit', {'id': evenement.id}) }}">Editer</a>
@@ -32,7 +34,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">Pas d'enregistrement trouvé</td>
+                <td colspan="7">Pas d'enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

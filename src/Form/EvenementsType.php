@@ -16,6 +16,7 @@ class EvenementsType extends AbstractType
             ->add('date')
             ->add('duration')
             ->add('illustration')
+            ->add('description')
             ->add('type')
         ;
     }

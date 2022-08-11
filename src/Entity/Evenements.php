@@ -10,6 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Evenements
 {
+
+// ====================================================== //
+// ===================== PROPRIETES ===================== //
+// ====================================================== //
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -28,7 +33,7 @@ class Evenements
     private $date;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $duration;
 
@@ -41,6 +46,20 @@ class Evenements
      * @ORM\ManyToOne(targetEntity=TypeEvenement::class, inversedBy="evenements")
      */
     private $type;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $sousTitre;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $Description;
+
+// ====================================================== //
+// =================== GETTER /SETTER =================== //
+// ====================================================== //
 
     public function getId(): ?int
     {
@@ -103,6 +122,30 @@ class Evenements
     public function setType(?TypeEvenement $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getSousTitre(): ?string
+    {
+        return $this->sousTitre;
+    }
+
+    public function setSousTitre(?string $sousTitre): self
+    {
+        $this->sousTitre = $sousTitre;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->Description;
+    }
+
+    public function setDescription(?string $Description): self
+    {
+        $this->Description = $Description;
 
         return $this;
     }

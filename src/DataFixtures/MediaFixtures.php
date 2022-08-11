@@ -17,7 +17,6 @@ PUBLIC const PEINTURE = "peinture";
 PUBLIC const SCULPTURE = "sculpture";
 PUBLIC const PHOTOGRAPHIE = "photographie";
 PUBLIC const INSTALLATION = "installation";
-PUBLIC const PERFORMANCE = "performance";
 
 // ====================================================== //
 // ====================== METHODES ====================== //
@@ -59,14 +58,6 @@ PUBLIC const PERFORMANCE = "performance";
         $media->setSource("https://fr.wikipedia.org/wiki/Installation_(art)");
         $media->setActif(true);
         $this->addReference(self::INSTALLATION, $media);
-        $manager->persist($media);
-
-        $media = new Media();
-        $media->setNom("performance");
-        $media->setDescription("Une performance est une œuvre d'art ou un échantillon artistique créé par des actions menées par l'artiste ou d'autres participants, et peut être en direct, documenté, spontané ou écrit, présenté à un public un contexte de beaux-arts, traditionnellement interdisciplinaire. En d'autres mots, c'est une présentation artistique située, orientée vers l'action et éphémère d'un artiste ou d'un groupe de performance. Cette forme d'art remet en question la séparabilité de l'artiste et de l'œuvre ainsi que la forme marchande des œuvres d'art traditionnelles. La performance, également connue sous le nom de 'action artistique' , a été développée au fil des ans comme un genre à part entière dans lequel l'art est présenté en direct, ayant un rôle important et fondamental dans l'art d'avant-garde tout au long du XXe siècle. ");
-        $media->setSource("https://fr.wikipedia.org/wiki/Performance_(art)");
-        $media->setActif(true);
-        $this->addReference(self::PERFORMANCE, $media);
         $manager->persist($media);
 
         $manager->flush();

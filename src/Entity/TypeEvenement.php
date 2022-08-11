@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TypeEvenement
 {
+
+// ====================================================== //
+// ===================== PROPRIETES ===================== //
+// ====================================================== //
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -34,10 +38,32 @@ class TypeEvenement
      */
     private $evenements;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $source;
+
+// ====================================================== //
+// ==================== CONSTRUCTEUR ==================== //
+// ====================================================== //
+
     public function __construct()
     {
         $this->evenements = new ArrayCollection();
     }
+
+// ====================================================== //
+// ==================== METHODE MAGIC =================== //
+// ====================================================== //
+
+public function __toString()
+{
+    return $this->type;
+}
+
+// ====================================================== //
+// =================== GETTER / SETTER ================== //
+// ====================================================== //
 
     public function getId(): ?int
     {
@@ -94,6 +120,18 @@ class TypeEvenement
                 $evenement->setType(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSource(): ?string
+    {
+        return $this->source;
+    }
+
+    public function setSource(?string $source): self
+    {
+        $this->source = $source;
 
         return $this;
     }

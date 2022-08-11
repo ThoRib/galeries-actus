@@ -4,10 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\Exposition;
 use App\Entity\ImagesExpo;
+use App\DataFixtures\GalerieFixtures;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Persistence\ObjectManager;
-use App\DataFixtures\GalerieFixtures;
 
 class ExpositionFixtures extends Fixture implements DependentFixtureInterface
 {
