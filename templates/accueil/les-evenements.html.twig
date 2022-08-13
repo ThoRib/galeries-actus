@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}Les Evenements{% endblock %}
+{% block body %}
+{{ dump(evenements) }}
+
+<div class="global">
+    <main class="contain-expos">
+    <h1>Les Evenements</h1>
+        {% for even in evenements %}
+        <div class="all-expos">
+            <h2>{{ even.titre }}</h2>
+            <p>Date de l'evenement : {{ even.date|date("d/m/Y") }}</p>
+            <p>Lieu de l'evenement : {{ even.galerie.nom }}</p>
+            {# <a href="{{ path('app_expo',{'id':expo.id}) }}" class="lien">Voir la présentation</a> #}
+        </div>
+        {% endfor %}
+    </main>
+</div>
+
+{% endblock %}

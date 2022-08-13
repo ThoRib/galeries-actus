@@ -57,6 +57,16 @@ class Evenements
      */
     private $Description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Galerie::class, inversedBy="evenements")
+     */
+    private $galerie;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $actif;
+
 // ====================================================== //
 // =================== GETTER /SETTER =================== //
 // ====================================================== //
@@ -146,6 +156,30 @@ class Evenements
     public function setDescription(?string $Description): self
     {
         $this->Description = $Description;
+
+        return $this;
+    }
+
+    public function getGalerie(): ?Galerie
+    {
+        return $this->galerie;
+    }
+
+    public function setGalerie(?Galerie $galerie): self
+    {
+        $this->galerie = $galerie;
+
+        return $this;
+    }
+
+    public function isActif(): ?bool
+    {
+        return $this->actif;
+    }
+
+    public function setActif(?bool $actif): self
+    {
+        $this->actif = $actif;
 
         return $this;
     }

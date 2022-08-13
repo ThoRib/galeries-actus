@@ -14,6 +14,7 @@ class TypeEvenementType extends AbstractType
         $builder
             ->add('type')
             ->add('description')
+            ->add('source')
         ;
     }
 

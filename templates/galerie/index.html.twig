@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ galerie.nom }}{% endblock %}
+{% block body %}
+<h1>{{ galerie.nom|upper }}</h1>
+    {# {{ dump(galerie.expositions) }} #}
+
+    <h2>Nos Expositions</h2>
+    {% for exposition in galerie.expositions %}
+        <h3>{{ exposition.titre }}</h3>
+    {% endfor %}
+
+    <h2>Nos Evenements</h2>
+    {% for evenement in galerie.evenements %}
+       <h3>{{ evenement.titre }}</h3> 
+    {% endfor %}
+{% endblock %}

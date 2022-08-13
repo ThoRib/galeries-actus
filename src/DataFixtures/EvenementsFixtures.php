@@ -16,6 +16,8 @@ class EvenementsFixtures extends Fixture implements DependentFixtureInterface
         $evenement->setDate(\DateTime::createFromFormat('d-m-Y H:i','22-11-2023 18:00'));
         $evenement->setSousTitre(("Performance de l'artiste XXX"));
         $evenement->setType($this->getReference(TypeEvenementFixtures::PERFORMANCE));
+        $evenement->setGalerie($this->getReference(GalerieFixtures::FONDATION_CARTIER));
+        $evenement->setActif(true);
         $manager->persist($evenement);
 
         $evenement = new Evenements();
@@ -23,6 +25,8 @@ class EvenementsFixtures extends Fixture implements DependentFixtureInterface
         $evenement->setDate(\DateTime::createFromFormat('d-m-Y H:i','05-08-2023 17:00'));
         $evenement->setSousTitre(("Performance de l'artiste YYY"));
         $evenement->setType($this->getReference(TypeEvenementFixtures::PERFORMANCE));
+        $evenement->setGalerie($this->getReference(GalerieFixtures::GAIETE_LYRIQUE));
+        $evenement->setActif(true);
         $manager->persist($evenement);
 
         $evenement = new Evenements();
@@ -30,6 +34,8 @@ class EvenementsFixtures extends Fixture implements DependentFixtureInterface
         $evenement->setDate(\DateTime::createFromFormat('d-m-Y H:i','15-01-2023 14:00'));
         $evenement->setSousTitre(("L'artiste WWW présentera une lecture de ses ouvres poetiques"));
         $evenement->setType($this->getReference(TypeEvenementFixtures::LECTURE));
+        $evenement->setGalerie($this->getReference(GalerieFixtures::PALAIS_DE_TOKYO));
+        $evenement->setActif(true);
         $manager->persist($evenement);
 
         $manager->flush();
@@ -37,6 +43,7 @@ class EvenementsFixtures extends Fixture implements DependentFixtureInterface
     }
     public function getDependencies()
     {
-        return [TypeEvenementFixtures::class];
+        return [TypeEvenementFixtures::class,
+                GalerieFixtures::class];
     }
 }

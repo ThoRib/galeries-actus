@@ -1,26 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block title %}Les Expositions{% endblock %}
 {% block body %}
-{# {{ dump(expos) }} #}
+{{ dump(bienvenue) }}
 
 <div class="global">
-    <main class="contain-expos">
-    <h1>Les expositions</h1>
-        {% for expo in expos %}
-        <div class="all-expos">
-            <h2>{{ expo.titre }}</h2>
-            {% if expo.imageName %}
-                <img src="{{ asset('images/annonces/'~expo.imageName) }}" />
-            {% endif %}
-            <h3>{{ expo.sousTitre }}</h3>
-            <p>Date de début : {{ expo.dateDebut|date("d/m/Y") }}</p>
-            <p>Lieu d'exposition : {{ expo.galerie.nom }}</p>
-            <a href="{{ path('app_expo',{'id':expo.id}) }}" class="lien">Voir la présentation</a>
-        </div>
-        {% endfor %}
-    </main>
     <asside class="contain-gallery">
-    <h2>Les Galeries</h2>
+    <h2>Nos Espaces</h2>
         <ul>
             {% for galerie in galeries %}
                 <li><a href="{{ path('app_galerie',{'id':galerie.id}) }}" class="lien">{{ galerie.nom|upper }}</a></li>

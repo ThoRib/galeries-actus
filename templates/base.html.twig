@@ -11,6 +11,8 @@
         <nav class="front-nav">
             <ul>
                 <li><a href="{{ path("app_accueil") }} ">Accueil</a></li>
+                <li><a href="{{ path("app_les_expos") }} ">les Expositions</a></li>
+                <li><a href="{{ path("app_les_evenements") }} ">les Evenements</a></li>
                 {% if is_granted("ROLE_USER") %}
                 <li><a href="{{ path("app_logout") }} ">Déconnection</a></li>
                 <li><a href="{{ path("app_front_user") }} ">Espace personnel</a></li>

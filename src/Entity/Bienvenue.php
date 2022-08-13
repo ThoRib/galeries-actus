@@ -10,6 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Bienvenue
 {
+
+// ====================================================== //
+// ===================== PROPRIETES ===================== //
+// ====================================================== //
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -36,6 +41,15 @@ class Bienvenue
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $illustration;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $actif;
+
+// ====================================================== //
+// =================== GETTER / SETTER ================== //
+// ====================================================== //
 
     public function getId(): ?int
     {
@@ -86,6 +100,18 @@ class Bienvenue
     public function setIllustration(?string $illustration): self
     {
         $this->illustration = $illustration;
+
+        return $this;
+    }
+
+    public function isActif(): ?bool
+    {
+        return $this->actif;
+    }
+
+    public function setActif(?bool $actif): self
+    {
+        $this->actif = $actif;
 
         return $this;
     }

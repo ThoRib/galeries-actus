@@ -90,6 +90,11 @@ class Galerie
      */
     private $artistes;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Evenements::class, mappedBy="galerie")
+     */
+    private $evenements;
+
 // ====================================================== //
 // ==================== CONSTRUCTEUR ==================== //
 // ====================================================== //
@@ -98,6 +103,7 @@ class Galerie
     {
         $this->expositions = new ArrayCollection();
         $this->artistes = new ArrayCollection();
+        $this->evenements = new ArrayCollection();
     }
 
 // ====================================================== //
@@ -305,6 +311,36 @@ class Galerie
             // set the owning side to null (unless already changed)
             if ($artiste->getGalerie() === $this) {
                 $artiste->setGalerie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Evenements>
+     */
+    public function getEvenements(): Collection
+    {
+        return $this->evenements;
+    }
+
+    public function addEvenement(Evenements $evenement): self
+    {
+        if (!$this->evenements->contains($evenement)) {
+            $this->evenements[] = $evenement;
+            $evenement->setGalerie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvenement(Evenements $evenement): self
+    {
+        if ($this->evenements->removeElement($evenement)) {
+            // set the owning side to null (unless already changed)
+            if ($evenement->getGalerie() === $this) {
+                $evenement->setGalerie(null);
             }
         }
 
