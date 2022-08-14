@@ -28,14 +28,9 @@ class Evenements
     private $titre;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $date;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $duration;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -67,6 +62,11 @@ class Evenements
      */
     private $actif;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Horaire;
+
 // ====================================================== //
 // =================== GETTER /SETTER =================== //
 // ====================================================== //
@@ -96,18 +96,6 @@ class Evenements
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
-
-        return $this;
-    }
-
-    public function getDuration(): ?string
-    {
-        return $this->duration;
-    }
-
-    public function setDuration(string $duration): self
-    {
-        $this->duration = $duration;
 
         return $this;
     }
@@ -180,6 +168,18 @@ class Evenements
     public function setActif(?bool $actif): self
     {
         $this->actif = $actif;
+
+        return $this;
+    }
+
+    public function getHoraire(): ?string
+    {
+        return $this->Horaire;
+    }
+
+    public function setHoraire(string $Horaire): self
+    {
+        $this->Horaire = $Horaire;
 
         return $this;
     }

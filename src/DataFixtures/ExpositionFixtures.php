@@ -65,6 +65,19 @@ class ExpositionFixtures extends Fixture implements DependentFixtureInterface
         $expo->setGalerie($this->getReference(GalerieFixtures::GAIETE_LYRIQUE));
         $manager->persist($expo);
 
+        $expo = new Exposition();
+        $expo->setTitre("Abstractions");
+        $expo->setSousTitre("Des arts abstraits");
+        $expo->setDateDebut(\DateTime::createFromFormat('d-m-Y', '05-02-2021'));
+        $expo->setDateFin(\DateTime::createFromFormat('d-m-Y', '25-04-2021'));
+        $expo->setPresentation('Illud autem non dubitatur quod cum esset aliquando virtutum omnium domicilium Roma, ingenuos advenas plerique nobilium, ut Homerici bacarum suavitate Lotophagi, humanitatis multiformibus officiis retentabant.');
+        $expo->setImageName("delta-copyright-olivier-ratsi-img-0403_cover.jpg");
+        $expo->setActif(true);
+        $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG6));
+        $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG7));
+        $expo->setGalerie($this->getReference(GalerieFixtures::GAIETE_LYRIQUE));
+        $manager->persist($expo);
+
         $manager->flush();
     }
     

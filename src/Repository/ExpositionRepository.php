@@ -39,6 +39,20 @@ class ExpositionRepository extends ServiceEntityRepository
         }
     }
 
+    public function findAfterNow(bool $actif): array
+    {
+        $now = new \DateTime('now');
+        return $this->createQueryBuilder('e')
+            ->where('e.dateFin >= :date')
+            ->andWhere('e.actif LIKE :actif')
+            ->orderBy('e.dateDebut', 'ASC')
+            ->setParameter('actif', $actif)
+            ->setParameter('date', $now->format('Y-m-d'))
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return Exposition[] Returns an array of Exposition objects
 //     */

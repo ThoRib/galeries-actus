@@ -17,8 +17,9 @@ class MediaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', TextType::class, ["label"=>"Titre","required"=>true])
+            ->add('nom', TextType::class, ["label"=>"Media","required"=>true])
             ->add('description', TextareaType::class, ["label"=>"Description", "required"=>false])
+            ->add('source', TextType::class, ["label"=>"Source de la description : ", "required"=>false])
             ->add('actif', CheckboxType::class, ["label"=>"Visible", "required"=>false])
             ->add('oeuvres', EntityType::class, ["class"=>Oeuvre::class, "label"=>"Oeuvres", "multiple"=>true, "expanded"=>true, "by_reference"=>false, "required"=>false])
         ;

@@ -31,10 +31,11 @@ class AccueilController extends AbstractController
      */
     public function allExpos(ExpositionRepository $expositionRepository): Response
     {
-        $expos = $expositionRepository->findBy(['actif'=> true], ['dateDebut' => 'ASC']);
+        // $expos = $expositionRepository->findBy(['actif'=> true], ['dateDebut' => 'ASC']);
         
         return $this->render('accueil/les-expositions.html.twig', [
-            'expos' => $expos
+            // 'expos' => $expos
+            'expos' => $expositionRepository->findAfterNow(true)
         ]);
     }
 
