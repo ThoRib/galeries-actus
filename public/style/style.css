@@ -1,7 +1,10 @@
 /* ~~~~~~~~~~~~~~~~ GLOBAL ~~~~~~~~~~~~~~~ */
 
 body {
-    background-color: bisque;
+    min-height: 100vh;
+    /* background: rgb(63,130,36);
+    background: linear-gradient(45deg, rgba(63,130,36,1) 0%, rgba(106,166,26,1) 35%, rgba(232,217,43,1) 100%); */
+    background: linear-gradient(45deg, rgb(74, 71, 181) 0%, rgb(76, 131, 164) 35%, rgb(43, 214, 232) 100%); 
     font-family: sans-serif;
     color: #3c3c3c;
     margin: 0;
@@ -18,6 +21,7 @@ ul li {
 
 a {
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .lien {
@@ -36,34 +40,59 @@ a {
     font-size: 1rem;
 }
 
-/* ~~~~~~~~~~~~~~~~ FRONT ~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~ FRONT-HEADER ~~~~~~~~~~~~~~~~ */
 
-.global {
+header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .front-nav ul {
     display: flex;
     justify-content: space-around;
     padding: 20px;
-    background-color: #3c3c3c;
+}
+
+.front-nav li {
+    margin: 0 5px;
 }
 
 .front-nav a {
-    color:bisque;
+    color:#3c3c3c;
+    padding: 10px;
 }
 
-.contain-gallery {
-    margin: 0 20px;
+.front-nav .active {
+    color: purple;
 }
 
-.contain-gallery a {
-    white-space: nowrap;
+/* ~~~~~~~~~~~~ FRONT-ACCUEIL ~~~~~~~~~~~~ */
+
+.all-espaces > div {
+    background: linear-gradient(45deg, rgb(74, 71, 181) 0%, rgb(76, 131, 164) 35%, rgb(43, 214, 232) 100%);
 }
 
-.all-expos {
-    border: 2px solid #3c3c3c;
-    border-radius : 5px;
+.all-espaces > div > div {
+    display: flex;
+    align-items: center;
+}
+
+.all-espaces p {
+    line-height: 2rem;
+}
+
+.all-espaces h2 {
+    margin: 0;
+}
+.all-espaces img {
+    max-width: 650px;
+    height: auto;
+}
+
+/* ~~~~~~~~~~~~~~ FRONT-ALL-EXPOS ~~~~~~~~~~~~~ */
+
+.all-expos > div {
     padding: 15px;
     margin: 15px;
 }
@@ -88,6 +117,20 @@ a {
 .all-expos img,
 .expo img {
     max-width: 500px;
+    height: auto;
+}
+
+/* ~~~~~~~~~~ FRONT-ALL-ARTISTES ~~~~~~~~~ */
+
+.all-artistes img {
+    max-width: 350px;
+    height: auto;
+}
+
+/* ~~~~~~~~~~ FRONT-ONE-ARTISTE ~~~~~~~~~ */
+
+.one-artiste img {
+    max-width: 650px;
     height: auto;
 }
 

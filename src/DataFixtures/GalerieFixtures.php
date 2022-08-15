@@ -13,9 +13,9 @@ class GalerieFixtures extends Fixture
 // ===================== PROPRIETES ===================== //
 // ====================================================== //
 
-    public const GAIETE_LYRIQUE = "La Gaieté Lyrique";
-    public const PALAIS_DE_TOKYO = "Le Palais de Tokyo";
-    public const FONDATION_CARTIER = "La Fondation Cartier";
+    public const ESPACE_1 = "Espace #1";
+    public const ESPACE_2 = "Espace #2";
+    public const ESPACE_3 = "Espace #3";
 
 // ====================================================== //
 // ====================== METHODES ====================== //
@@ -24,43 +24,46 @@ class GalerieFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $galerie = new Galerie();
-        $galerie->setNom("La Gaîté Lyrique");
-        $galerie->setAdresse("3bis rue Papin");
-        $galerie->setTelFixe("01 53 01 52 00");
-        $galerie->setEmail("contact@gaite-lyrique.net");
-        $galerie->setPresentation("La Gaîté Lyrique est un établissement culturel de la Ville de Paris qui met en lumière les cultures post-Internet . Ces pratiques artistiques, nées et transformées par Internet , sont ici exposées, mais aussi imaginées, fabriquées, expérimentées et transmises. Espace de découverte pour comprendre notre époque virtualisée, c’est aussi un lieu de fête , de créativité et de partage.");
-        $galerie->setWebsite("gaite-lyrique.net");
-        $galerie->setHoraires("Ouverture du mardi au vendredi de 14h00 à 20h00 et de 12h00 à 19h00 samedi et dimanche");
+        $galerie->setNom("Espace #1");
+        $galerie->setAdresse("rue du premier");
+        // $galerie->setTelFixe("01 53 01 52 00");
+        $galerie->setEmail("espace-1@les-multiples.com");
+        $galerie->setPresentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et egestas quis ipsum suspendisse ultrices gravida dictum. Neque vitae tempus quam pellentesque nec nam aliquam sem et. Amet porttitor eget dolor morbi non arcu risus. Justo eget magna fermentum iaculis eu non diam phasellus vestibulum. In hac habitasse platea dictumst quisque sagittis. Egestas diam in arcu cursus. Aliquam id diam maecenas ultricies. Imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer. Curabitur gravida arcu ac tortor dignissim convallis aenean et. Egestas purus viverra accumsan in nisl nisi scelerisque.");
+        // $galerie->setWebsite("gaite-lyrique.net");
+        $galerie->setHoraires("Tous les jours de 11h00 à 21h00 sauf le lundi");
         $galerie->setActif(true);
         $galerie->setDateCreation(\DateTimeImmutable::createFromFormat('d-m-Y', '04-08-2022'));
+        $galerie->setImageName('blc-1.svg');
         $manager->persist($galerie);
-        $this->addReference(self::GAIETE_LYRIQUE, $galerie);
+        $this->addReference(self::ESPACE_1, $galerie);
 
         $galerie = new Galerie();
-        $galerie->setNom("Le Palais de Tokyo");
-        $galerie->setAdresse("13 Av. du Président Wilson");
-        $galerie->setTelFixe("01 81 69 77 51");
-        $galerie->setEmail("accueil@palaisdetokyo.com");
-        $galerie->setPresentation("Ancré dans le présent et tourné vers l’avenir, le Palais de Tokyo est également riche d’une histoire passionnante, qui invite à un voyage à travers la création artistique. Devenu en 2012 le plus grand centre d’art contemporain d’Europe suite à la réhabilitation de l’ensemble de ses espaces, le Palais de Tokyo invite à explorer l’émergence et à rencontrer les créateurs de notre temps, là même où furent exposés certains des plus grands artistes du siècle passé.");
-        $galerie->setWebsite("palaisdetokyo.com");
-        $galerie->setHoraires("Tous les jours sauf le mardi, de midi à minuit");
+        $galerie->setNom("Espace #2");
+        $galerie->setAdresse("rue du deuxième");
+        // $galerie->setTelFixe("01 81 69 77 51");
+        $galerie->setEmail("espace-2@les-multiples.com");
+        $galerie->setPresentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna fringilla urna porttitor rhoncus dolor purus. Gravida rutrum quisque non tellus orci ac auctor. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. In metus vulputate eu scelerisque felis imperdiet proin. Pharetra convallis posuere morbi leo urna molestie. Fringilla ut morbi tincidunt augue. At augue eget arcu dictum. Cursus sit amet dictum sit amet justo. Quis enim lobortis scelerisque fermentum dui faucibus in. Ipsum faucibus vitae aliquet nec. Integer vitae justo eget magna fermentum iaculis eu.");
+        // $galerie->setWebsite("palaisdetokyo.com");
+        $galerie->setHoraires("Tous les jours sauf le lundi, de midi à minuit");
         $galerie->setActif(true);
         $galerie->setDateCreation(\DateTimeImmutable::createFromFormat('d-m-Y', '04-08-2022'));
+        $galerie->setImageName('blc-2.svg');
         $manager->persist($galerie);
-        $this->addReference(self::PALAIS_DE_TOKYO, $galerie);
+        $this->addReference(self::ESPACE_2, $galerie);
 
         $galerie = new Galerie();
-        $galerie->setNom("La Fondation Cartier");
-        $galerie->setAdresse("261 Bd Raspail");
-        $galerie->setTelFixe("01 42 18 56 50");
-        $galerie->setEmail("info.reservation@fondation.cartier.com");
-        $galerie->setPresentation("À la fois espace de création pour les artistes et lieu de rencontres entre l’art et le grand public, la Fondation Cartier pour l’art contemporain a pour vocation de favoriser la création contemporaine et d’en diffuser la connaissance. Chaque année, la Fondation Cartier programme des expositions thématiques ou personnelles et passe alors commande aux artistes, enrichissant ainsi une importante Collection. Elle organise aussi les Soirées Nomades, rendez-vous avec les arts de la scène où les artistes créent des liens entre les arts plastiques et d’autres modes d’expression de la création contemporaine. En s’exportant régulièrement dans les institutions étrangères, les expositions et la Collection confèrent à la Fondation Cartier sa dimension internationale.");
-        $galerie->setWebsite("fondationcartier.com");
-        $galerie->setHoraires("Tous les jours de 11h à 20h sauf le lundi. Nocturne le mardi, jusqu'à à 22h");
+        $galerie->setNom("Espace #3");
+        $galerie->setAdresse("rue du troisième");
+        // $galerie->setTelFixe("01 42 18 56 50");
+        $galerie->setEmail("espace-3@les-multiples.com");
+        $galerie->setPresentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt arcu non sodales neque. Proin libero nunc consequat interdum varius. Arcu vitae elementum curabitur vitae nunc. Lectus sit amet est placerat in egestas erat imperdiet. Sed tempus urna et pharetra pharetra. Nulla facilisi cras fermentum odio eu feugiat. Ornare quam viverra orci sagittis eu volutpat odio. Nulla malesuada pellentesque elit eget gravida cum. Elementum sagittis vitae et leo duis ut diam quam nulla.");
+        // $galerie->setWebsite("fondationcartier.com");
+        $galerie->setHoraires("Tous les jours de 10h à 18h sauf le lundi. Nocturne le mardi, jusqu'à à 22h");
         $galerie->setActif(true);
         $galerie->setDateCreation(\DateTimeImmutable::createFromFormat('d-m-Y', '04-08-2022'));
+        $galerie->setImageName('blc-3.svg');
         $manager->persist($galerie);
-        $this->addReference(self::FONDATION_CARTIER, $galerie);
+        $this->addReference(self::ESPACE_3, $galerie);
 
         $manager->flush();
     }

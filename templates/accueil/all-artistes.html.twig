@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Les Artistes{% endblock %}
+{% block body %}
+{% include 'includes/_header.html.twig' %}
+<div class="all-artistes">
+    <div class="contain-expos">
+    <h1>Les Artistes</h1>
+        {% for artiste in artistes %}
+        <div>
+            <h2>{{ artiste.nom }}</h2>
+            <img src="{{ asset('images/oeuvres/'~artiste.oeuvres[0].imageName) }}" /> 
+            <a href="{{ path('app_artiste',{'id':artiste.id}) }}" class="lien">Voir la présentation</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

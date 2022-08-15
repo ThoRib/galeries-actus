@@ -8,23 +8,27 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    {# <header>
+        <div>
+            <h1>Espaces<br>Multiples</h1>
+        </div>
         <nav class="front-nav">
             <ul>
                 <li><a href="{{ path("app_accueil") }} ">Accueil</a></li>
-                <li><a href="{{ path("app_les_expos") }} ">les Expositions</a></li>
-                <li><a href="{{ path("app_les_evenements") }} ">les Evenements</a></li>
+                <li><a href="{{ path("app_les_expos") }} ">Les Expositions</a></li>
+                <li><a href="{{ path("app_les_artistes") }} ">Les Artistes</a></li>
+                <li><a href="{{ path("app_les_evenements") }} ">Les Evenements</a></li>
                 {% if is_granted("ROLE_USER") %}
                 <li><a href="{{ path("app_logout") }} ">Déconnection</a></li>
                 <li><a href="{{ path("app_front_user") }} ">Espace personnel</a></li>
                 {% else %}
-                <li><a href="{{ path("app_register") }} ">Enregistrement</a></li>
                 <li><a href="{{ path("app_login") }} ">Connection</a></li>
+                <li><a href="{{ path("app_register") }} ">Enregistrement</a></li>
                 {% endif %}
-                
             </ul>
         </nav>
-
-
+    </header> #}
+        
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

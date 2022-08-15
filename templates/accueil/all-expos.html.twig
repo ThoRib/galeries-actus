@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block title %}Les Expositions{% endblock %}
 {% block body %}
-{# {{ dump(expos) }} #}
-
-<div class="global">
-    <main class="contain-expos">
+{% include 'includes/_header.html.twig' %}
+<div class="all-expos">
     <h1>Les expositions</h1>
         {% for expo in expos %}
-        <div class="all-expos">
+        <div>
             <h2>{{ expo.titre }}</h2>
             {% if expo.imageName %}
                 <img src="{{ asset('images/annonces/'~expo.imageName) }}" />
@@ -19,7 +17,6 @@
             <a href="{{ path('app_expo',{'id':expo.id}) }}" class="lien">Voir la présentation</a>
         </div>
         {% endfor %}
-    </main>
 </div>
 
 {% endblock %}

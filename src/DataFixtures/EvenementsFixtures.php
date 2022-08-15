@@ -17,7 +17,7 @@ class EvenementsFixtures extends Fixture implements DependentFixtureInterface
         $evenement->setHoraire("17h00");
         $evenement->setSousTitre(("Performance de l'artiste XXX"));
         $evenement->setType($this->getReference(TypeEvenementFixtures::PERFORMANCE));
-        $evenement->setGalerie($this->getReference(GalerieFixtures::FONDATION_CARTIER));
+        $evenement->setGalerie($this->getReference(GalerieFixtures::ESPACE_1));
         $evenement->setActif(true);
         $manager->persist($evenement);
 
@@ -27,7 +27,7 @@ class EvenementsFixtures extends Fixture implements DependentFixtureInterface
         $evenement->setHoraire("17h00");
         $evenement->setSousTitre(("Performance de l'artiste YYY"));
         $evenement->setType($this->getReference(TypeEvenementFixtures::PERFORMANCE));
-        $evenement->setGalerie($this->getReference(GalerieFixtures::GAIETE_LYRIQUE));
+        $evenement->setGalerie($this->getReference(GalerieFixtures::ESPACE_2));
         $evenement->setActif(true);
         $manager->persist($evenement);
 
@@ -37,7 +37,7 @@ class EvenementsFixtures extends Fixture implements DependentFixtureInterface
         $evenement->setHoraire("14h00");
         $evenement->setSousTitre(("L'artiste WWW présentera une lecture de ses ouvres poetiques"));
         $evenement->setType($this->getReference(TypeEvenementFixtures::LECTURE));
-        $evenement->setGalerie($this->getReference(GalerieFixtures::PALAIS_DE_TOKYO));
+        $evenement->setGalerie($this->getReference(GalerieFixtures::ESPACE_3));
         $evenement->setActif(true);
         $manager->persist($evenement);
 
@@ -47,7 +47,7 @@ class EvenementsFixtures extends Fixture implements DependentFixtureInterface
         $evenement->setHoraire("19h00");
         $evenement->setSousTitre(("Vernissage de l'exposition d'arts abstraits en présence des artistes"));
         $evenement->setType($this->getReference(TypeEvenementFixtures::VERNISSAGE));
-        $evenement->setGalerie($this->getReference(GalerieFixtures::GAIETE_LYRIQUE));
+        $evenement->setGalerie($this->getReference(GalerieFixtures::ESPACE_2));
         $evenement->setActif(true);
         $manager->persist($evenement);
 

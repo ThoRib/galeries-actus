@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ artiste.nom }}{% endblock %}
+{% block body %}
+{% include 'includes/_header.html.twig' %}
+    <div class="one-artiste">
+        <h1>{{ artiste.prenom|upper }}</h1>
+        <h2>{{ artiste.nom }}</h2>
+        {% for oeuvre in artiste.oeuvres %}
+            <img src="{{ asset('images/oeuvres/'~oeuvre.imageName) }}" />
+        {% endfor %}
+        <p>{{ artiste.presentation }}</p>
+        {% if is_granted('ROLE_USER') %}
+            <a href="{{ path('add_favoris', {'id': artiste.id}) }}">favori</a>
+        {% endif %}
+    </div>
+{% endblock %}

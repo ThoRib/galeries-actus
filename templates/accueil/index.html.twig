@@ -1,17 +1,21 @@
 {% extends 'base.html.twig' %}
-{% block title %}Les Expositions{% endblock %}
+{% block title %}Bienvenue{% endblock %}
 {% block body %}
-{{ dump(bienvenue) }}
-
-<div class="global">
-    <asside class="contain-gallery">
+{% include 'includes/_header.html.twig' %}
+<div class="all-espaces">
     <h2>Nos Espaces</h2>
-        <ul>
-            {% for galerie in galeries %}
-                <li><a href="{{ path('app_galerie',{'id':galerie.id}) }}" class="lien">{{ galerie.nom|upper }}</a></li>
-            {% endfor %}
-        </ul>
-    </asside>
+        {% for galerie in galeries %}
+            <div>
+                <h2>{{ galerie.nom }}</h2>
+                <div>
+                    {% if galerie.imageName %}
+                        <img src="{{ asset('images/espaces/'~galerie.imageName) }}" />
+                    {% endif %}
+                    <p>{{ galerie.presentation }}</p>
+                </div>
+                <a href="{{ path('app_galerie',{'id':galerie.id}) }}" class="lien">{{ galerie.nom|upper }}</a>
+            </div>
+        {% endfor %}
 </div>
 
 {% endblock %}

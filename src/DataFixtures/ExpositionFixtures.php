@@ -23,7 +23,7 @@ class ExpositionFixtures extends Fixture implements DependentFixtureInterface
         $expo->setActif(true);
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG1));
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG2));
-        $expo->setGalerie($this->getReference(GalerieFixtures::GAIETE_LYRIQUE));
+        $expo->setGalerie($this->getReference(GalerieFixtures::ESPACE_2));
         $manager->persist($expo);
 
 
@@ -37,7 +37,7 @@ class ExpositionFixtures extends Fixture implements DependentFixtureInterface
         $expo->setActif(true);
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG3));
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG4));
-        $expo->setGalerie($this->getReference(GalerieFixtures::PALAIS_DE_TOKYO));
+        $expo->setGalerie($this->getReference(GalerieFixtures::ESPACE_1));
         $manager->persist($expo);
 
         $expo = new Exposition();
@@ -49,7 +49,7 @@ class ExpositionFixtures extends Fixture implements DependentFixtureInterface
         $expo->setImageName("fondation-cartier.jpg");
         $expo->setActif(true);
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG5));
-        $expo->setGalerie($this->getReference(GalerieFixtures::FONDATION_CARTIER));
+        $expo->setGalerie($this->getReference(GalerieFixtures::ESPACE_3));
         $manager->persist($expo);
 
         $expo = new Exposition();
@@ -62,7 +62,7 @@ class ExpositionFixtures extends Fixture implements DependentFixtureInterface
         $expo->setActif(true);
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG6));
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG7));
-        $expo->setGalerie($this->getReference(GalerieFixtures::GAIETE_LYRIQUE));
+        $expo->setGalerie($this->getReference(GalerieFixtures::ESPACE_2));
         $manager->persist($expo);
 
         $expo = new Exposition();
@@ -75,7 +75,7 @@ class ExpositionFixtures extends Fixture implements DependentFixtureInterface
         $expo->setActif(true);
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG6));
         $expo->addImagesExpo($this->getReference(ImagesExpoFixtures::IMG7));
-        $expo->setGalerie($this->getReference(GalerieFixtures::GAIETE_LYRIQUE));
+        $expo->setGalerie($this->getReference(GalerieFixtures::ESPACE_1));
         $manager->persist($expo);
 
         $manager->flush();

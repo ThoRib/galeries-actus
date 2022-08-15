@@ -18,6 +18,7 @@ class FrontUserController extends AbstractController
         $user = $this->getUser();
         return $this->render('front_user/index.html.twig', [
             'user' => $user,
+            'active' => 'perso'
         ]);
     }
 
