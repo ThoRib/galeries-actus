@@ -22,6 +22,7 @@ class AdminEvenementsController extends AbstractController
     {
         return $this->render('admin_evenements/index.html.twig', [
             'evenements' => $evenementsRepository->findAll(),
+            'active' => 'adm-events',
         ]);
     }
 
@@ -43,6 +44,7 @@ class AdminEvenementsController extends AbstractController
         return $this->renderForm('admin_evenements/new.html.twig', [
             'evenement' => $evenement,
             'form' => $form,
+            'active' => 'adm-events',
         ]);
     }
 
@@ -53,6 +55,7 @@ class AdminEvenementsController extends AbstractController
     {
         return $this->render('admin_evenements/show.html.twig', [
             'evenement' => $evenement,
+            'active' => 'adm-events',
         ]);
     }
 
@@ -73,6 +76,7 @@ class AdminEvenementsController extends AbstractController
         return $this->renderForm('admin_evenements/edit.html.twig', [
             'evenement' => $evenement,
             'form' => $form,
+            'active' => 'adm-events',
         ]);
     }
 

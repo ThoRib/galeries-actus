@@ -25,10 +25,11 @@ class ExpositionType extends AbstractType
             ->add('sousTitre', TextType::class, ["label"=>"Sous titre","required"=>false])
             ->add('dateDebut', DateType::class, ["format"=>"dd-MM-yyyy"])
             ->add('dateFin', DateType::class, ["format"=>"dd-MM-yyyy"])
+            ->add('galerie', EntityType::class, ["class"=>Galerie::class, "label"=>"Espace"])
             ->add('presentation', TextareaType::class, ["label"=>"Présentation","required"=>false])
             ->add('actif', CheckboxType::class, ["label"=>"Visible", "required"=>false])
             ->add('imageFile', FileType::class, [
-                "label"=>"Image de couverture :",
+                "label"=>"Image de couverture",
                 "required"=>false,
                 "constraints" => [
                     new File([
@@ -38,16 +39,16 @@ class ExpositionType extends AbstractType
                             "image/jpeg",
                             "image/png",
                             "image/tiff",
-                            "image/webp"
+                            "image/webp",
+                            "image/svg+xml"
                         ],
-                        "mimeTypesMessage" => "Les formats d'images acceptés sont gif, jpeg, png, tiff, webp"
+                        "mimeTypesMessage" => "Les formats d'images acceptés sont gif, jpeg, png, tiff, webp, svg"
                     ])
                 ]
-               ])
-               ->add('imagesExpo', EntityType::class, ["class"=>ImagesExpo::class, "label"=> "Illustrations du détail de l'expo : ", "multiple"=>true, "expanded"=>true, "by_reference"=>false, "required"=>false])
-               ->add('galerie', EntityType::class, ["class"=>Galerie::class, "label"=>"Galerie"])
-               ->remove('imageName')
-        ;
+            ])
+            ->add('imagesExpo', EntityType::class, ["class"=>ImagesExpo::class, "label"=> "Illustrations du détail de l'expo : ", "multiple"=>true, "expanded"=>true, "by_reference"=>false, "required"=>false])
+            ->remove('imageName')
+    ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

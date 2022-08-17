@@ -22,6 +22,7 @@ class AdminImagesExpoController extends AbstractController
     {
         return $this->render('admin_images_expo/index.html.twig', [
             'images_expos' => $imagesExpoRepository->findAll(),
+            'active' => 'adm-img-expos',
         ]);
     }
 
@@ -43,6 +44,7 @@ class AdminImagesExpoController extends AbstractController
         return $this->renderForm('admin_images_expo/new.html.twig', [
             'images_expo' => $imagesExpo,
             'form' => $form,
+            'active' => 'adm-img-expos',
         ]);
     }
 
@@ -53,6 +55,7 @@ class AdminImagesExpoController extends AbstractController
     {
         return $this->render('admin_images_expo/show.html.twig', [
             'images_expo' => $imagesExpo,
+            'active' => 'adm-img-expos',
         ]);
     }
 
@@ -73,6 +76,7 @@ class AdminImagesExpoController extends AbstractController
         return $this->renderForm('admin_images_expo/edit.html.twig', [
             'images_expo' => $imagesExpo,
             'form' => $form,
+            'active' => 'adm-img-expos',
         ]);
     }
 

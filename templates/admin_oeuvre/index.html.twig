@@ -9,7 +9,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Titre</th>
                 <th>Visuel</th>
                 {# <th>Description</th> #}
@@ -21,7 +21,7 @@
         <tbody>
         {% for oeuvre in oeuvres %}
             <tr>
-                <td>{{ oeuvre.id }}</td>
+                {# <td>{{ oeuvre.id }}</td> #}
                 <td>{{ oeuvre.titre }}</td>
                 <td><img src="{{ asset('images/oeuvres/'~oeuvre.imageName) }}" /></td>
                 {# <td>{{ oeuvre.description }}</td> #}
@@ -34,7 +34,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">pas d'enregistrement trouvé</td>
+                <td colspan="4">pas d'enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

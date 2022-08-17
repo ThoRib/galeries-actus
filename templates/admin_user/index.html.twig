@@ -9,7 +9,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Nom d'utilisateur</th>
                 <th>Role(s)</th>
                 {# <th>Mot de passe</th> #}
@@ -23,7 +23,7 @@
         <tbody>
         {% for user in users %}
             <tr>
-                <td>{{ user.id }}</td>
+                {# <td>{{ user.id }}</td> #}
                 <td>{{ user.username }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 {# <td>{{ user.password }}</td> #}
@@ -38,7 +38,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">Pas d'enregistrement trouvé</td>
+                <td colspan="7">Pas d'enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

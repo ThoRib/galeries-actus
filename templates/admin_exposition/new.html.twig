@@ -9,3 +9,12 @@
     {{ include('admin_exposition/_form.html.twig') }}
 </div>   
 {% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('js/vignettes-admin.js') }}"></script>
+<script>
+window.addEventListener('load', (event) => {
+  showImages('#exposition_imagesExpo',"/images/expos/");
+});
+</script>
+{% endblock %}

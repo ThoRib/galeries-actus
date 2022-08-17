@@ -9,10 +9,10 @@
     <h1>Evenement</h1>
     <table class="table">
         <tbody>
-            <tr>
+            {# <tr>
                 <th>Id</th>
                 <td>{{ evenement.id }}</td>
-            </tr>
+            </tr> #}
             <tr>
                 <th>Titre</th>
                 <td>{{ evenement.titre }}</td>
@@ -20,10 +20,6 @@
             <tr>
                 <th>Date</th>
                 <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Durée</th>
-                <td>{{ evenement.duration }}</td>
             </tr>
             <tr>
                 <th>Illustration</th>

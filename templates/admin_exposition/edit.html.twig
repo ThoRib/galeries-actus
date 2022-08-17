@@ -3,8 +3,6 @@
 {% block title %}Editer l'Exposition{% endblock %}
 
 {% block body %}
-
-{{ dump(exposition) }}
 <div class="admin-wrapper">
     <h1>Editer l'Exposition</h1>
     <a href="{{ path('app_admin_exposition_index') }}">Retour à la liste</a>
@@ -14,22 +12,11 @@
 {% endblock %}
 
 {% block javascripts %}
+<script src="{{ asset('js/vignettes-admin.js') }}"></script>
 <script>
-
 window.addEventListener('load', (event) => {
-  let containLabels = document.querySelector('#exposition_imagesExpo');
-  let allLabels = containLabels.querySelectorAll('label');
-  allLabels.forEach(function(one) {
-    //console.log(one.textContent);
-    const img = document.createElement("img");
-    img.src = "/images/expos/"+one.textContent;
-    one.textContent = "";
-    one.appendChild(img);
-  });
-
+  showImages('#exposition_imagesExpo',"/images/expos/");
 });
-
-
 </script>
 {% endblock %}
 

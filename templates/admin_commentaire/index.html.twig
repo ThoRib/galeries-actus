@@ -9,7 +9,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Texte</th>
                 <th>CreatedAt</th>
                 <th>Actions</th>
@@ -18,7 +18,7 @@
         <tbody>
         {% for commentaire in commentaires %}
             <tr>
-                <td>{{ commentaire.id }}</td>
+                {# <td>{{ commentaire.id }}</td> #}
                 <td>{{ commentaire.texte }}</td>
                 <td>{{ commentaire.createdAt ? commentaire.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
@@ -28,7 +28,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">Pas d'enregistrement trouvé</td>
+                <td colspan="3">Pas d'enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

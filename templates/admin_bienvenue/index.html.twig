@@ -9,7 +9,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Annonce</th>
                 <th>Details</th>
                 <th>A propos</th>
@@ -20,7 +20,7 @@
         <tbody>
         {% for bienvenue in bienvenues %}
             <tr>
-                <td>{{ bienvenue.id }}</td>
+                {# <td>{{ bienvenue.id }}</td> #}
                 <td>{{ bienvenue.annonce }}</td>
                 <td>{{ bienvenue.details }}</td>
                 <td>{{ bienvenue.about }}</td>
@@ -32,7 +32,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">Pas d'enregistrement trouvé</td>
+                <td colspan="5">Pas d'enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -8,27 +8,26 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-    {# <header>
+    <header>
         <div>
             <h1>Espaces<br>Multiples</h1>
         </div>
         <nav class="front-nav">
             <ul>
-                <li><a href="{{ path("app_accueil") }} ">Accueil</a></li>
-                <li><a href="{{ path("app_les_expos") }} ">Les Expositions</a></li>
-                <li><a href="{{ path("app_les_artistes") }} ">Les Artistes</a></li>
-                <li><a href="{{ path("app_les_evenements") }} ">Les Evenements</a></li>
+                <li><a href="{{ path("app_accueil") }}" {% if active == 'accueil' %} class="active" {% endif %} >Accueil</a></li>
+                <li><a href="{{ path("app_les_expos") }}" {% if active == 'expos' %} class="active" {% endif %}>Les Expositions</a></li>
+                <li><a href="{{ path("app_les_artistes") }}" {% if active == 'artistes' %} class="active" {% endif %}>Les Artistes</a></li>
+                <li><a href="{{ path("app_les_evenements") }}" {% if active == 'events' %} class="active" {% endif %}>Les Evenements</a></li>
                 {% if is_granted("ROLE_USER") %}
-                <li><a href="{{ path("app_logout") }} ">Déconnection</a></li>
-                <li><a href="{{ path("app_front_user") }} ">Espace personnel</a></li>
+                <li><a href="{{ path("app_logout") }}" >Déconnection</a></li>
+                <li><a href="{{ path("app_front_user") }}" {% if active == 'perso' %} class="active" {% endif %}>Espace personnel</a></li>
                 {% else %}
-                <li><a href="{{ path("app_login") }} ">Connection</a></li>
-                <li><a href="{{ path("app_register") }} ">Enregistrement</a></li>
+                <li><a href="{{ path("app_login") }}" {% if active == 'connect' %} class="active" {% endif %}>Connection</a></li>
+                <li><a href="{{ path("app_register") }}" {% if active == 'register' %} class="active" {% endif %}>Enregistrement</a></li>
                 {% endif %}
             </ul>
         </nav>
-    </header> #}
-        
+    </header>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

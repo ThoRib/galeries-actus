@@ -16,7 +16,7 @@ class BienvenueType extends AbstractType
         $builder
             ->add('annonce', TextType::class, ["label"=>"Annonce d'accueil : ", "required"=>true])
             ->add('details', TextType::class, ["label"=>"Sous-titre : ", "required"=>false])
-            ->add('about', CKEditorType::class, ["label"=>"Presentation Générale : ", "required"=>false, "config"=>["toolbar"=>"standard", "language"=>"fr", "uiColor"=>"#ffc075" ]])
+            ->add('about', CKEditorType::class, ["label"=>"Presentation Générale : ", "required"=>false, "config"=>["toolbar"=>"standard", "language"=>"fr", "uiColor"=>"#75d8ff" ]])
             ->remove('illustration')
         ;
     }

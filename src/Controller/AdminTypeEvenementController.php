@@ -22,6 +22,7 @@ class AdminTypeEvenementController extends AbstractController
     {
         return $this->render('admin_type_evenement/index.html.twig', [
             'type_evenements' => $typeEvenementRepository->findAll(),
+            'active' => 'adm-tp-events',
         ]);
     }
 
@@ -43,6 +44,7 @@ class AdminTypeEvenementController extends AbstractController
         return $this->renderForm('admin_type_evenement/new.html.twig', [
             'type_evenement' => $typeEvenement,
             'form' => $form,
+            'active' => 'adm-tp-events',
         ]);
     }
 
@@ -53,6 +55,7 @@ class AdminTypeEvenementController extends AbstractController
     {
         return $this->render('admin_type_evenement/show.html.twig', [
             'type_evenement' => $typeEvenement,
+            'active' => 'adm-tp-events',
         ]);
     }
 
@@ -73,6 +76,7 @@ class AdminTypeEvenementController extends AbstractController
         return $this->renderForm('admin_type_evenement/edit.html.twig', [
             'type_evenement' => $typeEvenement,
             'form' => $form,
+            'active' => 'adm-tp-events',
         ]);
     }
 

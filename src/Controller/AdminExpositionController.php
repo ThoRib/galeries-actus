@@ -22,6 +22,7 @@ class AdminExpositionController extends AbstractController
     {
         return $this->render('admin_exposition/index.html.twig', [
             'expositions' => $expositionRepository->findAll(),
+            'active' => 'adm-expos',
         ]);
     }
 
@@ -43,6 +44,7 @@ class AdminExpositionController extends AbstractController
         return $this->renderForm('admin_exposition/new.html.twig', [
             'exposition' => $exposition,
             'form' => $form,
+            'active' => 'adm-expos',
         ]);
     }
 
@@ -53,6 +55,7 @@ class AdminExpositionController extends AbstractController
     {
         return $this->render('admin_exposition/show.html.twig', [
             'exposition' => $exposition,
+            'active' => 'adm-expos',
         ]);
     }
 
@@ -73,6 +76,7 @@ class AdminExpositionController extends AbstractController
         return $this->renderForm('admin_exposition/edit.html.twig', [
             'exposition' => $exposition,
             'form' => $form,
+            'active' => 'adm-expos',
         ]);
     }
 

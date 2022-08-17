@@ -22,6 +22,7 @@ class AdminArtisteController extends AbstractController
     {
         return $this->render('admin_artiste/index.html.twig', [
             'artistes' => $artisteRepository->findAll(),
+            'active' => 'adm-artistes',
         ]);
     }
 
@@ -43,6 +44,7 @@ class AdminArtisteController extends AbstractController
         return $this->renderForm('admin_artiste/new.html.twig', [
             'artiste' => $artiste,
             'form' => $form,
+            'active' => 'adm-artistes',
         ]);
     }
 
@@ -53,6 +55,7 @@ class AdminArtisteController extends AbstractController
     {
         return $this->render('admin_artiste/show.html.twig', [
             'artiste' => $artiste,
+            'active' => 'adm-artistes',
         ]);
     }
 
@@ -73,6 +76,7 @@ class AdminArtisteController extends AbstractController
         return $this->renderForm('admin_artiste/edit.html.twig', [
             'artiste' => $artiste,
             'form' => $form,
+            'active' => 'adm-artistes',
         ]);
     }
 

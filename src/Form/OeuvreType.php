@@ -35,9 +35,10 @@ class OeuvreType extends AbstractType
                             "image/jpeg",
                             "image/png",
                             "image/tiff",
-                            "image/webp"
+                            "image/webp",
+                            "image/svg+xml"
                         ],
-                        "mimeTypesMessage" => "Les formats d'images acceptés sont gif, jpeg, png, tiff, webp"
+                        "mimeTypesMessage" => "Les formats d'images acceptés sont gif, jpeg, png, tiff, webp, svg"
                     ])
                 ]
                ])

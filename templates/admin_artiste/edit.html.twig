@@ -10,3 +10,12 @@
     {{ include('admin_artiste/_delete_form.html.twig') }}
 </div>
 {% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('js/vignettes-admin.js') }}"></script>
+<script>
+window.addEventListener('load', (event) => {
+  showImages('#artiste_oeuvres',"/images/oeuvres/");
+});
+</script>
+{% endblock %}

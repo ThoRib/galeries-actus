@@ -3,16 +3,16 @@
 {% block title %}{{ galerie.nom }}{% endblock %}
 
 {% block body %}
-<div class="admin-wrapper">
+<div class="admin-wrapper admin-show">
     <h1>{{ galerie.nom }}</h1>
     <a href="{{ path('app_admin_galerie_index') }}" >Retour à la liste</a>
     <a href="{{ path('app_admin_galerie_edit', {'id': galerie.id}) }}">Editer</a>
     <table>
         <tbody>
-            <tr>
+            {# <tr>
                 <th>Id</th>
                 <td>{{ galerie.id }}</td>
-            </tr>
+            </tr> #}
             {# <tr>
                 <th>Nom</th>
                 <td>{{ galerie.nom }}</td>
@@ -40,6 +40,14 @@
             <tr>
                 <th>Presentation</th>
                 <td class="text-tab">{{ galerie.presentation | raw }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                {% if galerie.imageName %}
+                    <img src="{{ asset('images/galeries/'~galerie.imageName) }}" />
+                {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Website</th>

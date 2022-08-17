@@ -24,7 +24,7 @@ class ArtisteType extends AbstractType
             ->add('presentation', TextareaType::class, ["label"=>"presentation","required"=>false])
             ->add('actif', CheckboxType::class, ["label"=>"Visible", "required"=>false])
             ->add('oeuvres', EntityType::class, ["class"=>Oeuvre::class, "label"=>"Oeuvres", "multiple"=>true, "expanded"=>true, "by_reference"=>false, "required"=>false])
-            ->add('galerie', EntityType::class, ["class"=>Galerie::class, "label"=>"Galerie"])
+            ->add('galeries', EntityType::class, ["class"=>Galerie::class, "label"=>"Espace(s) associés", "multiple"=>true, "expanded"=>true, "by_reference"=>false, "required"=>false])
         ;
     }
 

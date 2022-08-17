@@ -6,10 +6,13 @@ use App\Repository\GalerieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=GalerieRepository::class)
  * @ORM\HasLifecycleCallbacks()
+ * @Vich\Uploadable
  */
 class Galerie
 {
@@ -86,19 +89,34 @@ class Galerie
     private $expositions;
 
     /**
-     * @ORM\OneToMany(targetEntity=Artiste::class, mappedBy="galerie", orphanRemoval=true)
-     */
-    private $artistes;
-
-    /**
      * @ORM\OneToMany(targetEntity=Evenements::class, mappedBy="galerie")
      */
     private $evenements;
 
     /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * 
+     * @Vich\UploadableField(mapping="images_galeries", fileNameProperty="imageName")
+     * 
+     * @var File|null
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imageName;
+
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     *
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Artiste::class, mappedBy="galeries")
+     */
+    private $artistes;
 
 // ====================================================== //
 // ==================== CONSTRUCTEUR ==================== //
@@ -107,8 +125,8 @@ class Galerie
     public function __construct()
     {
         $this->expositions = new ArrayCollection();
-        $this->artistes = new ArrayCollection();
         $this->evenements = new ArrayCollection();
+        $this->artistes = new ArrayCollection();
     }
 
 // ====================================================== //
@@ -293,36 +311,6 @@ class Galerie
     }
 
     /**
-     * @return Collection<int, Artiste>
-     */
-    public function getArtistes(): Collection
-    {
-        return $this->artistes;
-    }
-
-    public function addArtiste(Artiste $artiste): self
-    {
-        if (!$this->artistes->contains($artiste)) {
-            $this->artistes[] = $artiste;
-            $artiste->setGalerie($this);
-        }
-
-        return $this;
-    }
-
-    public function removeArtiste(Artiste $artiste): self
-    {
-        if ($this->artistes->removeElement($artiste)) {
-            // set the owning side to null (unless already changed)
-            if ($artiste->getGalerie() === $this) {
-                $artiste->setGalerie(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, Evenements>
      */
     public function getEvenements(): Collection
@@ -352,6 +340,31 @@ class Galerie
         return $this;
     }
 
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
     public function getImageName(): ?string
     {
         return $this->imageName;
@@ -360,6 +373,33 @@ class Galerie
     public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Artiste>
+     */
+    public function getArtistes(): Collection
+    {
+        return $this->artistes;
+    }
+
+    public function addArtiste(Artiste $artiste): self
+    {
+        if (!$this->artistes->contains($artiste)) {
+            $this->artistes[] = $artiste;
+            $artiste->addGalery($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtiste(Artiste $artiste): self
+    {
+        if ($this->artistes->removeElement($artiste)) {
+            $artiste->removeGalery($this);
+        }
 
         return $this;
     }

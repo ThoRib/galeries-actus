@@ -22,6 +22,7 @@ class AdminMediaController extends AbstractController
     {
         return $this->render('admin_media/index.html.twig', [
             'media' => $mediaRepository->findAll(),
+            'active' => 'adm-medias',
         ]);
     }
 
@@ -43,6 +44,7 @@ class AdminMediaController extends AbstractController
         return $this->renderForm('admin_media/new.html.twig', [
             'medium' => $medium,
             'form' => $form,
+            'active' => 'adm-medias',
         ]);
     }
 
@@ -53,6 +55,7 @@ class AdminMediaController extends AbstractController
     {
         return $this->render('admin_media/show.html.twig', [
             'medium' => $medium,
+            'active' => 'adm-medias',
         ]);
     }
 
@@ -73,6 +76,7 @@ class AdminMediaController extends AbstractController
         return $this->renderForm('admin_media/edit.html.twig', [
             'medium' => $medium,
             'form' => $form,
+            'active' => 'adm-medias',
         ]);
     }
 

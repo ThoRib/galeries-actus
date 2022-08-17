@@ -50,15 +50,14 @@ class Artiste
     private $actif;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Galerie::class, inversedBy="artistes")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $galerie;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Oeuvre::class, inversedBy="artistes")
      */
     private $oeuvres;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Galerie::class, inversedBy="artistes")
+     */
+    private $galeries;
 
 // ====================================================== //
 // ==================== CONSTRUCTEUR ==================== //
@@ -67,6 +66,7 @@ class Artiste
     public function __construct()
     {
         $this->oeuvres = new ArrayCollection();
+        $this->galeries = new ArrayCollection();
     }
 
 // ====================================================== //
@@ -147,18 +147,6 @@ public function __toString()
         return $this;
     }
 
-    public function getGalerie(): ?Galerie
-    {
-        return $this->galerie;
-    }
-
-    public function setGalerie(?Galerie $galerie): self
-    {
-        $this->galerie = $galerie;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Oeuvre>
      */
@@ -179,6 +167,30 @@ public function __toString()
     public function removeOeuvre(Oeuvre $oeuvre): self
     {
         $this->oeuvres->removeElement($oeuvre);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Galerie>
+     */
+    public function getGaleries(): Collection
+    {
+        return $this->galeries;
+    }
+
+    public function addGalery(Galerie $galery): self
+    {
+        if (!$this->galeries->contains($galery)) {
+            $this->galeries[] = $galery;
+        }
+
+        return $this;
+    }
+
+    public function removeGalery(Galerie $galery): self
+    {
+        $this->galeries->removeElement($galery);
 
         return $this;
     }

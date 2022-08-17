@@ -23,6 +23,7 @@ class AdminUserController extends AbstractController
     {
         return $this->render('admin_user/index.html.twig', [
             'users' => $userRepository->findAll(),
+            'active' => 'adm-user',
         ]);
     }
 
@@ -59,6 +60,7 @@ class AdminUserController extends AbstractController
         return $this->renderForm('admin_user/new.html.twig', [
             'user' => $user,
             'form' => $form,
+            'active' => 'adm-user',
         ]);
     }
 
@@ -69,6 +71,7 @@ class AdminUserController extends AbstractController
     {
         return $this->render('admin_user/show.html.twig', [
             'user' => $user,
+            'active' => 'adm-user',
         ]);
     }
 
@@ -104,6 +107,7 @@ class AdminUserController extends AbstractController
         return $this->renderForm('admin_user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
+            'active' => 'adm-user',
         ]);
     }
 

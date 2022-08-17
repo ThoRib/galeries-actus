@@ -22,6 +22,7 @@ class AdminOeuvreController extends AbstractController
     {
         return $this->render('admin_oeuvre/index.html.twig', [
             'oeuvres' => $oeuvreRepository->findAll(),
+            'active' => 'adm-oeuvres',
         ]);
     }
 
@@ -43,6 +44,7 @@ class AdminOeuvreController extends AbstractController
         return $this->renderForm('admin_oeuvre/new.html.twig', [
             'oeuvre' => $oeuvre,
             'form' => $form,
+            'active' => 'adm-oeuvres',
         ]);
     }
 
@@ -53,6 +55,7 @@ class AdminOeuvreController extends AbstractController
     {
         return $this->render('admin_oeuvre/show.html.twig', [
             'oeuvre' => $oeuvre,
+            'active' => 'adm-oeuvres',
         ]);
     }
 
@@ -73,6 +76,7 @@ class AdminOeuvreController extends AbstractController
         return $this->renderForm('admin_oeuvre/edit.html.twig', [
             'oeuvre' => $oeuvre,
             'form' => $form,
+            'active' => 'adm-oeuvres',
         ]);
     }
 

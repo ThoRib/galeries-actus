@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}Bienvenue{% endblock %}
 {% block body %}
-{% include 'includes/_header.html.twig' %}
 <div class="all-espaces">
     <h2>Nos Espaces</h2>
         {% for galerie in galeries %}
@@ -9,7 +8,7 @@
                 <h2>{{ galerie.nom }}</h2>
                 <div>
                     {% if galerie.imageName %}
-                        <img src="{{ asset('images/espaces/'~galerie.imageName) }}" />
+                        <img src="{{ asset('images/galeries/'~galerie.imageName) }}" />
                     {% endif %}
                     <p>{{ galerie.presentation }}</p>
                 </div>

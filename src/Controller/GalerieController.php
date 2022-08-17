@@ -18,6 +18,7 @@ class GalerieController extends AbstractController
 
         return $this->render('galerie/index.html.twig', [
             'galerie' => $galerie,
+            'active' => 'accueil'
         ]);
     }
 }

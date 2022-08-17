@@ -21,7 +21,6 @@ class EvenementsType extends AbstractType
             ->add('titre', TextType::class, ["label"=>"Titre : ", "required"=>true])
             ->add('date', DateType::class, ["label"=>"Date", "required"=>true])
             ->add('horaire', TextType::class, ["label"=>"Horaires : ", "required"=>true])
-            ->add('duration', TextType::class, ["label"=>"Durée : ", "required"=>false])
             ->remove('illustration')
             ->add('description', TextareaType::class, ["label"=>"Description : ","required"=>false])
             ->add('type' , EntityType::class, ["class"=>TypeEvenement::class, "label"=>"Type d'evenement"])

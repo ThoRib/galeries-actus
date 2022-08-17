@@ -2,8 +2,6 @@
 
 body {
     min-height: 100vh;
-    /* background: rgb(63,130,36);
-    background: linear-gradient(45deg, rgba(63,130,36,1) 0%, rgba(106,166,26,1) 35%, rgba(232,217,43,1) 100%); */
     background: linear-gradient(45deg, rgb(74, 71, 181) 0%, rgb(76, 131, 164) 35%, rgb(43, 214, 232) 100%); 
     font-family: sans-serif;
     color: #3c3c3c;
@@ -158,23 +156,27 @@ header {
 }
 
 .admin-nav a {
-    color:bisque;
+    color:#d8fbff;
 }
 
+.admin-nav .active {
+    color: #3c3c3c;
+    background-color: #d8fbff;
+}
 .admin-wrapper {
     padding: 0 20px 50px 280px;
 }
 
 .admin-title h1 {
     background-color: #3c3c3c;
-    color: bisque;
+    color: #d8fbff;
     padding: 15px;
 }
 
 .admin-wrapper a {
     display: inline-block;
     background-color: #3c3c3c;
-    color: bisque;
+    color: #d8fbff;
     padding: 10px;
     margin: 5px 0;
     border-radius: 2px;
@@ -184,7 +186,7 @@ header {
 
 .admin-wrapper td,
 .admin-wrapper th {
-    background-color: #ffedd8; 
+    background-color: #d8fbff; 
     padding: 0 10px;
 }
 
@@ -228,8 +230,8 @@ header {
 .admin-wrapper input,
 .admin-wrapper textarea {
     padding: 10px;
-    border: 2px solid #ffc075;
-    background-color: #ffedd8;
+    border: 2px solid #75d8ff;
+    background-color: #d8fbff;
     border-radius: 5px;
     margin-left: 15px;
     width: 350px;
@@ -250,32 +252,42 @@ header {
 }
 
 .admin-wrapper button {
-    background-color: #ffc075;
+    background-color: #75d8ff;
     padding: 10px;
     margin: 5px;
     font-size: 1rem;
 }
 
-#exposition_imagesExpo input {
+#exposition_imagesExpo input,
+#artiste_oeuvres input,
+#media_oeuvres input {
     display: none;
 }
 
-#exposition_imagesExpo label {
+#exposition_imagesExpo label,
+#artiste_oeuvres label,
+#media_oeuvres label {
     display: inline-block;
     border-radius: 5px;
     margin: 15px;
     vertical-align: top;
 }
 
-#exposition_imagesExpo input:checked + label {
-    background-color: #ffc075;
+#exposition_imagesExpo input:checked + label,
+#artiste_oeuvres input:checked + label,
+#media_oeuvres input:checked + label {
+    background-color: #75d8ff;
 }
 
-#exposition_imagesExpo label:hover {
+#exposition_imagesExpo label:hover,
+#artiste_oeuvres label:hover,
+#media_oeuvres label:hover {
     cursor: pointer;
 }
 
-#exposition_imagesExpo img {
+#exposition_imagesExpo img,
+#artiste_oeuvres img,
+#media_oeuvres img {
     width: 200px;
     height: auto;
     padding: 5px 5px 3px 5px;

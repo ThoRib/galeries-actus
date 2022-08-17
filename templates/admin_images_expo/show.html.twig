@@ -9,10 +9,10 @@
     <a href="{{ path('app_admin_images_expo_edit', {'id': images_expo.id}) }}">Editer</a>
     <table class="table">
         <tbody>
-            <tr>
+            {# <tr>
                 <th>Id</th>
                 <td>{{ images_expo.id }}</td>
-            </tr>
+            </tr> #}
             <tr>
                 <th>Visuel</th>
                 <td><img src="{{ asset('images/expos/'~images_expo.imageName) }}"></td>

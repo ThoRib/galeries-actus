@@ -22,6 +22,7 @@ class AdminCommentaireController extends AbstractController
     {
         return $this->render('admin_commentaire/index.html.twig', [
             'commentaires' => $commentaireRepository->findAll(),
+            'active' => 'adm-coms',
         ]);
     }
 
@@ -43,6 +44,7 @@ class AdminCommentaireController extends AbstractController
         return $this->renderForm('admin_commentaire/new.html.twig', [
             'commentaire' => $commentaire,
             'form' => $form,
+            'active' => 'adm-coms',
         ]);
     }
 
@@ -53,6 +55,7 @@ class AdminCommentaireController extends AbstractController
     {
         return $this->render('admin_commentaire/show.html.twig', [
             'commentaire' => $commentaire,
+            'active' => 'adm-coms',
         ]);
     }
 
@@ -73,6 +76,7 @@ class AdminCommentaireController extends AbstractController
         return $this->renderForm('admin_commentaire/edit.html.twig', [
             'commentaire' => $commentaire,
             'form' => $form,
+            'active' => 'adm-coms',
         ]);
     }
 

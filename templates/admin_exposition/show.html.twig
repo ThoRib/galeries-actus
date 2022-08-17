@@ -4,9 +4,6 @@
 
 {% block body %}
 
-<pre>
-    {{ dump(exposition) }}
-</pre>
 <div class="admin-wrapper admin-show">
     <h1>{{ exposition.titre }}</h1>
     <a href="{{ path('app_admin_exposition_index') }}">Retour à la liste</a>
@@ -43,7 +40,11 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td><img src="{{ asset('images/annonces/'~exposition.imageName) }}" /></td>
+                <td>
+                {% if exposition.imageName %}
+                    <img src="{{ asset('images/annonces/'~exposition.imageName) }}" />
+                {% endif %}
+                </td>
             </tr>
         </tbody>
     </table>

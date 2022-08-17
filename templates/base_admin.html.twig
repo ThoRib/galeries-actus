@@ -10,18 +10,18 @@
     <body>
         <nav class="admin-nav">
             <ul>
-                <li><a href="{{ path("app_accueil") }} ">Retour au site</a></li>
-                <li><a href="{{ path("app_admin_bienvenue_index") }} ">Admin Bienvenue</a></li>
-                <li><a href="{{ path("app_admin_galerie_index") }} ">Admin Galeries</a></li>
-                <li><a href="{{ path("app_admin_exposition_index") }} ">Admin Expositions</a></li>
-                <li><a href="{{ path("app_admin_images_expo_index") }} ">Admin Images Expos</a></li>
-                <li><a href="{{ path("app_admin_artiste_index") }} ">Admin Artistes</a></li>
-                <li><a href="{{ path("app_admin_oeuvre_index") }} ">Admin Oeuvres</a></li>
-                <li><a href="{{ path("app_admin_media_index") }} ">Admin Medias</a></li>
-                <li><a href="{{ path("app_admin_evenements_index") }} ">Admin Evenements</a></li>
-                <li><a href="{{ path("app_admin_type_evenement_index") }} ">Admin Type Evenement</a></li>
-                <li><a href="{{ path("app_admin_commentaire_index") }} ">Admin Commentaires</a></li>
-                <li><a href="{{ path("app_admin_user_index") }} ">Admin User</a></li>
+                <li><a href="{{ path("app_accueil") }}" >Retour au site</a></li>
+                {# <li><a href="{{ path("app_admin_bienvenue_index") }}" >Admin Bienvenue</a></li> #}
+                <li><a href="{{ path("app_admin_galerie_index") }}" {% if active == 'adm-galeries' %} class="active" {% endif %}>Admin Galeries</a></li>
+                <li><a href="{{ path("app_admin_exposition_index") }}" {% if active == 'adm-expos' %} class="active" {% endif %}>Admin Expositions</a></li>
+                <li><a href="{{ path("app_admin_images_expo_index") }}" {% if active == 'adm-img-expos' %} class="active" {% endif %}>Admin Images Expos</a></li>
+                <li><a href="{{ path("app_admin_artiste_index") }}" {% if active == 'adm-artistes' %} class="active" {% endif %}>Admin Artistes</a></li>
+                <li><a href="{{ path("app_admin_oeuvre_index") }}" {% if active == 'adm-oeuvres' %} class="active" {% endif %}>Admin Oeuvres</a></li>
+                <li><a href="{{ path("app_admin_media_index") }}" {% if active == 'adm-medias' %} class="active" {% endif %}>Admin Medias</a></li>
+                <li><a href="{{ path("app_admin_evenements_index") }}" {% if active == 'adm-events' %} class="active" {% endif %}>Admin Evenements</a></li>
+                <li><a href="{{ path("app_admin_type_evenement_index") }}" {% if active == 'adm-tp-events' %} class="active" {% endif %}>Admin Type Evenement</a></li>
+                <li><a href="{{ path("app_admin_commentaire_index") }}" {% if active == 'adm-coms' %} class="active" {% endif %}>Admin Commentaires</a></li>
+                <li><a href="{{ path("app_admin_user_index") }}" {% if active == 'adm-user' %} class="active" {% endif %}>Admin User</a></li>
             </ul>
         </nav>
         {% block body %}{% endblock %}

@@ -9,7 +9,7 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Pseudo</th>
@@ -21,7 +21,7 @@
         <tbody>
         {% for artiste in artistes %}
             <tr>
-                <td>{{ artiste.id }}</td>
+                {# <td>{{ artiste.id }}</td> #}
                 <td>{{ artiste.nom }}</td>
                 <td>{{ artiste.prenom }}</td>
                 <td>{{ artiste.pseudo }}</td>
@@ -34,7 +34,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">Pas d'enregistrement trouvé</td>
+                <td colspan="5">Pas d'enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

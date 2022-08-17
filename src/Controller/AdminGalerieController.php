@@ -22,6 +22,7 @@ class AdminGalerieController extends AbstractController
     {
         return $this->render('admin_galerie/index.html.twig', [
             'galeries' => $galerieRepository->findAll(),
+            'active' => 'adm-galeries',
         ]);
     }
 
@@ -43,6 +44,7 @@ class AdminGalerieController extends AbstractController
         return $this->renderForm('admin_galerie/new.html.twig', [
             'galerie' => $galerie,
             'form' => $form,
+            'active' => 'adm-galeries',
         ]);
     }
 
@@ -53,6 +55,7 @@ class AdminGalerieController extends AbstractController
     {
         return $this->render('admin_galerie/show.html.twig', [
             'galerie' => $galerie,
+            'active' => 'adm-galeries',
         ]);
     }
 
@@ -73,6 +76,7 @@ class AdminGalerieController extends AbstractController
         return $this->renderForm('admin_galerie/edit.html.twig', [
             'galerie' => $galerie,
             'form' => $form,
+            'active' => 'adm-galeries',
         ]);
     }
 

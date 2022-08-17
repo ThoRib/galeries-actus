@@ -20,7 +20,7 @@ class ImagesExpoType extends AbstractType
         $builder
             ->add('titre', TextType::class, ["label"=>"Titre","required"=>true])
             ->add('description', TextareaType::class, ["label"=>"Description", "required"=>false])
-            ->add('expositions', EntityType::class, ["class"=>Exposition::class, "label"=>"Exposition", "multiple"=>true,"by_reference"=>false, "required"=>false])
+            ->add('expositions', EntityType::class, ["class"=>Exposition::class, "label"=>"Exposition(s) associée(s)", "multiple"=>true, "expanded"=>true, "by_reference"=>false, "required"=>false])
             ->add('imageFile', FileType::class, [
                 "label"=>"Image :",
                 "required"=>false,
@@ -32,9 +32,10 @@ class ImagesExpoType extends AbstractType
                             "image/jpeg",
                             "image/png",
                             "image/tiff",
-                            "image/webp"
+                            "image/webp",
+                            "image/svg+xml"
                         ],
-                        "mimeTypesMessage" => "Les formats d'images acceptés sont gif, jpeg, png, tiff, webp"
+                        "mimeTypesMessage" => "Les formats d'images acceptés sont gif, jpeg, png, tiff, webp, svf"
                     ])
                 ]
                ])
