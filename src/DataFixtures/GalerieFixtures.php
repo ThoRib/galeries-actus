@@ -33,7 +33,7 @@ class GalerieFixtures extends Fixture
         $galerie->setHoraires("Tous les jours de 11h00 à 21h00 sauf le lundi");
         $galerie->setActif(true);
         $galerie->setDateCreation(\DateTimeImmutable::createFromFormat('d-m-Y', '04-08-2022'));
-        $galerie->setImageName('blc-1.svg');
+        $galerie->setImageName('espace-mauve.svg');
         $manager->persist($galerie);
         $this->addReference(self::ESPACE_1, $galerie);
 
@@ -47,7 +47,7 @@ class GalerieFixtures extends Fixture
         $galerie->setHoraires("Tous les jours sauf le lundi, de midi à minuit");
         $galerie->setActif(true);
         $galerie->setDateCreation(\DateTimeImmutable::createFromFormat('d-m-Y', '04-08-2022'));
-        $galerie->setImageName('blc-2.svg');
+        $galerie->setImageName('espace-bleu.svg');
         $manager->persist($galerie);
         $this->addReference(self::ESPACE_2, $galerie);
 
@@ -61,7 +61,7 @@ class GalerieFixtures extends Fixture
         $galerie->setHoraires("Tous les jours de 10h à 18h sauf le lundi. Nocturne le mardi, jusqu'à à 22h");
         $galerie->setActif(true);
         $galerie->setDateCreation(\DateTimeImmutable::createFromFormat('d-m-Y', '04-08-2022'));
-        $galerie->setImageName('blc-3.svg');
+        $galerie->setImageName('espace-vert.svg');
         $manager->persist($galerie);
         $this->addReference(self::ESPACE_3, $galerie);
 

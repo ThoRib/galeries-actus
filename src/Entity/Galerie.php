@@ -66,11 +66,6 @@ class Galerie
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $website;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     private $horaires;
 
     /**
@@ -227,18 +222,6 @@ class Galerie
     public function setPresentation(?string $presentation): self
     {
         $this->presentation = $presentation;
-
-        return $this;
-    }
-
-    public function getWebsite(): ?string
-    {
-        return $this->website;
-    }
-
-    public function setWebsite(?string $website): self
-    {
-        $this->website = $website;
 
         return $this;
     }

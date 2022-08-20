@@ -1,9 +1,10 @@
 /* ~~~~~~~~~~~~~~~~ GLOBAL ~~~~~~~~~~~~~~~ */
 
 body {
+    font-family: sans-serif;
+    font-family: 'Karla', sans-serif;
     min-height: 100vh;
     background: linear-gradient(45deg, rgb(74, 71, 181) 0%, rgb(76, 131, 164) 35%, rgb(43, 214, 232) 100%); 
-    font-family: sans-serif;
     color: #3c3c3c;
     margin: 0;
 }
@@ -24,11 +25,19 @@ a {
 
 .lien {
     display: inline-block;
-    background-color: #3c3c3c;
-    color: bisque;
-    padding: 10px;
+    /* background-color: #3c3c3c; */
+    background-color: rgb(74, 71, 181);
+    color: beige;
+    padding: 8px;
     margin: 5px 0;
+    border: 2px solid rgb(74, 71, 181);
     border-radius: 2px;
+}
+
+.lien:hover {
+    background-color: beige;
+    color:rgb(74, 71, 181);
+
 }
 
 .btn {
@@ -38,57 +47,79 @@ a {
     font-size: 1rem;
 }
 
+.global-contain {
+    padding: 135px 20px 35px;
+    background-color: beige;
+}
+
 /* ~~~~~~~~~~~~~~~~ FRONT-HEADER ~~~~~~~~~~~~~~~~ */
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 10;
+    background-color: #35bdd4;
+}
+
+header h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.4rem;
+    letter-spacing: 0.2rem;
+    color:rgb(74, 71, 181);
 }
 
 .front-nav ul {
     display: flex;
     justify-content: space-around;
     padding: 20px;
+    
 }
 
 .front-nav li {
     margin: 0 5px;
 }
 
-.front-nav a {
-    color:#3c3c3c;
-    padding: 10px;
+.front-nav a::after {
+    content:"/";
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 10px;
 }
 
-.front-nav .active {
-    color: purple;
+.front-nav a {
+    color:rgb(74, 71, 181);
+    
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+.front-nav .active,
+.front-nav a:hover {
+    color: beige;
 }
 
 /* ~~~~~~~~~~~~ FRONT-ACCUEIL ~~~~~~~~~~~~ */
-
-.all-espaces > div {
-    background: linear-gradient(45deg, rgb(74, 71, 181) 0%, rgb(76, 131, 164) 35%, rgb(43, 214, 232) 100%);
+.espace {
+    margin: 30px 0;
 }
 
-.all-espaces > div > div {
+.espace-txt {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.all-espaces p {
-    line-height: 2rem;
+.espaces p {
+    line-height: 1.6rem;
 }
 
-.all-espaces h2 {
+.espaces h2 {
     margin: 0;
 }
-.all-espaces img {
-    max-width: 650px;
-    height: auto;
-}
 
-/* ~~~~~~~~~~~~~~ FRONT-ALL-EXPOS ~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~ FRONT-ALL-EXPOS AND ONE-EXPO ~~~~~~~~~~~~~ */
 
 .all-expos > div {
     padding: 15px;
@@ -112,9 +143,14 @@ header {
     font-size: 0.8rem;
 }
 
-.all-expos img,
-.expo img {
-    max-width: 500px;
+.liens-expo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.fav {
+    width: 50px;
     height: auto;
 }
 

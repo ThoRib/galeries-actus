@@ -67,6 +67,19 @@ class AccueilController extends AbstractController
     }
 
     /**
+     * @Route("/espace/{id}", name="app_galerie")
+     */
+    public function seeEspace(GalerieRepository $galerieRepository, string $id): Response
+    {
+        $galerie = $galerieRepository->findOneBy(["id" => $id]);
+
+        return $this->render('accueil/one-espace.html.twig', [
+            'galerie' => $galerie,
+            'active' => 'accueil'
+        ]);
+    }
+
+    /**
      * @Route("/exposition/{id}", name="app_expo")
      */
     public function seeExpo(ExpositionRepository $expositionRepository,string $id): Response 

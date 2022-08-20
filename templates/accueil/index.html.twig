@@ -1,20 +1,22 @@
 {% extends 'base.html.twig' %}
 {% block title %}Bienvenue{% endblock %}
 {% block body %}
-<div class="all-espaces">
-    <h2>Nos Espaces</h2>
-        {% for galerie in galeries %}
-            <div>
-                <h2>{{ galerie.nom }}</h2>
-                <div>
-                    {% if galerie.imageName %}
-                        <img src="{{ asset('images/galeries/'~galerie.imageName) }}" />
-                    {% endif %}
-                    <p>{{ galerie.presentation }}</p>
-                </div>
-                <a href="{{ path('app_galerie',{'id':galerie.id}) }}" class="lien">{{ galerie.nom|upper }}</a>
+    {% for galerie in galeries %}
+        <div class="row espace">
+            <div class="col-md-6 col-12">
+                {% if galerie.imageName %}
+                    <img src="{{ asset('images/galeries/'~galerie.imageName) }}" class="img-fluid" />
+                {% endif %}
             </div>
-        {% endfor %}
-</div>
-
+            <div class="col-md-6 col-12 espace-txt">
+                <div>
+                    <h2>{{ galerie.nom }}</h2>
+                    <p>{{ galerie.presentation | u.truncate(225, '...') }}</p>
+                </div>
+                <div>
+                    <a href="{{ path('app_galerie',{'id':galerie.id}) }}" class="lien">{{ galerie.nom|upper }}</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}
