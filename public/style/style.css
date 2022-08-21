@@ -57,24 +57,41 @@ a {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     position: fixed;
     z-index: 10;
+    width: 100%;
     background-color: #35bdd4;
+}
+
+header > div {
+    background-color: #35bdd4;
+    padding: 2px 10px 2px;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+header > div img {
+    display: none;
+    opacity: 0;
 }
 
 header h1 {
     font-family: 'Anton', sans-serif;
     font-size: 2.4rem;
     letter-spacing: 0.2rem;
-    color:rgb(74, 71, 181);
+    color:rgb(74, 71, 181); 
 }
 
 .front-nav ul {
     display: flex;
     justify-content: space-around;
     padding: 20px;
-    
+}
+
+.nav-close {
+    margin-top: 0;
 }
 
 .front-nav li {
@@ -90,7 +107,6 @@ header h1 {
 
 .front-nav a {
     color:rgb(74, 71, 181);
-    
     font-size: 1.05rem;
     font-weight: bold;
 }
@@ -103,6 +119,9 @@ header h1 {
 /* ~~~~~~~~~~~~ FRONT-ACCUEIL ~~~~~~~~~~~~ */
 .espace {
     margin: 30px 0;
+    padding: 15px;
+    background-color: #fffff3;
+    border-radius: 3px;
 }
 
 .espace-txt {
@@ -119,29 +138,77 @@ header h1 {
     margin: 0;
 }
 
-/* ~~~~~~~~~~~~~~ FRONT-ALL-EXPOS AND ONE-EXPO ~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~ FRONT-ONE-ESPACE ~~~~~~~~~~~~~ */
 
-.all-expos > div {
-    padding: 15px;
-    margin: 15px;
+.one-espace,
+.espace-expo,
+.espace-evenement,
+.infos-espace {
+    background-color: #fffff3;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 0 10px 25px 10px;
 }
 
-.all-expos h2,
-.expo h2 {
-    font-weight: normal;
+.one-espace h1 {
+    color:rgb(74, 71, 181);
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.actus-espace h2 {
+    color: #3c3c3c;
+    font-weight: bold;
+    font-size: 1.6rem;
+    padding: 0 0 15px 15px;
+}
+
+.actus-espace h3,
+.infos-espace h3 {
+    color:rgb(74, 71, 181);
+    font-weight: bold;
     font-size: 1.4rem;
 }
 
-.all-expos h3,
-.expo h3 {
+.actus-espace h4 {
+    color:#3c3c3c;
     font-weight: normal;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
-.all-expos p
-.expo p {
-    font-size: 0.8rem;
+.actus-espace a  {
+    float: right;
 }
+
+/* ~~~~~~~~~~~~~~ FRONT-ALL-EXPOS ~~~~~~~~~~~~~ */
+
+.fiche-expo {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #fffff3;border-radius: 3px;
+}
+
+.fiche-expo h2 {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color:rgb(74, 71, 181);
+}
+
+.fiche-expo h3 {
+    font-weight: normal;
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.fiche-expo li a {
+    color: rgb(74, 71, 181);
+}
+
+.fiche-expo li a:hover {
+    text-decoration: underline;
+}
+
+/* ~~~~~~~~~~~~~~ FRONT-ONE-EXPO ~~~~~~~~~~~~~ */
 
 .liens-expo {
     display: flex;
@@ -156,16 +223,48 @@ header h1 {
 
 /* ~~~~~~~~~~ FRONT-ALL-ARTISTES ~~~~~~~~~ */
 
-.all-artistes img {
-    max-width: 350px;
-    height: auto;
+.fiche-artiste {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #fffff3;
+    border-radius: 3px;
 }
+
+.fiche-artiste h2 {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color:rgb(74, 71, 181);
+    margin-top: 15px;
+}
+
 
 /* ~~~~~~~~~~ FRONT-ONE-ARTISTE ~~~~~~~~~ */
 
-.one-artiste img {
-    max-width: 650px;
-    height: auto;
+.one-presentation {
+    padding: 15px;
+    background-color: #fffff3;
+    border-radius: 3px;
+}
+
+.one-presentation h1 {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color:rgb(74, 71, 181);
+}
+
+.one-presentation h2 {
+    font-size: 1.2rem;
+}
+
+.slide {
+    margin: 20px 0;
+}
+
+/* ~~~~~~~~~~~~~~~~ PERSO ~~~~~~~~~~~~~~~~ */
+.perso {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color:rgb(74, 71, 181);
 }
 
 /* ~~~~~~~~~~~~~~~~ ADMIN ~~~~~~~~~~~~~~~~ */
@@ -327,4 +426,47 @@ header h1 {
     width: 200px;
     height: auto;
     padding: 5px 5px 3px 5px;
+}
+
+@media screen and (max-width: 1200px) {
+    
+    header {
+        display: inline;
+    }
+
+    header > div img {
+        display: block;
+        opacity: 1;
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        top: 28px;
+        right: 32px;
+        padding: 5px;
+        border-radius: 2px;
+    }
+
+    header > div img:hover {
+        cursor: pointer;
+        background-color: beige;
+    }
+
+    .front-nav a::after {
+        content:"";
+    }
+
+    .front-nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        line-height: 1.2;
+        transition-duration: 0.5s;
+    }
+
+    .nav-close {
+        margin-top: -335px;
+    }
+    
+
 }

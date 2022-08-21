@@ -2,7 +2,7 @@
 {% block title %}{{ expo.titre }}{% endblock %}
 {% block body %}
     <div class="row justify-content-center expo">
-        <div class="col-xl-9 col-lg-10 col-md-11">
+        <div class="col-xl-9 col-lg-10 col-md-11 one-presentation">
             <h1>{{ expo.titre|upper }}</h1>
             <h2>{{ expo.sousTitre }}</h2>
             {% if expo.imagesExpo|length > 0 %}
@@ -49,16 +49,17 @@
             <p>{{ expo.presentation }}</p>
         </div><!--col-->
     </div><!--row-->
+
     <div class="row justify-content-center expo">
-        <ul class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+        <ul class="col-xl-3 col-lg-3 col-md-4 col-sm-6 one-presentation">
             <li>Lieu : {{ expo.galerie.nom }}</li>
             <li>Adresse : {{ expo.galerie.adresse }}</li>
         </ul>
-        <ul class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+        <ul class="col-xl-3 col-lg-3 col-md-4 col-sm-6 one-presentation">
             <li>Date de début : {{ expo.dateDebut|date("d/m/Y") }}</li>
             <li>Date de fin : {{ expo.dateFin|date("d/m/Y") }}</li>
         </ul>
-        <div class="col-xl-3 col-lg-4 col-md-3 col-sm-12 liens-expo">
+        <div class="col-xl-3 col-lg-4 col-md-3 col-sm-12 liens-expo one-presentation">
             <a href="{{ path('app_galerie',{'id':expo.galerie.id}) }}" class="lien ">{{ expo.galerie.nom|upper }}</a>
         {% if is_granted('ROLE_USER') %}
             <a href="{{ path('add_favoris', {'id': expo.id}) }}"><img src="{{ asset('images/icones/epingle.svg') }}" class="fav" ></a>

@@ -1,11 +1,28 @@
 {% extends 'base.html.twig' %}
 {% block title %}Espace Personnel{% endblock %}
 {% block body %}
-<h1>Hello {{ user.username }}</h1>
-<h2>Mes favoris :</h2>
-{% for expo in user.favoris %}
-    <div class="border p-3 my-3">
-        {{ expo.titre }}
-    </div>
-{% endfor %}
+
+<h1 class="perso">Hello {{ user.username }}, retrouve ici tes expos préférées : </h1>
+
+<div class="all-expos row">
+        {% for expo in user.favoris %}
+        <div class="col-lg-4 col-md-6">
+            <div class="fiche-expo">
+                <h2>{{ expo.titre }}</h2>
+                {% if expo.imageName %}
+                    <img src="{{ asset('images/annonces/'~expo.imageName) }}" class="img-fluid"/>
+                {% endif %}
+                <h3>{{ expo.sousTitre }}</h3>
+                <ul>
+                    <li>Date de début : {{ expo.dateDebut|date("d/m/Y") }}</li>
+                    <li>Date de fin : {{ expo.dateFin|date("d/m/Y") }}</li>
+                    <li>Lieu : <a href="{{ path('app_galerie',{'id':expo.galerie.id}) }}" >{{ expo.galerie.nom }}</a></li>
+                </ul>
+                <a href="{{ path('app_expo',{'id':expo.id}) }}" class="lien">Voir la présentation</a>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+
+
 {% endblock %}

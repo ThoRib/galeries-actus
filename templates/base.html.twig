@@ -13,12 +13,13 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        <header class="container-fluid">
+        <header>
             <div>
                 <h1>Les Espaces<br>Multiples</h1>
+                <img src="{{ asset('images/icones/three-horizontal-lines.svg') }}" id="clic-nav" >
             </div>
             <nav class="front-nav">
-                <ul>
+                <ul class="nav-close" id="nav-toogle">
                     <li><a href="{{ path("app_accueil") }}" {% if active == 'accueil' %} class="active" {% endif %} >Les Espaces</a></li>
                     <li><a href="{{ path("app_les_expos") }}" {% if active == 'expos' %} class="active" {% endif %}>Les Expositions</a></li>
                     <li><a href="{{ path("app_les_artistes") }}" {% if active == 'artistes' %} class="active" {% endif %}>Les Artistes</a></li>
@@ -35,6 +36,12 @@
         </header>
         <div class="container-xxl global-contain">
             {% block body %}{% endblock %}
+            <script src="{{ asset('js/navbar.js') }}"></script>
+            <script>
+            window.addEventListener('load', (event) => {
+                openCloseNav();
+            });
+            </script>
             {% block javascripts %}{% endblock %}
         </div>
     </body>

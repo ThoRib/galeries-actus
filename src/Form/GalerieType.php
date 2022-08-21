@@ -29,7 +29,6 @@ class GalerieType extends AbstractType
             ->add('telMobile', TelType::class, ["label"=>"Tél. Mobile", "required"=>false])
             ->add('email', EmailType::class, ["label"=>"Email", "required"=>false])
             ->add('presentation', CKEditorType::class, ["label"=>"Presentation", "required"=>false, "config"=>["toolbar"=>"standard", "language"=>"fr", "uiColor"=>"#75d8ff" ]])
-            ->add('website', UrlType::class, ["label"=>"Site Web", "required"=>false] )
             ->add('horaires', TextType::class, ["label"=>"Horaires", "required"=>false])
             ->add('actif', CheckboxType::class, ["label"=>"Visible", "required"=>false])
             ->add('imageFile', FileType::class, [

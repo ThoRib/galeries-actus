@@ -12,7 +12,8 @@
                 {# <th>Id</th> #}
                 <th>Titre</th>
                 <th>Date</th>
-                <th>Illustration</th>
+                <th>Horaire</th>
+                {# <th>Illustration</th> #}
                 <th>Description</th>
                 <th>actions</th>
             </tr>
@@ -22,8 +23,9 @@
             <tr>
                 {# <td>{{ evenement.id }}</td> #}
                 <td>{{ evenement.titre }}</td>
-                <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ evenement.illustration }}</td>
+                <td>{{ evenement.date ? evenement.date|date('d-m-Y') : '' }}</td>
+                <td>{{ evenement.Horaire }}</td>
+                {# <td>{{ evenement.illustration }}</td> #}
                 <td>{{ evenement.description }}</td>
                 <td>
                     <a href="{{ path('app_admin_evenements_show', {'id': evenement.id}) }}">Voir</a>

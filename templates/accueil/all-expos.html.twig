@@ -1,19 +1,23 @@
 {% extends 'base.html.twig' %}
 {% block title %}Les Expositions{% endblock %}
 {% block body %}
-<div class="all-expos">
-    <h1>Les expositions</h1>
+<h1>Les Expositions</h1>
+<div class="all-expos row">
         {% for expo in expos %}
-        <div>
-            <h2>{{ expo.titre }}</h2>
-            {% if expo.imageName %}
-                <img src="{{ asset('images/annonces/'~expo.imageName) }}" />
-            {% endif %}
-            <h3>{{ expo.sousTitre }}</h3>
-            <p>Date de début : {{ expo.dateDebut|date("d/m/Y") }}</p>
-            <p>Date de fin : {{ expo.dateFin|date("d/m/Y") }}</p>
-            <p>Lieu d'exposition : {{ expo.galerie.nom }}</p>
-            <a href="{{ path('app_expo',{'id':expo.id}) }}" class="lien">Voir la présentation</a>
+        <div class="col-lg-4 col-md-6">
+            <div class="fiche-expo">
+                <h2>{{ expo.titre }}</h2>
+                {% if expo.imageName %}
+                    <img src="{{ asset('images/annonces/'~expo.imageName) }}" class="img-fluid"/>
+                {% endif %}
+                <h3>{{ expo.sousTitre }}</h3>
+                <ul>
+                    <li>Date de début : {{ expo.dateDebut|date("d/m/Y") }}</li>
+                    <li>Date de fin : {{ expo.dateFin|date("d/m/Y") }}</li>
+                    <li>Lieu : <a href="{{ path('app_galerie',{'id':expo.galerie.id}) }}" >{{ expo.galerie.nom }}</a></li>
+                </ul>
+                <a href="{{ path('app_expo',{'id':expo.id}) }}" class="lien">Voir la présentation</a>
+            </div>
         </div>
         {% endfor %}
 </div>

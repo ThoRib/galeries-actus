@@ -1,17 +1,20 @@
 {% extends 'base.html.twig' %}
 {% block title %}Les Artistes{% endblock %}
 {% block body %}
-<div class="all-artistes">
-    <div class="contain-expos">
-    <h1>Les Artistes</h1>
+<h1>les Artistes</h1>
+    <div class="row">
         {% for artiste in artistes %}
-        <div>
-            <h2>{{ artiste.nom }}</h2>
-            <img src="{{ asset('images/oeuvres/'~artiste.oeuvres[0].imageName) }}" /> 
-            <a href="{{ path('app_artiste',{'id':artiste.id}) }}" class="lien">Voir la présentation</a>
+        <div class="col-lg-4 col-md-6">
+            <div class="fiche-artiste">
+                {% if artiste.oeuvres[0].imageName %}
+                    <img src="{{ asset('images/oeuvres/'~artiste.oeuvres[0].imageName) }}" class="img-fluid"/> 
+                {% endif %}
+                <h2>{{ artiste.nom }}</h2>
+                <p>{{ artiste.presentation | u.truncate(105, '...') }}</p>
+                <a href="{{ path('app_artiste',{'id':artiste.id}) }}" class="lien">Voir la présentation</a>
+            </div>
         </div>
         {% endfor %}
     </div>
-</div>
 
 {% endblock %}
