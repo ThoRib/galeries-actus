@@ -34,6 +34,20 @@ class FrontUserController extends AbstractController
         $entityManagerInterface->flush();
         return $this->redirectToRoute('app_expo', ['id' => $id]);
     }
+
+    /**
+     * @Route("/remove-favoris/{id}", name="remove_favoris")
+     */
+    public function removeFavoris(int $id, ExpositionRepository $expositionRepository, EntityManagerInterface $entityManagerInterface) 
+    {
+        $expo = $expositionRepository->find($id);
+        $user = $this->getUser();
+        $user->removeFavori($expo);
+        $entityManagerInterface->persist($user);
+        $entityManagerInterface->flush();
+        return $this->redirectToRoute('app_expo', ['id' => $id]);
+    }
+
 }
 
 

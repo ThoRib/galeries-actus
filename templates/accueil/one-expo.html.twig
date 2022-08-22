@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ expo.titre }}{% endblock %}
 {% block body %}
-    <div class="row justify-content-center expo">
+    <div class="row justify-content-center">
         <div class="col-xl-9 col-lg-10 col-md-11 one-presentation">
             <h1>{{ expo.titre|upper }}</h1>
             <h2>{{ expo.sousTitre }}</h2>
@@ -50,14 +50,14 @@
         </div><!--col-->
     </div><!--row-->
 
-    <div class="row justify-content-center expo">
+    <div class="row justify-content-center">
         <ul class="col-xl-3 col-lg-3 col-md-4 col-sm-6 one-presentation">
             <li>Lieu : {{ expo.galerie.nom }}</li>
             <li>Adresse : {{ expo.galerie.adresse }}</li>
         </ul>
         <ul class="col-xl-3 col-lg-3 col-md-4 col-sm-6 one-presentation">
-            <li>Date de début : {{ expo.dateDebut|date("d/m/Y") }}</li>
-            <li>Date de fin : {{ expo.dateFin|date("d/m/Y") }}</li>
+            <li>Date de début : {{ expo.dateDebut | date("d/m/Y") }}</li>
+            <li>Date de fin : {{ expo.dateFin | date("d/m/Y") }}</li>
         </ul>
         <div class="col-xl-3 col-lg-4 col-md-3 col-sm-12 liens-expo one-presentation">
             <a href="{{ path('app_galerie',{'id':expo.galerie.id}) }}" class="lien ">{{ expo.galerie.nom|upper }}</a>
@@ -66,6 +66,28 @@
         {% endif %}
         </div>
     </div>
+
+    <div class="row justify-content-center">
+        <div class="col-xl-9 col-lg-10 col-md-11 one-presentation">
+            {% for commentaire in expo.commentaires %}
+                <div class="commentaire">
+                <p>Le {{ commentaire.createdAt | date("d/m/Y") }} <span>{{ commentaire.user }}</span> à laissé un commentaire : </p>
+                <p>{{ commentaire }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if is_granted('ROLE_USER') %}
+    <div class="row justify-content-center">
+        <div class="col-xl-9 col-lg-10 col-md-11 one-presentation">
+            {{ form_start(form)}}
+            {{ form_widget(form) }}
+            <button type="submit">Commenter</button>
+            {{ form_end(form) }}
+        <div>
+    </div>
+    {% endif %}
 
 {% endblock %}
 

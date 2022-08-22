@@ -221,6 +221,25 @@ header h1 {
     height: auto;
 }
 
+.commentaire {
+    border: 2px solid #35bdd4;
+    border-radius: 3px;
+    margin: 5px 0;
+    padding : 10px;
+}
+
+.commentaire p {
+    margin-bottom: 5px;
+}
+
+.commentaire span {
+    color:rgb(74, 71, 181);
+}
+
+.commentaire p:last-of-type {
+    color:rgb(74, 71, 181);
+}
+
 /* ~~~~~~~~~~ FRONT-ALL-ARTISTES ~~~~~~~~~ */
 
 .fiche-artiste {
@@ -260,11 +279,46 @@ header h1 {
     margin: 20px 0;
 }
 
+/* ~~~~~~~~~~ FRONT-ALL-EVENTS ~~~~~~~~~ */
+
+.event-title {
+    font-weight: bold;
+    font-size: 2rem;
+    color:rgb(74, 71, 181);
+}
+
+.event {
+    border: 3px solid rgb(74, 71, 181);
+    background-color: #fffff3;;
+    border-radius: 5px;
+    margin: 10px 5px;
+    padding: 5px;
+}
+
+.event h2 {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color:rgb(74, 71, 181);
+}
+
+.event a {
+    color: rgb(74, 71, 181);
+}
+
+.event a:hover {
+    text-decoration: underline;
+}
+
 /* ~~~~~~~~~~~~~~~~ PERSO ~~~~~~~~~~~~~~~~ */
 .perso {
     font-weight: bold;
     font-size: 1.8rem;
     color:rgb(74, 71, 181);
+}
+
+.sup-fav {
+    display: flex;
+    justify-content: space-between;
 }
 
 /* ~~~~~~~~~~~~~~~~ ADMIN ~~~~~~~~~~~~~~~~ */

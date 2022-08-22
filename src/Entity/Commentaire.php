@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CommentaireRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Commentaire
 {
@@ -38,6 +39,21 @@ class Commentaire
      */
     private $exposition;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires")
+     */
+    private $user;
+
+
+// ====================================================== //
+// ==================== MAGIC METHODE =================== //
+// ====================================================== //
+
+    public function __toString()
+    {
+        return $this->texte;
+    }
+
 // ====================================================== //
 // =================== GETTER / SETTER ================== //
 // ====================================================== //
@@ -64,11 +80,13 @@ class Commentaire
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAt(): void
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = new \DateTimeImmutable();
 
-        return $this;
     }
 
     public function getExposition(): ?Exposition
@@ -79,6 +97,18 @@ class Commentaire
     public function setExposition(?Exposition $exposition): self
     {
         $this->exposition = $exposition;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
