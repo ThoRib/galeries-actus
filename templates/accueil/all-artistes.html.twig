@@ -10,8 +10,8 @@
                     <img src="{{ asset('images/oeuvres/'~artiste.oeuvres[0].imageName) }}" class="img-fluid"/> 
                 {% endif %}
                 <h2>{{ artiste.nom }}</h2>
-                <p>{{ artiste.presentation | u.truncate(105, '...') }}</p>
-                <a href="{{ path('app_artiste',{'id':artiste.id}) }}" class="lien">Voir la présentation</a>
+                {{ artiste.presentation | u.truncate(105, '...') | raw }}
+                <div><a href="{{ path('app_artiste',{'id':artiste.id}) }}" class="lien">Voir la présentation</a></div>
             </div>
         </div>
         {% endfor %}

@@ -6,12 +6,12 @@ use App\Entity\Galerie;
 use App\Entity\Evenements;
 use App\Entity\TypeEvenement;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class EvenementsType extends AbstractType
 {
@@ -19,10 +19,10 @@ class EvenementsType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class, ["label"=>"Titre : ", "required"=>true])
-            ->add('date', DateType::class, ["label"=>"Date", "required"=>true])
+            ->add('date', DateType::class, ["label"=>"Date","format"=>"dd MM yyyy", "required"=>true])
             ->add('horaire', TextType::class, ["label"=>"Horaires : ", "required"=>true])
             ->remove('illustration')
-            ->add('description', TextareaType::class, ["label"=>"Description : ","required"=>false])
+            ->add('description', CKEditorType::class, ["label"=>"Presentation", "required"=>false, "config"=>["toolbar"=>"standard", "language"=>"fr", "uiColor"=>"#75d8ff" ]])
             ->add('type' , EntityType::class, ["class"=>TypeEvenement::class, "label"=>"Type d'evenement"])
             ->add('galerie', EntityType::class, ["class"=>Galerie::class, "label"=>"Galerie"])
         ;

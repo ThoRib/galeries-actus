@@ -2,18 +2,18 @@
 
 namespace App\Form;
 
-use App\Entity\Artiste;
 use App\Entity\Media;
 use App\Entity\Oeuvre;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Artiste;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class OeuvreType extends AbstractType
 {
@@ -21,7 +21,7 @@ class OeuvreType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class, ["label"=>"Titre","required"=>true])
-            ->add('description', TextareaType::class, ["label"=>"Description", "required"=>false])
+            ->add('description', CKEditorType::class, ["label"=>"Presentation", "required"=>false, "config"=>["toolbar"=>"standard", "language"=>"fr", "uiColor"=>"#75d8ff" ]])
             ->add('actif', CheckboxType::class, ["label"=>"Visible", "required"=>false])
             ->add('anneeCreation', TextType::class, ["label"=>"Titre","required"=>false])
             ->add('imageFile', FileType::class, [

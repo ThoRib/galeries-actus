@@ -2,19 +2,19 @@
 
 namespace App\Form;
 
-use App\Entity\Exposition;
 use App\Entity\Galerie;
+use App\Entity\Exposition;
 use App\Entity\ImagesExpo;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ExpositionType extends AbstractType
 {
@@ -23,10 +23,10 @@ class ExpositionType extends AbstractType
         $builder
             ->add('titre', TextType::class, ["label"=>"Titre","required"=>true])
             ->add('sousTitre', TextType::class, ["label"=>"Sous titre","required"=>false])
-            ->add('dateDebut', DateType::class, ["format"=>"dd-MM-yyyy"])
-            ->add('dateFin', DateType::class, ["format"=>"dd-MM-yyyy"])
+            ->add('dateDebut', DateType::class, ["format"=>"dd MM yyyy"])
+            ->add('dateFin', DateType::class, ["format"=>"dd MM yyyy"])
             ->add('galerie', EntityType::class, ["class"=>Galerie::class, "label"=>"Espace"])
-            ->add('presentation', TextareaType::class, ["label"=>"Présentation","required"=>false])
+            ->add('presentation', CKEditorType::class, ["label"=>"Presentation", "required"=>false, "config"=>["toolbar"=>"standard", "language"=>"fr", "uiColor"=>"#75d8ff" ]])
             ->add('actif', CheckboxType::class, ["label"=>"Visible", "required"=>false])
             ->add('imageFile', FileType::class, [
                 "label"=>"Image de couverture",

@@ -5,7 +5,7 @@
 <div class="row one-espace">
     <div class="col-md-7">
         <h1>{{ galerie.nom|upper }}</h1>
-        <p>{{ galerie.presentation }}</p>
+        {{ galerie.presentation | raw }}
     </div>
     <div class="col-md-5 align-self-center">
         {% if galerie.imageName %}
@@ -25,7 +25,7 @@
                         {% if exposition.imageName %}
                             <img src="{{ asset('images/annonces/'~exposition.imageName) }}" class="img-fluid" />
                         {% endif %}
-                        <p>{{ exposition.presentation | u.truncate(225, '...') }}</p>
+                        {{ exposition.presentation | u.truncate(225, '...') | raw }}
                         <div class="row">
                             <ul class="col-sm-6">
                                 <li>Début : {{ exposition.dateDebut|date("d/m/Y") }}</li>
@@ -45,13 +45,21 @@
                 {% if date(evenement.date) > date('-1days') %}
                     <div class="espace-evenement">
                         <h3>{{ evenement.titre }}</h3>
-                        <p>{{ evenement.Description }}
+                        {{ evenement.Description | raw }}
                         <ul>
                         <li>Date : {{ evenement.date|date("d/m/Y") }}</li>
                         <li>Horaire : {{ evenement.Horaire }}</li>  
                         </ul>
                     </div>
                 {% endif %}
+            {% endfor %}
+        <h2>Nos artistes</h2>
+            {% for artiste in galerie.artistes %}
+                <div class="espace-artiste">
+                    <h3>{{ artiste.nom}} {{ artiste.prenom }}</h3>
+                    {{ artiste.presentation | raw }}
+                    <div class="voir"><a href="{{ path('app_artiste',{'id':artiste.id}) }}" class="lien">Voir la présentation</a></div>
+                </div>
             {% endfor %}
     </div>
 </div>

@@ -2,11 +2,11 @@
 {% block title %}{{ expo.titre }}{% endblock %}
 {% block body %}
     <div class="row justify-content-center">
-        <div class="col-xl-9 col-lg-10 col-md-11 one-presentation">
+        <div class="col-xl-9 col-lg-10 col-md-11 one-expo">
             <h1>{{ expo.titre|upper }}</h1>
             <h2>{{ expo.sousTitre }}</h2>
             {% if expo.imagesExpo|length > 0 %}
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div id="carouselExampleIndicators" class="carousel slide slide-expo" data-bs-ride="true">
 
                     <div class="carousel-indicators">
                         {# Création des boutons liés à chaque image #}
@@ -46,7 +46,7 @@
                     </button>
                 </div>
             {% endif %}
-            <p>{{ expo.presentation }}</p>
+            {{ expo.presentation | raw }}
         </div><!--col-->
     </div><!--row-->
 
@@ -80,7 +80,7 @@
 
     {% if is_granted('ROLE_USER') %}
     <div class="row justify-content-center">
-        <div class="col-xl-9 col-lg-10 col-md-11 one-presentation">
+        <div class="col-xl-9 col-lg-10 col-md-11 one-presentation form-com">
             {{ form_start(form)}}
             {{ form_widget(form) }}
             <button type="submit">Commenter</button>

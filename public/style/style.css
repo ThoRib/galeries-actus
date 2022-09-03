@@ -25,9 +25,8 @@ a {
 
 .lien {
     display: inline-block;
-    /* background-color: #3c3c3c; */
     background-color: rgb(74, 71, 181);
-    color: beige;
+    color: #fffff3;
     padding: 8px;
     margin: 5px 0;
     border: 2px solid rgb(74, 71, 181);
@@ -35,7 +34,7 @@ a {
 }
 
 .lien:hover {
-    background-color: beige;
+    background-color: #fffff3;
     color:rgb(74, 71, 181);
 
 }
@@ -113,7 +112,7 @@ header h1 {
 
 .front-nav .active,
 .front-nav a:hover {
-    color: beige;
+    color: #fffff3;
 }
 
 /* ~~~~~~~~~~~~ FRONT-ACCUEIL ~~~~~~~~~~~~ */
@@ -143,6 +142,7 @@ header h1 {
 .one-espace,
 .espace-expo,
 .espace-evenement,
+.espace-artiste,
 .infos-espace {
     background-color: #fffff3;
     padding: 10px;
@@ -176,8 +176,16 @@ header h1 {
     font-size: 1.2rem;
 }
 
-.actus-espace a  {
+.espace-expo a  {
     float: right;
+}
+
+.espace-expo img {
+    margin: 15px 0;
+}
+
+.espace-artiste .voir {
+    margin-top: 10px;
 }
 
 /* ~~~~~~~~~~~~~~ FRONT-ALL-EXPOS ~~~~~~~~~~~~~ */
@@ -210,6 +218,26 @@ header h1 {
 
 /* ~~~~~~~~~~~~~~ FRONT-ONE-EXPO ~~~~~~~~~~~~~ */
 
+.one-expo {
+    padding: 15px;
+    background-color: #fffff3;
+    border-radius: 3px;
+}
+
+.one-expo h1 {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color:rgb(74, 71, 181);
+}
+
+.one-expo h2 {
+    font-size: 1.2rem;
+}
+
+.slide-expo {
+    margin: 15px 0;
+}
+
 .liens-expo {
     display: flex;
     justify-content: space-around;
@@ -219,6 +247,29 @@ header h1 {
 .fav {
     width: 50px;
     height: auto;
+}
+
+
+.form-com textarea {
+    padding: 10px;
+    border: 2px solid #75d8ff;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    color: #3c3c3c;
+}
+
+.form-com label {
+    vertical-align: top;
+    margin-bottom: 15px;
+}
+
+.form-com button {
+    background-color: #75d8ff;
+    padding: 10px;
+    margin: 5px;
+    font-size: 1rem;
+    float: right;
 }
 
 .commentaire {
@@ -271,12 +322,8 @@ header h1 {
     color:rgb(74, 71, 181);
 }
 
-.one-presentation h2 {
-    font-size: 1.2rem;
-}
-
-.slide {
-    margin: 20px 0;
+.oeuvre {
+    margin: 15px 0;
 }
 
 /* ~~~~~~~~~~ FRONT-ALL-EVENTS ~~~~~~~~~ */
@@ -289,7 +336,7 @@ header h1 {
 
 .event {
     border: 3px solid rgb(74, 71, 181);
-    background-color: #fffff3;;
+    background-color: #fffff3;
     border-radius: 5px;
     margin: 10px 5px;
     padding: 5px;
@@ -336,19 +383,17 @@ header h1 {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    padding: 20px;
-    
-}
-
-.admin-nav ul li {
-    margin: 15px 0;
 }
 
 .admin-nav a {
+    display: block;
     color:#d8fbff;
+    padding: 15px;
+    width: 200px;
 }
 
-.admin-nav .active {
+.admin-nav .active,
+.admin-nav a:hover {
     color: #3c3c3c;
     background-color: #d8fbff;
 }
@@ -422,8 +467,16 @@ header h1 {
     border: 2px solid #75d8ff;
     background-color: #d8fbff;
     border-radius: 5px;
-    margin-left: 15px;
     width: 350px;
+    font-size: 1rem;
+    color: #3c3c3c;
+}
+
+.admin-wrapper select {
+    padding: 10px;
+    border: 2px solid #75d8ff;
+    background-color: #d8fbff;
+    border-radius: 5px;
     font-size: 1rem;
     color: #3c3c3c;
 }
@@ -436,6 +489,10 @@ header h1 {
     height: 200px;
 }
 
+.admin-wrapper label {
+    margin-right: 15px;
+}
+
 .admin-wrapper label[for=galerie_presentation] {
     vertical-align: top;
 }
@@ -446,6 +503,8 @@ header h1 {
     margin: 5px;
     font-size: 1rem;
 }
+
+/* ~~~~~~~~~~~ VIGNETTES ADMIN ~~~~~~~~~~~ */
 
 #exposition_imagesExpo input,
 #artiste_oeuvres input,
@@ -481,6 +540,8 @@ header h1 {
     height: auto;
     padding: 5px 5px 3px 5px;
 }
+
+/* ~~~~~~~~~~~~ MEDIA QUERIES ~~~~~~~~~~~~ */
 
 @media screen and (max-width: 1200px) {
     
@@ -520,6 +581,23 @@ header h1 {
 
     .nav-close {
         margin-top: -335px;
+    }
+
+    @media screen and (max-width: 576px) {
+        header h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.15rem;
+        }
+
+        header > div img {
+            width: 35px;
+            height: 35px;
+            top: 12px;
+            right: 15px;
+            padding: 5px;
+            border-radius: 2px;
+        }
     }
     
 

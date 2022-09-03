@@ -3,12 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Commentaire;
-use App\Entity\Exposition;
 use App\Form\CommentaireUserType;
 use App\Repository\ArtisteRepository;
 use App\Repository\GalerieRepository;
 use App\Repository\BienvenueRepository;
-use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\EvenementsRepository;
 use App\Repository\ExpositionRepository;
@@ -39,8 +37,6 @@ class AccueilController extends AbstractController
      */
     public function allExpos(ExpositionRepository $expositionRepository): Response
     {
-        // $expos = $expositionRepository->findBy(['actif'=> true], ['dateDebut' => 'ASC']);
-        
         return $this->render('accueil/all-expos.html.twig', [
             // 'expos' => $expos
             'expos' => $expositionRepository->findAfterNow(true),
@@ -88,7 +84,7 @@ class AccueilController extends AbstractController
     /**
      * @Route("/exposition/{id}", name="app_expo")
      */
-    public function seeExpo(ExpositionRepository $expositionRepository,string $id,Exposition $exposition, Request $request, EntityManagerInterface $entityManagerInterface): Response 
+    public function seeExpo(ExpositionRepository $expositionRepository,string $id, Request $request, EntityManagerInterface $entityManagerInterface): Response 
     {
         $expo = $expositionRepository->findOneBy(["id" => $id]);
 

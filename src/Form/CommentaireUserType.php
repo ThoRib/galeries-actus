@@ -13,7 +13,7 @@ class CommentaireUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('texte', TextareaType::class, ["label"=>"Votre commentaire","required"=>true])
+            ->add('texte', TextareaType::class, ["label"=>"Votre commentaire : ","required"=>true])
             ->remove('createdAt')
             ->remove('exposition')
             ->remove('user')
