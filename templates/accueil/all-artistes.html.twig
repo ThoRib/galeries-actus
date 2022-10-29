@@ -6,10 +6,10 @@
         {% for artiste in artistes %}
         <div class="col-lg-4 col-md-6">
             <div class="fiche-artiste">
-                {% if artiste.oeuvres[0].imageName %}
+                {% if artiste.oeuvres is not empty %}
                     <img src="{{ asset('images/oeuvres/'~artiste.oeuvres[0].imageName) }}" class="img-fluid"/> 
                 {% endif %}
-                <h2>{{ artiste.nom }}</h2>
+                <h2>{{ artiste.prenom|capitalize }} {{ artiste.nom|upper }}</h2>
                 {{ artiste.presentation | u.truncate(105, '...') | raw }}
                 <div><a href="{{ path('app_artiste',{'id':artiste.id}) }}" class="lien">Voir la présentation</a></div>
             </div>

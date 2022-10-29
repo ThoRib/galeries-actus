@@ -14,10 +14,10 @@ class OeuvreFixtures extends Fixture implements DependentFixtureInterface
 // ===================== PROPRIETES ===================== //
 // ====================================================== //
 
-public const KUIN1 = "3d09cdca98fac0ad8569a92d280ae85d.jpg";
-public const KUIN2 = "ed39ece943f7838fb5c0c0b2ea096e24.jpg";
-public const NOVELLI1 = "bruno-9li-brazil-inkult-1.webp";
-public const NOVELLI2 = "img-novelli232644977590.webp";
+public const X1 = "green-square-1.jpg";
+public const X2 = "design.svg";
+public const Y1 = "roses-1.jpg";
+public const Y2 = "vagues-6.jpg";
 
 // ====================================================== //
 // ====================== METHODES ====================== //
@@ -26,36 +26,36 @@ public const NOVELLI2 = "img-novelli232644977590.webp";
     public function load(ObjectManager $manager): void
     {
         $oeuvre = new Oeuvre();
-        $oeuvre->setTitre("Les Indiens");
-        $oeuvre->setImageName("3d09cdca98fac0ad8569a92d280ae85d.jpg");
+        $oeuvre->setTitre("Carrés verts n°1");
+        $oeuvre->setImageName("green-square-1.jpg");
         $oeuvre->setActif(true);
         $oeuvre->addMedia($this->getReference(MediaFixtures::PEINTURE));
-        $this->addReference(self::KUIN1, $oeuvre);
         $manager->persist($oeuvre);
+        $this->addReference(self::X1, $oeuvre);
+        
+        $oeuvre = new Oeuvre();
+        $oeuvre->setTitre("Design");
+        $oeuvre->setImageName("design.svg");
+        $oeuvre->setActif(true);
+        $oeuvre->addMedia($this->getReference(MediaFixtures::PEINTURE));
+        $manager->persist($oeuvre);
+        $this->addReference(self::X2, $oeuvre);
 
         $oeuvre = new Oeuvre();
-        $oeuvre->setTitre("Les serpents et l'oiseaux");
-        $oeuvre->setImageName("ed39ece943f7838fb5c0c0b2ea096e24.jpg");
+        $oeuvre->setTitre("Monochrome rose n°1");
+        $oeuvre->setImageName("roses-1.jpg");
         $oeuvre->setActif(true);
         $oeuvre->addMedia($this->getReference(MediaFixtures::PEINTURE));
-        $this->addReference(self::KUIN2, $oeuvre);
         $manager->persist($oeuvre);
+        $this->addReference(self::Y1, $oeuvre);
 
         $oeuvre = new Oeuvre();
-        $oeuvre->setTitre("Le salut");
-        $oeuvre->setImageName("bruno-9li-brazil-inkult-1.webp");
+        $oeuvre->setTitre("Suite d'ondes n°4");
+        $oeuvre->setImageName("ondes-4.jpg");
         $oeuvre->setActif(true);
         $oeuvre->addMedia($this->getReference(MediaFixtures::PEINTURE));
-        $this->addReference(self::NOVELLI1, $oeuvre);
         $manager->persist($oeuvre);
-
-        $oeuvre = new Oeuvre();
-        $oeuvre->setTitre("Paysage psychédélique");
-        $oeuvre->setImageName("img-novelli232644977590.webp");
-        $oeuvre->setActif(true);
-        $oeuvre->addMedia($this->getReference(MediaFixtures::PEINTURE));
-        $this->addReference(self::NOVELLI2, $oeuvre);
-        $manager->persist($oeuvre);
+        $this->addReference(self::Y2, $oeuvre);
 
         $manager->flush();
     }

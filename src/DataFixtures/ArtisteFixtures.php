@@ -12,23 +12,23 @@ class ArtisteFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $artiste = new Artiste();
-        $artiste->setNom("Kuin");
-        $artiste->setPrenom("Huni");
-        $artiste->setPresentation("Bane est le fils de Ibã Sales, gardien des savoirs et des chants (huni meka) traditionnels du peuple Huni Kuin transmis par son propre père. Sous la conduite d’Ibã, Bane a été le premier, en 2009, à transcrire les chants du rituel de la liane psychotrope Nixi Pae (Banisteriopsis caapi) sous forme de dessins, composant ainsi de véritables partitions chamaniques. Ces chants évoquent Yube, l’anaconda cosmique et chaman primordial, maître du Nixi Pae, et diverses entités « humanimales » de la forêt.");
+        $artiste->setNom("xxxxx");
+        $artiste->setPrenom("xxxx");
+        $artiste->setPresentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Integer eget aliquet nibh praesent tristique magna sit amet. Id diam vel quam elementum pulvinar etiam non quam lacus. Scelerisque in dictum non consectetur a erat. Aenean sed adipiscing diam donec.");
         $artiste->setActif(true);
         $artiste->getGaleries($this->getReference(GalerieFixtures::ESPACE_1));
-        $artiste->addOeuvre($this->getReference(OeuvreFixtures::KUIN1));
-        $artiste->addOeuvre($this->getReference(OeuvreFixtures::KUIN2));
+        $artiste->addOeuvre($this->getReference(OeuvreFixtures::X1));
+        $artiste->addOeuvre($this->getReference(OeuvreFixtures::X2));
         $manager->persist($artiste);
 
         $artiste = new Artiste();
-        $artiste->setNom("Novelli");
-        $artiste->setPrenom("Bruno");
-        $artiste->setPresentation("Bruno Novelli est un peintre brésilien, formé au design graphique et très inspiré par l’exubérance de l’univers amazonien. Ses œuvres mettent en scène des animaux fantastiques et des panoramas tropicaux oniriques soigneusement élaborés à l’aide de motifs géométriques colorés. L’artiste s’inspire de la forêt imaginaire qu’il transforme en une luxuriante intrication organique entre paysages, animaux et végétaux. Ce thème lui donne l’occasion de faire cohabiter styles et références symboliques très diverses allant des chimères peuplant les fresques médiévales aux formes de représentation du paysage héritées de l’Asie. Bruno Novelli crée ainsi une véritable ode aux tonalités végétales.");
+        $artiste->setNom("yyyyy");
+        $artiste->setPrenom("yyyy");
+        $artiste->setPresentation("Ac turpis egestas maecenas pharetra convallis posuere morbi leo. Quisque id diam vel quam elementum. Tristique sollicitudin nibh sit amet commodo nulla facilisi. Tellus mauris a diam maecenas sed enim ut sem viverra. Interdum posuere lorem ipsum dolor. Sed adipiscing diam donec adipiscing tristique risus.");
         $artiste->setActif(true);
         $artiste->getGaleries($this->getReference(GalerieFixtures::ESPACE_2));
-        $artiste->addOeuvre($this->getReference(OeuvreFixtures::NOVELLI1));
-        $artiste->addOeuvre($this->getReference(OeuvreFixtures::NOVELLI2));
+        $artiste->addOeuvre($this->getReference(OeuvreFixtures::Y1));
+        $artiste->addOeuvre($this->getReference(OeuvreFixtures::Y2));
         $manager->persist($artiste);
 
         $manager->flush();

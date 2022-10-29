@@ -49,6 +49,7 @@ a {
 .global-contain {
     padding: 135px 20px 35px;
     background-color: beige;
+    min-height: 100vh;
 }
 
 /* ~~~~~~~~~~~~~~~~ FRONT-HEADER ~~~~~~~~~~~~~~~~ */
@@ -113,6 +114,23 @@ header h1 {
 .front-nav .active,
 .front-nav a:hover {
     color: #fffff3;
+}
+
+/* ~~~~~~~~~~~~~~~~ FRONT-FOOTER ~~~~~~~~~~~~~~~~ */
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 30px 0;
+    background-color: #35bdd4;
+    color: #fffff3;
+}
+
+footer li {
+    margin: 0 15px;
+    font-weight: bold;
 }
 
 /* ~~~~~~~~~~~~ FRONT-ACCUEIL ~~~~~~~~~~~~ */
@@ -339,7 +357,7 @@ header h1 {
     background-color: #fffff3;
     border-radius: 5px;
     margin: 10px 5px;
-    padding: 5px;
+    padding: 15px;
 }
 
 .event h2 {

@@ -4,7 +4,7 @@
 
     <div class="row justify-content-center artiste">
         <div class="col-md-11 one-presentation">
-            <h1>{{ artiste.prenom }} {{ artiste.nom |upper }}</h1>
+            <h1>{{ artiste.prenom|capitalize }} {{ artiste.nom|upper }}</h1>
             {{ artiste.presentation | raw }}
             <div class="row">
                 {% for oeuvre in artiste.oeuvres %}

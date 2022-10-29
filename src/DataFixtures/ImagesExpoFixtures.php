@@ -13,13 +13,11 @@ class ImagesExpoFixtures extends Fixture
 // ===================== PROPRIETES ===================== //
 // ====================================================== //
 
-    public const IMG1 = "000_322Y6LM-1-1024x675.jpg";
-    public const IMG2 = "1582283547_cover.jpg";
-    public const IMG3 = "744991-saison-reclamer-la-terre-au-palais-de-tokyo-nos-photos.jpg";
-    public const IMG4 = "744951-saison-reclamer-la-terre-au-palais-de-tokyo-nos-photos.jpg";
-    public const IMG5 = "48284307882_e88ca6f22d_b.jpg";
-    public const IMG6 = "okfaire_corps03_0.jpg";
-    public const IMG7 = "XVMfb39eb0e-767d-11e5-b0b0-c31b3ebd6616.jpg";
+    public const SWV = "sound-wave-violet.jpg";
+    public const PAY4 = "paysage-4.svg";
+    public const RS5 = "roses-5.jpg";
+    public const IMM2 = "immeubles-miroir-2.svg";
+    public const OND6 = "ondes-6.jpg";
 
 // ====================================================== //
 // ====================== METHODES ====================== //
@@ -28,46 +26,34 @@ class ImagesExpoFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('Floraison numérique');
-        $imgExpo->setImageName('000_322Y6LM-1-1024x675.jpg');
+        $imgExpo->setTitre('Vague sonore violette');
+        $imgExpo->setImageName('sound-wave-violet.jpg');
         $manager->persist($imgExpo);
-        $this->addReference(self::IMG1,$imgExpo);
+        $this->addReference(self::SWV,$imgExpo);
 
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('Immersion rouge');
-        $imgExpo->setImageName('1582283547_cover.jpg');
+        $imgExpo->setTitre('Paysage n°4');
+        $imgExpo->setImageName('paysage-4.svg');
         $manager->persist($imgExpo);
-        $this->addReference(self::IMG2,$imgExpo);
+        $this->addReference(self::PAY4,$imgExpo);
 
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('Vue générale');
-        $imgExpo->setImageName('744991-saison-reclamer-la-terre-au-palais-de-tokyo-nos-photos.jpg');
+        $imgExpo->setTitre('Monochrome Rose n°5');
+        $imgExpo->setImageName('roses-5.jpg');
         $manager->persist($imgExpo);
-        $this->addReference(self::IMG3,$imgExpo);
+        $this->addReference(self::RS5,$imgExpo);
 
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('Installation');
-        $imgExpo->setImageName('744951-saison-reclamer-la-terre-au-palais-de-tokyo-nos-photos.jpg');
+        $imgExpo->setTitre('Immeubles n°2');
+        $imgExpo->setImageName('immeubles-2.svg');
         $manager->persist($imgExpo);
-        $this->addReference(self::IMG4,$imgExpo);
+        $this->addReference(self::IMM2,$imgExpo);
 
         $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('Arbre immaginaire');
-        $imgExpo->setImageName('48284307882_e88ca6f22d_b.jpg');
+        $imgExpo->setTitre("Suite d'ondes n°6");
+        $imgExpo->setImageName('ondes-6.jpg');
         $manager->persist($imgExpo);
-        $this->addReference(self::IMG5,$imgExpo);
-
-        $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('Lucioles numériques');
-        $imgExpo->setImageName('okfaire_corps03_0.jpg');
-        $manager->persist($imgExpo);
-        $this->addReference(self::IMG6,$imgExpo);
-
-        $imgExpo = new ImagesExpo();
-        $imgExpo->setTitre('Damier 3D');
-        $imgExpo->setImageName('XVMfb39eb0e-767d-11e5-b0b0-c31b3ebd6616.jpg');
-        $manager->persist($imgExpo);
-        $this->addReference(self::IMG7,$imgExpo);
+        $this->addReference(self::OND6,$imgExpo);
 
         $manager->flush();
     }
