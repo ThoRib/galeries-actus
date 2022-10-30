@@ -78,16 +78,20 @@
         </div>
     </div>
 
-    {% if is_granted('ROLE_USER') %}
     <div class="row justify-content-center">
+    {% if is_granted('ROLE_USER') %}
         <div class="col-xl-9 col-lg-10 col-md-11 one-presentation form-com">
             {{ form_start(form)}}
             {{ form_widget(form) }}
             <button type="submit">Commenter</button>
             {{ form_end(form) }}
-        <div>
-    </div>
+        </div>
+    {% else %}
+        <div class="col-xl-9 col-lg-10 col-md-11 one-presentation">
+            <p class="no-com">Vous devez être connecté pour pouvoir laisser un commentaire.<br />Si vous n'avez pas de compte, vous pouvez vous inscrire.</p>
+        </div>   
     {% endif %}
+    </div>
 
 {% endblock %}
 

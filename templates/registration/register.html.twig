@@ -3,14 +3,21 @@
 {% block title %}Enregistrement{% endblock %}
 
 {% block body %}
-<div class="admin-wrapper">
+<div class="user-form">
     <h1>Enregistrement</h1>
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+        {{ form_row(registrationForm.username, {
+            label: 'Pseudo'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe'
+        }) }}
+        <div class="infos-register">
+            <p>Pour permettre l'utilisation de votre espace personnelle, vos identifiants sont enregistrés. Le mot de passe est cryptés, vous seul pouvez le connaître. Vous pouvez à tous moment supprimer cet enregistrement de manière définitive en utilisant le bouton supprimer disposé à cet effet dans votre espace personnel.</p>
+        </div>
+        {{ form_row(registrationForm.agreeTerms, {
+            label: 'J\'ai bien compris et j\'accepte'
+        }) }}
 
         <button type="submit" class="btn">Valider</button>
     {{ form_end(registrationForm) }}
