@@ -3,7 +3,6 @@
 {% block body %}
 
 <h1 class="perso">Hello {{ user.username }}, retrouve ici tes expos préférées : </h1>
-
 <div class="all-expos row">
         {% for expo in user.favoris %}
         <div class="col-lg-4 col-md-6">
@@ -27,5 +26,9 @@
         {% endfor %}
 </div>
 
+<form method="post" action="{{ path('delete_me') }}" onsubmit="return confirm('Etes vous certain de vouloir supprimer votre compte ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+    <button class="supprimer">Supprimer mon compte</button>
+</form>
 
 {% endblock %}

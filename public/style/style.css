@@ -47,9 +47,36 @@ a {
 }
 
 .global-contain {
-    padding: 135px 20px 35px;
+    padding: 120px 20px 35px;
     background-color: beige;
     min-height: 100vh;
+}
+
+.flash {
+    position: fixed;
+    z-index: 20;
+    top: 20px;
+    left: 20px;
+    background-color: rgb(28, 41, 70);
+    font-weight: bold;
+    color:#fffff3;
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #fffff3;
+    border-radius: 2px;
+    box-shadow: 5px 5px 2px rgba(42, 45, 85, 0.664);
+}
+
+#avertissement {
+    background-color: rgb(28, 41, 70);
+    font-weight: bold;
+    font-size: 1.2rem;
+    color:#fffff3;
+    text-align: center;
+    display: inline-block;
+    padding: 15px;
+    margin: 0 0 20px 0;
+    width: 100%;
 }
 
 /* ~~~~~~~~~~~~~~~~ FRONT-HEADER ~~~~~~~~~~~~~~~~ */
@@ -446,6 +473,14 @@ footer li {
     justify-content: space-between;
 }
 
+.supprimer {
+    background-color: transparent;
+    text-decoration: underline;
+    border: none;
+    color:rgb(74, 71, 181);
+}
+
+
 /* ~~~~~~~~~~~~~~~~ ADMIN ~~~~~~~~~~~~~~~~ */
 .admin-nav {
     height: 100vh;
@@ -661,7 +696,17 @@ footer li {
         margin-top: -335px;
     }
 
+    #avertissement {
+        font-size: 1rem;
+        padding: 15px;
+        margin: 0 0 20px 0;
+    }
+
     @media screen and (max-width: 576px) {
+
+        .global-contain {
+            padding: 80px 20px 35px;
+        }
 
         header h1 {
             font-family: 'Anton', sans-serif;

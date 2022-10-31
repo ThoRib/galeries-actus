@@ -35,6 +35,11 @@
             </nav>
         </header>
         <div class="container-xxl global-contain">
+            {% for message in app.flashes('message') %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %}
+            {# <div class="flash">Ici apparaît le message flash</div> #}
+            <p id="avertissement">Ce site est destiné à un usage démonstratif uniquement. En l'état, il ne convient pas à une utilisation professionnelle.</p>
             {% block body %}{% endblock %}
         </div>
         <footer>

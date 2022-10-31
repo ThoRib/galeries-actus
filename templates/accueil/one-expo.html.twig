@@ -71,7 +71,12 @@
         <div class="col-xl-9 col-lg-10 col-md-11 one-presentation">
             {% for commentaire in expo.commentaires %}
                 <div class="commentaire">
-                <p>Le {{ commentaire.createdAt | date("d/m/Y") }} <span>{{ commentaire.user }}</span> à laissé un commentaire : </p>
+                <p>Le {{ commentaire.createdAt | date("d/m/Y") }} 
+                {% if commentaire.user != null %}
+                    <span>{{ commentaire.user }}</span> a laissé un commentaire : </p>
+                {% else %}
+                    un commentaire a été laissé par un utilisateur inconnu :
+                {% endif %}               
                 <p>{{ commentaire }}</p>
                 </div>
             {% endfor %}
