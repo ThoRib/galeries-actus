@@ -9,6 +9,12 @@ body {
     margin: 0;
 }
 
+.page-title {
+    font-weight: bold;
+    font-size: 2rem;
+    color:rgb(74, 71, 181);
+}
+
 ul {
     padding : 0;
     margin: 0;
@@ -47,7 +53,7 @@ a {
 }
 
 .global-contain {
-    padding: 120px 20px 35px;
+    padding: 118px 20px 35px;
     background-color: beige;
     min-height: 100vh;
 }
@@ -68,7 +74,10 @@ a {
 }
 
 #avertissement {
-    background-color: rgb(28, 41, 70);
+    /* position: fixed;
+    top: 103px;
+    left: 0; */
+    background-color: rgb(74, 71, 181); 
     font-weight: bold;
     font-size: 1.2rem;
     color:#fffff3;
@@ -152,20 +161,27 @@ footer ul {
     width: 100%;
     padding: 30px 0;
     background-color: #35bdd4;
+}
+
+footer li a {
+    margin: 0 15px;
     color: #fffff3;
 }
 
-footer li {
-    margin: 0 15px;
-    font-weight: bold;
+footer li a:hover {
+    color: #fffff3;
 }
 
 /* ~~~~~~~~~~~~ FRONT-ACCUEIL ~~~~~~~~~~~~ */
 .espace {
-    margin: 30px 0;
+    margin: 0 0 30px 0;
     padding: 15px;
     background-color: #fffff3;
     border-radius: 3px;
+}
+
+.espace:first-of-type {
+    margin-top: 15px;
 }
 
 .espace-txt {
@@ -377,12 +393,6 @@ footer li {
 
 /* ~~~~~~~~~~ FRONT-ALL-EVENTS ~~~~~~~~~ */
 
-.event-title {
-    font-weight: bold;
-    font-size: 2rem;
-    color:rgb(74, 71, 181);
-}
-
 .event {
     border: 3px solid rgb(74, 71, 181);
     background-color: #fffff3;
@@ -480,8 +490,36 @@ footer li {
     color:rgb(74, 71, 181);
 }
 
+/* ~~~~~~~~~~~ MENTIONS LEGALES ~~~~~~~~~~ */
 
-/* ~~~~~~~~~~~~~~~~ ADMIN ~~~~~~~~~~~~~~~~ */
+#mentions {
+	margin-top: 15vh;
+    text-align: center;
+    color: rgb(74, 71, 181);
+}
+
+#mentions h2 {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+}
+	
+#mentions ul {
+		margin: 20px 0;
+	}
+
+#mentions li {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+
+#mentions a {
+		color:rgb(74, 71, 181);
+	}
+
+/* ====================================================== */
+/* ======================== ADMIN ======================= */
+/* ====================================================== */
+
 .admin-nav {
     height: 100vh;
     display: inline-block;
@@ -529,7 +567,7 @@ footer li {
     border-radius: 2px;
 }
 
-/*=== ADMIN TABLEAUX ===*/
+/* ~~~~~~~~~~~~ ADMIN TABLEAUX ~~~~~~~~~~~ */
 
 .admin-wrapper td,
 .admin-wrapper th {
@@ -545,7 +583,7 @@ footer li {
     padding: 10px;
 }
 
-/*=== ADMIN FORMULAIRES ===*/
+/* ~~~~~~~~~~ ADMIN FORMULAIRES ~~~~~~~~~~ */
 
 .admin-index img {
     max-width: 200px;
@@ -617,7 +655,7 @@ footer li {
     font-size: 1rem;
 }
 
-/* ~~~~~~~~~~~ VIGNETTES ADMIN ~~~~~~~~~~~ */
+/* ~~~~~~~~~~~ ADMIN VIGNETTES ~~~~~~~~~~~ */
 
 #exposition_imagesExpo input,
 #artiste_oeuvres input,
@@ -654,7 +692,9 @@ footer li {
     padding: 5px 5px 3px 5px;
 }
 
-/* ~~~~~~~~~~~~ MEDIA QUERIES ~~~~~~~~~~~~ */
+/* ====================================================== */
+/* ==================== MEDIA QUERIES =================== */
+/* ====================================================== */
 
 @media screen and (max-width: 1200px) {
     
@@ -723,6 +763,10 @@ footer li {
             border-radius: 2px;
         }
 
+        /* #avertissement {
+            top: 61px;
+        } */
+
         .user-form > form {
             align-items: center;
         }
@@ -738,5 +782,4 @@ footer li {
         }
     }
     
-
 }

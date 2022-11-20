@@ -121,4 +121,14 @@ class AccueilController extends AbstractController
             'active' => 'artistes'
         ]);
     }
+
+    /**
+     * @Route("/mentions-legales", name="mentions")
+     */
+    public function mentions(): Response
+    {
+        return $this->render('accueil/mentions.html.twig', [
+            'active' => 'mentions',
+        ]);
+    } 
 }
